@@ -10,5 +10,5 @@
  <style>
     img[src$="#img"] {
         border-radius: 5px;
-}
- </style>
+        }
+        </style>
