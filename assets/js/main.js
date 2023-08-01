@@ -12,10 +12,15 @@ function stage2Variables(){
     window.sSwitch = g('settingsSwitch');
     window.s_sBar = g('settingsSidebar');
 }
-function stage2(){
-    document.body.innerHTML = ``;
-    stage2Variables();
-    break;
+function stage2(){ 
+    try {
+        document.body.innerHTML = ``;
+        stage2Variables();
+        return true;  
+    } catch (e) {
+        return false;
+        console.log(e);
+    }
 }
 //variables
 //global
