@@ -37,5 +37,6 @@ let body_S1 = g('body-stage1');
 document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
         window.stage2 = stage2();
+        console.log(window.stage2)
     }
 })
