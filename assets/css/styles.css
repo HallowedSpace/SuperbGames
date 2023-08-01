@@ -1,0 +1,31 @@
+:root{
+ --dark-theme: #1a1a1a;
+ --light-theme: #e3dfdf;
+ --merged-theme: rgb(82, 73, 73);
+ --pitch-black-theme: black;
+ --whitest-theme: white;
+ --default-theme: white;
+ --default-font-color: black;
+}
+*{
+    margin: 0;
+}
+body{
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100%;
+}
+#topbar{
+    top: 0;
+    display: flex;
+    position: fixed;
+    border-bottom: #1a1a1a solid 1px;
+    width: 100%;
+    height: 70px;
+    background: var(--default-theme);
+    color: var(--default-font-color);
+}
+#article{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--default-font-color);
+}
