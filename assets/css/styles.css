@@ -24,12 +24,12 @@ body{
     height: 70px;
     background: var(--default-theme);
     color: var(--default-font-color);
+    z-index: 999;
 }
 #body{
     top: 5.5em;
     position: absolute;
     width: 100%;
-    height: 100%;
 }
 #article{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
