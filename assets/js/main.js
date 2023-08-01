@@ -34,7 +34,7 @@ let body_S1 = g('body-stage1');
 
 
 //buttons
-if(sSwitch){
+if(sStage2){
 sSwitch.onclick = function () {
     if (settingsOpen === 0) {
       sSwitch.style.transform = "rotate(360deg)";
@@ -50,6 +50,6 @@ sSwitch.onclick = function () {
 //event listener
 document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
-        stage2();
+        window.stage2 = stage2();
     }
 })
