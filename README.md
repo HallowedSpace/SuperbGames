@@ -7,8 +7,3 @@
 - site cloaking, or disguising the favicon and title of a page to another, or just simple about:blank cloaking.
 #
 ![s](https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/img/SuperbGames.png#img)
- <style>
-    img[src$="#img"] {
-        border-radius: 5px;
-        }
-        </style>
