@@ -15,7 +15,10 @@ function stage2Variables(){
 function stage2(){ 
     try {
         document.body.innerHTML = ``;
-        stage2Variables();
+        setTimeout(() => {
+          stage2Variables();  
+        }, 1000);
+        
         return true;  
     } catch (e) {
         return false;
@@ -30,8 +33,6 @@ let settingsOpen = 0;
 let article_S1 = g('article-stage1');
 let topbar_S1 = g('topbar-stage1');
 let body_S1 = g('body-stage1');
-//stage 2
-
 
 //event listener
 document.addEventListener("keydown", (event) => {
