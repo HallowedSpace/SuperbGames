@@ -34,7 +34,7 @@ let body_S1 = g('body-stage1');
 
 
 //buttons
-if(sStage2){
+if(stage2){
 sSwitch.onclick = function () {
     if (settingsOpen === 0) {
       sSwitch.style.transform = "rotate(360deg)";
