@@ -33,20 +33,6 @@ let body_S1 = g('body-stage1');
 //stage 2
 
 
-//buttons
-if(stage2){
-sSwitch.onclick = function () {
-    if (settingsOpen === 0) {
-      sSwitch.style.transform = "rotate(360deg)";
-      sSwitch.style.marginLeft = "190px";
-      settingsOpen++;
-    } else {
-      sSwitch.style.transform = "rotate(0deg)";
-      sSwitch.style.marginLeft = "0";
-      settingsOpen = 0;
-    };
-  };
-};
 //event listener
 document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
