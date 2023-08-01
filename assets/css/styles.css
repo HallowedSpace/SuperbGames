@@ -25,6 +25,9 @@ body{
     background: var(--default-theme);
     color: var(--default-font-color);
 }
+#body{
+    top: 5.5em;
+}
 #article{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: var(--default-font-color);
