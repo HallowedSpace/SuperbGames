@@ -12,20 +12,6 @@ function stage2Variables(){
     window.sSwitch = g('settingsSwitch');
     window.s_sBar = g('settingsSidebar');
 }
-function stage2(){ 
-    try {
-        document.body.innerHTML = ``;
-        setTimeout(() => {
-          stage2Variables();  
-        }, 2000);
-        
-        return true;  
-    } catch (e) {
-        return false;
-        console.log(e);
-    }
-}
-//variables
 //stage2check
 window.stage2 = undefined;
 //global
@@ -79,6 +65,20 @@ if (article_S1.innerHTML.includes("Red Dye")) {
         };
     };
 }}, 1);
+function stage2(){ 
+    try {
+        document.body.innerHTML = ``;
+        setTimeout(() => {
+          stage2Variables();  
+        }, 2000);
+        
+        return true;  
+    } catch (e) {
+        return false;
+        console.log(e);
+    }
+}
+//variables
 //event listener
 document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
