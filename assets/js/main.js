@@ -35,10 +35,10 @@ let settingsOpen = 0;
 let article_S1 = g('article-stage1');
 let topbar_S1 = g('topbar-stage1');
 let body_S1 = g('body-stage1');
-if(randArticle > 3){
+if(randArticle < 3){
     article_S1.innerHTML = articles[randArticle];
 }else{
-    article_S1.innerHTML = articles[2];
+    article_S1.innerHTML = articles[1];
 };
 //event listener
 document.addEventListener("keydown", (event) => {
