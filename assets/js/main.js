@@ -65,7 +65,7 @@ if (article_S1.innerHTML.includes("Red Dye")) {
         };
     };
 }}, 1);
-function stage2(){ 
+function stage2a(){ 
     try {
         document.body.innerHTML = ``;
         setTimeout(() => {
@@ -81,7 +81,7 @@ function stage2(){
 //event listener
 document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
-        window.stage2 = stage2()
+        window.stage2 = stage2a();
         console.log(window.stage2);
     }
 })
