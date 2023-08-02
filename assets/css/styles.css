@@ -70,3 +70,15 @@ body{
     z-index: 9999999;
     transition: .5s;
 }
+#addArticles-stage1{
+    bottom: 0;
+    background-color: var(--dark-theme);
+    height: 7em;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    color: var(--default-font-color)
+}
+.articleItem{
+    color: var(--default-font-color);
+}
