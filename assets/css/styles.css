@@ -86,7 +86,10 @@ body{
 .articleItem{
     color: var(--dark-theme-font-color);
     transition: 0.5s;
+    width: 33%;
+    text-align: center;
     height: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .articleItem:hover{
     cursor: pointer;
