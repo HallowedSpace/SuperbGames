@@ -35,8 +35,11 @@ let settingsOpen = 0;
 let article_S1 = g('article-stage1');
 let topbar_S1 = g('topbar-stage1');
 let body_S1 = g('body-stage1');
-
-article_S1.innerHTML = articles[randArticle];
+if(randArticle > 3){
+    article_S1.innerHTML = articles[randArticle];
+}else{
+    article_S1.innerHTML = articles[2];
+};
 //event listener
 document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
