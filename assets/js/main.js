@@ -58,12 +58,18 @@ if (window.location.href.includes("#wildlifediversity")) {
 
 if (article_S1.innerHTML.includes("Red Dye")) {
     art1.style.visibility = "hidden";
+    art2.style.visibility = "visible";
+    art3.style.visibility = "visible";
 } else {
     if (article_S1.innerHTML.includes("wildlife")) {
         art2.style.visibility = "hidden";
+        art1.style.visibility = "visible";
+        art3.style.visibility = "visible";
     } else {
         if (article_S1.innerHTML.includes("cyberbullying")) {
             art3.style.visibility = "hidden";
+            art2.style.visibility = "visible";
+            art1.style.visibility = "visible";
         } else {
             
         };
