@@ -5,7 +5,8 @@
  --pitch-black-theme: black;
  --whitest-theme: white;
  --default-theme: white;
- --default-font-color: black;
+ --default-font-color: rgb(0, 0, 0);
+ --dark-theme-font-color: rgb(255, 255, 255);
 }
 *{
     margin: 0;
@@ -73,12 +74,22 @@ body{
 #addArticles-stage1{
     bottom: 0;
     background-color: var(--dark-theme);
-    height: 7em;
+    height: 5em;
     position: absolute;
     display: flex;
     width: 100%;
-    color: var(--default-font-color)
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    color:var(--dark-theme-font-color);
 }
 .articleItem{
+    color: var(--dark-theme-font-color);
+    transition: 0.5s;
+    height: 100%;
+}
+.articleItem:hover{
+    cursor: pointer;
+    background-color: white;
     color: var(--default-font-color);
 }
