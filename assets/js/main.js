@@ -78,7 +78,6 @@ function stage2(){
         console.log(e);
     }
 }
-//variables
 //event listener
 document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
