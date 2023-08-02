@@ -44,6 +44,8 @@ if(randArticle < 3){
 }else{
     article_S1.innerHTML = articles[2];
 };
+var articleChecker = setInterval(() => {
+
 if(window.location.href.includes("#technology")){
      article_S1.innerHTML = articles[2];
 }; 
@@ -53,19 +55,20 @@ if (window.location.href.includes("#red-dye40")) {
 if (window.location.href.includes("#wildlifediversity")) {
     article_S1.innerHTML = articles[1];
 }
-if (randArticle = 0) {
+
+if (article_S1.innerHTML.includes("Red Dye")) {
     art1.style.visibility = "hidden";
 } else {
-    if (randArticle = 1) {
+    if (article_S1.innerHTML.includes("wildlife")) {
         art2.style.visibility = "hidden";
     } else {
-        if (randArticle = 2) {
+        if (article_S1.innerHTML.includes("cyberbullying")) {
             art3.style.visibility = "hidden";
         } else {
             
         };
     };
-};
+}}, 1);
 //event listener
 document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){

@@ -93,6 +93,7 @@ body{
     display: flex;
     justify-content: center;
     font-family: 'Trebuchet MS';
+    text-decoration: none;
 }
 .articleItem:hover{
     cursor: pointer;
