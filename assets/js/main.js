@@ -82,7 +82,7 @@ if (article_S1.innerHTML.includes("Red Dye")) {
 //event listener
 document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
-        window.stage2 = stage2();
+        window.stage2 = stage2()
         console.log(window.stage2);
     }
 })
