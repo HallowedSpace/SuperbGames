@@ -89,7 +89,10 @@ body{
     width: 33%;
     text-align: center;
     height: 100%;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Trebuchet MS';
 }
 .articleItem:hover{
     cursor: pointer;
