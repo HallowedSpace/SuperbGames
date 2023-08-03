@@ -100,3 +100,13 @@ body{
     background-color: white;
     color: var(--default-font-color);
 }
+#sidebar_S2{
+    width: 5em;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    background-color: var(--default-theme);
+}
+#banner{
+    background-image: url(/assets/img/SuperbGames.png);
+}
