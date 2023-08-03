@@ -110,3 +110,13 @@ body{
 #banner{
     background-image: url(/assets/img/SuperbGames.png);
 }
+#articleHeader{
+    font-size: 50px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    left: 40%;
+    font-family: trebuchet MS;
+} 
