@@ -8,7 +8,7 @@ function g(e){
     }
 }
 var sSw = g('settingsSwitch');
-var sSb = g('settingsSidebar');
+var sSb = g('settingSidebar');
 let settingsOpen = 0;
 sSw.onclick = function () {
     if (settingsOpen === 0) {
