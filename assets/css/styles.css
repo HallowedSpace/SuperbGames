@@ -105,7 +105,11 @@ body{
     height: 100vh;
     position: fixed;
     display: flex;
-    background-color: var(--default-theme);
+    background-color: var(--dark-theme);
+    transition: 0.5s;
+}
+#sidebar_S2:hover{
+    width: 250px;
 }
 #banner{
     background-image: url(/assets/img/SuperbGames.png);
