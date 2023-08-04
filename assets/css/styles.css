@@ -40,7 +40,7 @@ body{
     
 }
 #settingsSidebar{
-    transition: 0.5s;
+    transition: 1s;
     background-color: black;
     height: 100vh;
     width: 0;
@@ -69,7 +69,7 @@ body{
     left: 5px;
     cursor: pointer;
     z-index: 9999999;
-    transition: .5s;
+    transition: 1s;
 }
 #addArticles-stage1{
     bottom: 0;
