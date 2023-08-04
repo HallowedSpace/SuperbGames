@@ -39,7 +39,7 @@ body{
     color: var(--default-font-color);
     
 }
-#settingsSidebar{
+#settingSidebar{
     transition: 1s;
     background-color: black;
     height: 100vh;
