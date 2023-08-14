@@ -264,5 +264,6 @@ div#gitSVG {
 div#discSVG {
     position: absolute;
     top: 20px;
-    left: calc(45px + 2em);
+    left: calc(45px + 1em);
+    cursor: pointer;
 }
