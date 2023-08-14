@@ -35,6 +35,31 @@ let settingsOpen = 0;
 let s1 = g('s1');
 let s2 = g('s2');
 let currentS = 1;
+let body = document.body;
+//theme
+let theme = parseInt(localStorage.getItem("theme"));
+if(theme === null){
+    theme = 1;
+}
+if(theme === 1){
+    body.style.background = "linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%)";
+}else{
+    if (theme === 2) {
+        body.style.background =  "linear-gradient(124deg, rgba(9,250,41,1) 0%, rgba(19,207,154,1) 33%, rgba(20,132,227,1) 93%)";
+    } else {
+        if (theme === 3) {
+            body.style.background = "radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)";
+        }else {
+            if (theme === 4) {
+                body.style.background = "linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)";
+            } else {
+                if (theme === 5) {
+                    body.style.background = "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)";
+                }
+            }
+        };
+    };
+};
 
 function swapStage(){ 
     if(currentS === 1){
