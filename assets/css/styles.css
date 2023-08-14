@@ -238,7 +238,7 @@ div#themeContainer {
     transition: 0.2s;
 }
 .selectedTheme {
-    border: 1px white solid;
+    border: 2px white solid;
 }
 div#theme1 {
     background: linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%);
