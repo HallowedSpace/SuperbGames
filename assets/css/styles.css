@@ -149,7 +149,9 @@ div#infoPopupWindow {
     justify-content: space-evenly;
     align-items: center;
     padding: 25px;
+    font-family: trebuchet MS;
     z-index: 1000;
+    color: white;
 }
 div#popupShadow {
     height: 100vh;
@@ -157,6 +159,9 @@ div#popupShadow {
     background: rgb(0 0 0 / 77%);
     position: fixed;
     z-index: 1000;
+}
+div#infoContainer{
+    transition: 0.5s;
 }
 div#exitInfo {
     position: absolute;
