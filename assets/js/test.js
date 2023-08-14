@@ -47,11 +47,11 @@ info.onclick = () => {
         sCon.style.opacity = 0;
         settingsOpen = 0;
     }
-    infoPopup.style.opacity = "1";
+    infoPopup.style.display = "flex";
     infoOpen = true;
 }
 
 exitInfo.onclick = () => {
-    infoPopup.style.opacity = "0";
+    infoPopup.style.display = "none";
     infoOpen = false;
 }
