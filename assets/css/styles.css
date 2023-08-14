@@ -255,3 +255,14 @@ div#theme4 {
 div#theme5 {
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
+div#gitSVG {
+    left: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+}
+div#discSVG {
+    position: absolute;
+    top: 20px;
+    left: calc(45px + 2em);
+}
