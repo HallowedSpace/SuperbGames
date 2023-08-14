@@ -11,9 +11,6 @@ function g(e){
 //global
 const welcomeMsg = ["Welcome!", "Hello there!", "Greetings!", "Salutations!", "Nice to see ya!", "Glad you could make it!", "Enjoy!", "Have a good time!", "Hope you have a good time!"];
 
-let randArticle = Math.round(Math.random() * articles.length);
-let settingsOpen = 0;
-
 //stage1
 let article_S1 = g('article-stage1');
 let topbar_S1 = g('topbar-stage1');
@@ -38,12 +35,6 @@ let settingsOpen = 0;
 let s1 = g('s1');
 let s2 = g('s2');
 let currentS = 1;
-
-if(randArticle < 3){
-    article_S1.innerHTML = articles[randArticle];
-}else{
-    article_S1.innerHTML = articles.length;
-};
 
 function swapStage(){ 
     if(currentS === 1){
