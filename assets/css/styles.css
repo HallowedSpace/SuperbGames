@@ -16,6 +16,10 @@ body{
     height: 100vh;
     width: 100%;
 }
+h1, h2, h3, h4, h5, h6, p, a, ul, li, div, img{
+    font-family: trebuchet ms;
+    color: white;
+}
 #topbar-stage1{
     top: 0;
     display: flex;
@@ -56,13 +60,16 @@ body{
     padding-top: 20px;
     align-items: center;
 }
-#settingsContainer{
+#settingsContainer {
     transition: 1s;
     height: 100%;
     width: 0;
     display: flex;
     position: relative;
     opacity: 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 #settingsSwitch {
     background: black;
@@ -120,6 +127,7 @@ body{
 } 
 #settingsHeader{
     font-family: trebuchet MS;
+    margin: 10px;
 }
 div#infoSVG {
     position: absolute;
@@ -204,4 +212,44 @@ div#gCon {
     height: 100%;
     width: 100%;
     border-radius: 10px;
+}
+div#themeContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.themeSelector {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.themeSelector:hover {
+    width: 40px;
+    height: 40px;
+}
+.themeSelector:active {
+    width: 29px;
+    height: 29px;
+    transition: 0.2s;
+}
+.selectedTheme {
+    border: 1px white solid;
+}
+div#theme1 {
+    background: linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%);
+}
+div#theme2 {
+    background: linear-gradient(124deg, rgba(9,250,41,1) 0%, rgba(19,207,154,1) 33%, rgba(20,132,227,1) 93%);
+}
+div#theme3 {
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+div#theme4 {
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+div#theme5 {
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
