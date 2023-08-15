@@ -269,7 +269,7 @@ div#discSVG {
     left: calc(45px + 1em);
     cursor: pointer;
 }
-div#backArrow {
+div.backArrow {
     cursor: pointer;
     height: 35px;
     width: 35px;
