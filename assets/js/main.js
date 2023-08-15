@@ -43,9 +43,10 @@ let theme2 = g('theme2');
 let theme3 = g('theme3');
 let theme4 = g('theme4');
 let theme5 = g('theme5');
-if(theme === null){
+if(theme === NaN){
     theme = 1;
     body.style.background = "linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%)";
+    
 }
 
 function swapStage(){ 
@@ -85,7 +86,7 @@ function swapStage(){
     };
 };
 theme1.onclick = () => {
-    if(localStorage.getItem("theme") === null){
+    if(localStorage.getItem("theme") === NaN){
     }else{
     document.querySelector(".selectedTheme").classList.remove("selectedTheme");
     };
@@ -95,7 +96,7 @@ theme1.onclick = () => {
     theme = 1;
 }
 theme2.onclick = () => {
-    if(localStorage.getItem("theme") === null){
+    if(localStorage.getItem("theme") === NaN){
     }else{
     document.querySelector(".selectedTheme").classList.remove("selectedTheme");
     };
@@ -105,7 +106,7 @@ theme2.onclick = () => {
     theme = 2;
 }
 theme3.onclick = () => {
-    if(localStorage.getItem("theme") === null){
+    if(localStorage.getItem("theme") === NaN){
 
     }else{
     document.querySelector(".selectedTheme").classList.remove("selectedTheme");
@@ -116,7 +117,7 @@ theme3.onclick = () => {
     theme = 3;
 }
 theme4.onclick = () => {
-    if(localStorage.getItem("theme") === null){
+    if(localStorage.getItem("theme") === NaN){
 
     }else{
     document.querySelector(".selectedTheme").classList.remove("selectedTheme");
@@ -127,7 +128,7 @@ theme4.onclick = () => {
     theme = 4;
 }
 theme5.onclick = () => {
-    if(localStorage.getItem("theme") === null){
+    if(localStorage.getItem("theme") === NaN){
 
     }else{
     document.querySelector(".selectedTheme").classList.remove("selectedTheme");
