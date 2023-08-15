@@ -45,6 +45,7 @@ let theme4 = g('theme4');
 let theme5 = g('theme5');
 if(theme === null){
     theme = 1;
+    body.style.background = "linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%)";
 }
 
 function swapStage(){ 
