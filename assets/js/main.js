@@ -36,6 +36,17 @@ let s1 = g('s1');
 let s2 = g('s2');
 let currentS = 1;
 let body = document.body;
+//time
+let dateElement = g("date");
+function updateTime() {
+    let dateAndTime = new Date();
+    let n = dateAndTime.toLocaleTimeString();
+    dateElement.innerHTML = "Today is " + dateAndTime.toDateString();
+    g("currentTime").innerHTML = n;
+}
+var timeUpdate = setInterval(() => {
+    updateTime();
+}, 500);
 //theme
 let theme = parseInt(localStorage.getItem("theme"));
 let theme1 = g('theme1');
