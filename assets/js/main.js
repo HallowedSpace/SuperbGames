@@ -45,7 +45,12 @@ let theme4 = g('theme4');
 let theme5 = g('theme5');
 if(localStorage.getItem("theme") === null){
     theme = 1;
-    body.style.background = "linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%)";
+    var interval = setInterval(() => {
+        if(currentS === 2){
+            body.style.background = "linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%)";
+            clearInterval(interval);
+        }
+    }, 1);
     theme1.classList.add("selectedTheme");
 }
 
