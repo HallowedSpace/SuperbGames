@@ -288,3 +288,13 @@ div#s2 {
     height: 100vh;
     width: 100%;
 }
+div#dateAndTime{
+    display: flex;
+    position: fixed;
+    right: 0;
+    background: black;
+    border-radius: 10px;
+    padding: 5px;
+    flex-direction: column;
+    align-items: center;
+}
