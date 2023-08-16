@@ -12,7 +12,7 @@
     margin: 0;
 }
 body{
-    overflow-x: hidden;
+    overflow: hidden;
     height: 100vh;
     width: 100%;
 }
@@ -282,7 +282,7 @@ div.backArrow {
     flex-wrap: wrap;
     left: 10px;
     top: 10px;
-    z-index: 999;
+    z-index: inherit;
 }
 div#s2 {
     height: 100vh;
@@ -298,4 +298,15 @@ div#dateTime {
     flex-direction: column;
     align-items: center;
     top: 1px;
+}
+.themedBackground {
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: inherit;
+}
+#apps > div{
+    z-index: 99999;
+    position: absolute;
 }

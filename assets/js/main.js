@@ -54,6 +54,7 @@ let theme2 = g('theme2');
 let theme3 = g('theme3');
 let theme4 = g('theme4');
 let theme5 = g('theme5');
+let themedBG = document.querySelectorAll(".themedBackground");
 if(localStorage.getItem("theme") === null){
     theme = 1;
     var interval = setInterval(() => {
@@ -72,22 +73,37 @@ function swapStage(){
         if(theme === 1){
             body.style.background = "linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%)";
             theme1.classList.add("selectedTheme");
+            themedBG.forEach((element) => {
+                element.style.background = "linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%)";
+            })
         }else{
             if (theme === 2) {
                 body.style.background =  "linear-gradient(124deg, rgba(9,250,41,1) 0%, rgba(19,207,154,1) 33%, rgba(20,132,227,1) 93%)";
                 theme2.classList.add("selectedTheme");
+                themedBG.forEach((element) => {
+                    element.style.background = "linear-gradient(124deg, rgba(9,250,41,1) 0%, rgba(19,207,154,1) 33%, rgba(20,132,227,1) 93%)";
+                })
             } else {
                 if (theme === 3) {
                     theme3.classList.add("selectedTheme");
                     body.style.background = "radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)";
+                    themedBG.forEach((element) => {
+                        element.style.background = "radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)";
+                    })
                 }else {
                     if (theme === 4) {
                         theme4.classList.add("selectedTheme");
                         body.style.background = "linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)";
+                        themedBG.forEach((element) => {
+                            element.style.background = "linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)";
+                        })
                     } else {
                         if (theme === 5) {
                             theme5.classList.add("selectedTheme");
                             body.style.background = "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)";
+                            themedBG.forEach((element) => {
+                                element.style.background = "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)";
+                            })
                         }
                     }
                 };
@@ -104,7 +120,9 @@ function swapStage(){
 //main page
 theme1.onclick = () => {
 document.querySelector(".selectedTheme").classList.remove("selectedTheme");
-
+    themedBG.forEach((element) => {
+        element.style.background = "linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%)";
+    })
     theme1.classList.add("selectedTheme");
     localStorage.setItem("theme", 1);
     body.style.background = "linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%)";
@@ -112,7 +130,9 @@ document.querySelector(".selectedTheme").classList.remove("selectedTheme");
 }
 theme2.onclick = () => {
 document.querySelector(".selectedTheme").classList.remove("selectedTheme");
-
+        themedBG.forEach((element) => {
+        element.style.background = "linear-gradient(124deg, rgba(9,250,41,1) 0%, rgba(19,207,154,1) 33%, rgba(20,132,227,1) 93%)";
+    })
     theme2.classList.add("selectedTheme");
     localStorage.setItem("theme", 2);
     body.style.background =  "linear-gradient(124deg, rgba(9,250,41,1) 0%, rgba(19,207,154,1) 33%, rgba(20,132,227,1) 93%)";
@@ -120,7 +140,9 @@ document.querySelector(".selectedTheme").classList.remove("selectedTheme");
 }
 theme3.onclick = () => {
 document.querySelector(".selectedTheme").classList.remove("selectedTheme");
-
+        themedBG.forEach((element) => {
+        element.style.background = "radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)";
+    })
     theme3.classList.add("selectedTheme");
     localStorage.setItem("theme", 3);
     body.style.background = "radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%)";
@@ -128,7 +150,9 @@ document.querySelector(".selectedTheme").classList.remove("selectedTheme");
 }
 theme4.onclick = () => {
 document.querySelector(".selectedTheme").classList.remove("selectedTheme");
-
+        themedBG.forEach((element) => {
+        element.style.background = "linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)";
+    })
     theme4.classList.add("selectedTheme");
     localStorage.setItem("theme", 4);
     body.style.background = "linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)";
@@ -136,7 +160,9 @@ document.querySelector(".selectedTheme").classList.remove("selectedTheme");
 }
 theme5.onclick = () => {
 document.querySelector(".selectedTheme").classList.remove("selectedTheme");
-
+themedBG.forEach((element) => {
+    element.style.background = "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)";
+    })
     theme5.classList.add("selectedTheme");
     localStorage.setItem("theme", 5);
     body.style.background = "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)";
