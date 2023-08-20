@@ -117,7 +117,7 @@ function swapStage(){
     };
 };
 
-//main page
+//theme buttons (settings)
 theme1.onclick = () => {
 document.querySelector(".selectedTheme").classList.remove("selectedTheme");
     themedBG.forEach((element) => {
@@ -168,13 +168,6 @@ themedBG.forEach((element) => {
     body.style.background = "radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)";
     theme = 5;
 }
-
-//event listener
-document.addEventListener("keydown", (event) => {
-    if(event.keyCode === 81 && event.ctrlKey){
-        swapStage();
-    };
-});
 //settings button
 sSw.onclick = () => {
     if (settingsOpen === 0) {
@@ -182,6 +175,7 @@ sSw.onclick = () => {
       sSw.style.transform = "rotate(360deg)";
       sSw.style.marginLeft = "calc(100% - 60px)";
       sSb.style.width = "100%";
+      sCon.style.display = "flex";
       sCon.style.opacity = 1;
       settingsOpen++;
     } else {
@@ -190,6 +184,7 @@ sSw.onclick = () => {
         sSw.style.marginLeft = "0";
         sSb.style.width = "0";
         sCon.style.opacity = 0;
+        sCon.style.display = "none";
         settingsOpen = 0;
     };
   };
@@ -211,3 +206,39 @@ exitInfo.onclick = () => {
     infoPopup.style.display = "none";
     infoOpen = false;
 }
+//==APPS==
+
+//available app names for App functions
+// gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor)
+
+//App functions
+function openApp(appName) {
+    let app = g(appName);
+    try {
+        app.style.display = "flex";
+        setTimeout(() => {
+            app.style.opacity = 1;
+        }, 0);
+    } catch (err) {
+        console.error(err);
+    }
+};
+function closeApp(appName) {
+    let app = g(appName);
+    try {
+        app.style.display = "none";
+        setTimeout(() => {
+            app.style.opacity = 0;
+        }, 0);
+    } catch (err) {
+        console.error(err);
+    }
+}
+//app icons
+
+//event listener
+document.addEventListener("keydown", (event) => {
+    if(event.keyCode === 81 && event.ctrlKey){
+        swapStage();
+    };
+});
