@@ -184,7 +184,9 @@ sSw.onclick = () => {
         sSw.style.marginLeft = "0";
         sSb.style.width = "0";
         sCon.style.opacity = 0;
-        sCon.style.display = "none";
+        setTimeout(() => {
+            sCon.style.display = "none";
+        }, 500);
         settingsOpen = 0;
     };
   };
