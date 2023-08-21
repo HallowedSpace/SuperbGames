@@ -228,9 +228,9 @@ function openApp(appName) {
 function closeApp(appName) {
     let app = g(appName);
     try {
-        app.style.display = "none";
+        app.style.opacity = 0;
         setTimeout(() => {
-            app.style.opacity = 0;
+           app.style.display = "none";
         }, 0);
     } catch (err) {
         console.error(err);
