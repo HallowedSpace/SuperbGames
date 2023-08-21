@@ -231,7 +231,7 @@ function closeApp(appName) {
         app.style.opacity = 0;
         setTimeout(() => {
            app.style.display = "none";
-        }, 0);
+        }, 601);
     } catch (err) {
         console.error(err);
     }
