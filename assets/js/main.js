@@ -211,7 +211,7 @@ exitInfo.onclick = () => {
 //==APPS==
 
 //available app names for App functions
-// gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor)
+// gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments).
 
 //App functions
 function openApp(appName) {
@@ -238,6 +238,15 @@ function closeApp(appName) {
 }
 //app icons
 
+//code executor
+let JSIcon = g('JSexIcon');
+let JSback = g('codeExArrow');
+JSIcon.onclick = () => {
+    openApp("codeExApp");
+};
+JSback.onclick = () => {
+    closeApp("codeExApp");
+}
 //event listener
 document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
