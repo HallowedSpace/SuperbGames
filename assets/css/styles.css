@@ -198,6 +198,9 @@ div#gCon {
     transition: 0.5s;
     cursor: pointer;
     margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .gCube:hover {
     width: 180px;
