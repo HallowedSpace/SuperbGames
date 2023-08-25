@@ -314,3 +314,16 @@ div#dateTime {
     position: absolute;
     transition: 0.6s;     
 }
+div#appSelector {
+    justify-self: center;
+    background: black;
+    padding: 10px;
+    position: fixed;
+    top: 10px;
+    border-radius: 15px;
+    font-size: 20px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}

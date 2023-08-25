@@ -68,7 +68,7 @@ if(localStorage.getItem("theme") === null){
 function swapStage(){ 
     if(currentS === 1){
         s1.style.display = "none";
-        s2.style.display = "flex";
+        s2.style.display = "grid";
         currentS++;
         if(theme === 1){
             body.style.background = "linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%)";
@@ -264,6 +264,68 @@ filterIcon.onclick = () => {
     f6Rw6.document.body.appendChild(iframeh);
     f6Rw6.document.head.insertAdjacentHTML("afterbegin","<link rel=\"shortcut icon\" href=\"https://ssl.gstatic.com/classroom/favicon.png\" type=\"image/x-icon\"><title>Classes</title>")    
 }
+//gApp
+let gIcon = g('activitesIcon');
+
+//expApp
+let expIcon = g('experimentsIcon')
+
+//cApp
+let cIcon = g('cloakIcon');
+
+//text editor
+let textIcon = g('textEDIcon');
+
+//app is hovered checker and display
+const isHover = e => e.parentElement.querySelector(':hover') === e;  
+document.addEventListener('mousemove', function checkHover() {
+    //define selector 'n stuff
+    let appSelector = g('appSelector')
+    appSelector.innerText = '';
+    
+    //define hover stuff idk
+    let hoveredCodeEx = isHover(JSIcon);
+    let hoveredFreezer = isHover(filterIcon);
+    let hoveredG = isHover(gIcon);
+    let hoveredExp = isHover(expIcon);
+    let hoveredC = isHover(cIcon);
+    let hoveredEdit = isHover(textIcon);
+
+    //if statements that hurt my brain but i dont feel like using jQuery or any other alternative lmao
+    if (hoveredCodeEx !== checkHover.hoveredCodeEx) {
+        checkHover.hoveredCodeEx = hoveredCodeEx;
+        appSelector.style.display = "block";
+        appSelector.innerText = "Code Executor";
+    }
+    if (hoveredFreezer !== checkHover.hoveredFreezer) {
+        checkHover.hoveredFreezer = hoveredFreezer;
+        appSelector.style.display = "block";
+        appSelector.innerText = "Extension Freezer";
+      }
+      if (hoveredG !== checkHover.hoveredG) {
+        checkHover.hoveredG = hoveredG;
+        appSelector.style.display = "block";
+        appSelector.innerText = "Games";
+      }
+      if (hoveredExp !== checkHover.hoveredExp) {
+        checkHover.hoveredExp = hoveredExp;
+        appSelector.style.display = "block";
+        appSelector.innerText = "Experiments";
+      }
+      if (hoveredC !== checkHover.hoveredC) {
+        checkHover.hoveredC = hoveredC;
+        appSelector.style.display = "block";
+        appSelector.innerText = "Cloaker";
+      }
+      if (hoveredEdit !== checkHover.hoveredEdit) {
+        checkHover.hoveredEdit = hoveredEdit;
+        appSelector.style.display = "block";
+        appSelector.innerText = "Text Editor";
+      }
+      if(appSelector.innerText === ''){
+        appSelector.style.display = "none";
+      }
+  });  
 //event listener
 document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
