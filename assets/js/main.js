@@ -277,8 +277,14 @@ let cIcon = g('cloakIcon');
 let textIcon = g('textEDIcon');
 
 //app is hovered checker and display
-const isHover = e => e.parentElement.querySelector(':hover') === e;  
-document.addEventListener('mousemove', function checkHover() {
+const isHover = (e) => {
+    if(e.querySelector(':hover') === e){
+        return true;
+    }else{
+        return false;
+    }
+}  
+document.addEventListener('mousemove', (w) => {
     //define selector 'n stuff
     let appSelector = g('appSelector')
     appSelector.innerText = '';
@@ -293,8 +299,7 @@ document.addEventListener('mousemove', function checkHover() {
     let hoveredNone = 0;
 
     //if statements that hurt my brain but i dont feel like using jQuery or any other alternative lmao
-    if (hoveredCodeEx !== checkHover.hoveredCodeEx) {
-        checkHover.hoveredCodeEx = hoveredCodeEx;
+    if (hoveredCodeEx === true) {
         appSelector.style.display = "block";
         appSelector.innerText = "Code Executor";
         hoveredNone = 0;
@@ -309,32 +314,28 @@ document.addEventListener('mousemove', function checkHover() {
       }else{
         hoveredNone++;
       };
-      if (hoveredG !== checkHover.hoveredG) {
-        checkHover.hoveredG = hoveredG;
+      if (hoveredG  === true) {
         appSelector.style.display = "block";
         appSelector.innerText = "Games";
         hoveredNone = 0;
       }else{
         hoveredNone++;
       };
-      if (hoveredExp !== checkHover.hoveredExp) {
-        checkHover.hoveredExp = hoveredExp;
+      if (hoveredExp === true) {
         appSelector.style.display = "block";
         appSelector.innerText = "Experiments";
         hoveredNone = 0;
       }else{
         hoveredNone++;
       };
-      if (hoveredC !== checkHover.hoveredC) {
-        checkHover.hoveredC = hoveredC;
+      if (hoveredC === true) {
         appSelector.style.display = "block";
         appSelector.innerText = "Cloaker";
         hoveredNone = 0;
       }else{
         hoveredNone++;
       };
-      if (hoveredEdit !== checkHover.hoveredEdit) {
-        checkHover.hoveredEdit = hoveredEdit;
+      if (hoveredEdit === true) {
         appSelector.style.display = "block";
         appSelector.innerText = "Text Editor";
         hoveredNone = 0;
