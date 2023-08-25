@@ -212,6 +212,7 @@ exitInfo.onclick = () => {
 
 //available app names for App functions
 // gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments)
+//(must be a string)
 
 //App functions
 function openApp(appName) {
@@ -281,7 +282,13 @@ let expIcon = g('experimentsIcon')
 
 //cApp
 let cIcon = g('cloakIcon');
-
+let cBack = g('cBack');
+cIcon.onclick = () => {
+    openApp("cApp");
+};
+cBack.onclick = () => {
+    closeApp("cApp");
+};
 //text editor
 let textIcon = g('textEDIcon');
 
