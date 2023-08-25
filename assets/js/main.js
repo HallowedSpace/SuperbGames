@@ -241,11 +241,20 @@ function closeApp(appName) {
 //code executor
 let JSIcon = g('JSexIcon');
 let JSback = g('codeExArrow');
+let codeInput = g('codeInput');
+let executeBtn = g('executeCodeButton');
 JSIcon.onclick = () => {
     openApp("codeExApp");
 };
 JSback.onclick = () => {
     closeApp("codeExApp");
+}
+executeBtn.onclick = () => {
+    try {
+        eval(codeInput.value);
+    } catch (error) {
+        codeInput.value = error;
+    }
 }
 
 //dextensify

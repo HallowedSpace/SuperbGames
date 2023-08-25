@@ -345,3 +345,18 @@ div#codeExContainer{
     overflow: auto;
     font-family: monospace;
 }
+div#executeCodeButton {
+    padding: 10px;
+    z-index: 999;
+    font-size: 50px;
+    background: black;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+div#executeCodeButton:hover{
+    font-size: 60px;
+}
+div#executeCodeButton:active{
+    font-size: 40px;
+}
