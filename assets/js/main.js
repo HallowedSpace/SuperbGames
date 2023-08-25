@@ -297,6 +297,7 @@ document.addEventListener('mousemove', function checkHover() {
         checkHover.hoveredCodeEx = hoveredCodeEx;
         appSelector.style.display = "block";
         appSelector.innerText = "Code Executor";
+        hoveredNone = 0;
     }else{
         hoveredNone++;
     };
@@ -304,6 +305,7 @@ document.addEventListener('mousemove', function checkHover() {
         checkHover.hoveredFreezer = hoveredFreezer;
         appSelector.style.display = "block";
         appSelector.innerText = "Extension Freezer";
+        hoveredNone = 0;
       }else{
         hoveredNone++;
       };
@@ -311,6 +313,7 @@ document.addEventListener('mousemove', function checkHover() {
         checkHover.hoveredG = hoveredG;
         appSelector.style.display = "block";
         appSelector.innerText = "Games";
+        hoveredNone = 0;
       }else{
         hoveredNone++;
       };
@@ -318,6 +321,7 @@ document.addEventListener('mousemove', function checkHover() {
         checkHover.hoveredExp = hoveredExp;
         appSelector.style.display = "block";
         appSelector.innerText = "Experiments";
+        hoveredNone = 0;
       }else{
         hoveredNone++;
       };
@@ -325,6 +329,7 @@ document.addEventListener('mousemove', function checkHover() {
         checkHover.hoveredC = hoveredC;
         appSelector.style.display = "block";
         appSelector.innerText = "Cloaker";
+        hoveredNone = 0;
       }else{
         hoveredNone++;
       };
@@ -332,12 +337,14 @@ document.addEventListener('mousemove', function checkHover() {
         checkHover.hoveredEdit = hoveredEdit;
         appSelector.style.display = "block";
         appSelector.innerText = "Text Editor";
+        hoveredNone = 0;
       }else{
         hoveredNone++;
       };
       if(hoveredNone === 6){
         appSelector.innerText === ''
         appSelector.style.display = "none";
+        hoveredNone = 0;
       }
   });  
 //event listener
