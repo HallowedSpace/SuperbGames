@@ -308,13 +308,13 @@ cButton.onclick = () => {
         document.title = titleInput.value;
         localStorage.setItem("cloakTitle", titleInput.value);
     }
-    if(titleInput.value === ''){
+    if(faviconInput.value === ''){
         void(0);
     }else{
         favicon.href = faviconInput.value; 
         localStorage.setItem("cloakFavicon", faviconInput.value);  
     }
-}
+};
 //text editor
 let textIcon = g('textEDIcon');
 
