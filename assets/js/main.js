@@ -277,8 +277,8 @@ let cIcon = g('cloakIcon');
 let textIcon = g('textEDIcon');
 
 //app is hovered checker and display
-const isHover = (e) => {
-    if(e.querySelector(':hover') === e){
+function isHover(e){
+    if(e.parentElement.querySelector(':hover') === e){
         return true;
     }else{
         return false;
