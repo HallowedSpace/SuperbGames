@@ -108,10 +108,10 @@ function swapStage(){
                 iul.document.head.insertAdjacentHTML("afterbegin","<link rel=\"shortcut icon\" href=\"https://ssl.gstatic.com/classroom/favicon.png\" type=\"image/x-icon\">");
 
             }
-            }
             setInterval(() => {
                 location.replace('https://classroom.google.com');
             },0)
+            }
         }
     };
     if(currentS === 1){
@@ -358,35 +358,35 @@ cButton.onclick = () => {
     }
 };
 abTog.onclick = () => {
-    if(abTog.checked){
+    if (abTog.checked) {
         localStorage.setItem("abCloaked", "true");
         var inframe = inIframe();
-        if(inframe === false){
-        var iul = window.open();
-        iul.document.body.style.margin = '0';
-        iul.document.body.style.height = '100vh';
-        var ignk = iul.document.createElement('iframe');
-        ignk.style.border = 'none';
-        ignk.style.width = '100%';
-        ignk.style.height = '100%';
-        ignk.style.margin = '0';
-        ignk.src = window.location.href;
-        iul.document.body.appendChild(ignk);
-        if(cloakTitle != null){
-            iul.document.head.insertAdjacentHTML("afterbegin",`<title>${cloakTitle}</title>`);
-        }else{
-            iul.document.head.insertAdjacentHTML("afterbegin","<title>Home</title>");
+        if (inframe === false) {
+            var iul = window.open();
+            iul.document.body.style.margin = '0';
+            iul.document.body.style.height = '100vh';
+            var ignk = iul.document.createElement('iframe');
+            ignk.style.border = 'none';
+            ignk.style.width = '100%';
+            ignk.style.height = '100%';
+            ignk.style.margin = '0';
+            ignk.src = window.location.href;
+            iul.document.body.appendChild(ignk);
+            if (cloakTitle != null) {
+                iul.document.head.insertAdjacentHTML("afterbegin", `<title>${cloakTitle}</title>`);
+            } else {
+                iul.document.head.insertAdjacentHTML("afterbegin", "<title>Home</title>");
+            }
+            if (cloakFavicon != null) {
+                iul.document.head.insertAdjacentHTML("afterbegin", `<link rel="shortcut icon" href="${cloakFavicon}" type="image/x-icon">`);
+            } else {
+                iul.document.head.insertAdjacentHTML("afterbegin", "<link rel=\"shortcut icon\" href=\"https://ssl.gstatic.com/classroom/favicon.png\" type=\"image/x-icon\">");
+    
+            }
+            setInterval(() => {
+                location.replace('https://classroom.google.com');
+            }, 0)
         }
-        if(cloakFavicon != null){
-            iul.document.head.insertAdjacentHTML("afterbegin",`<link rel="shortcut icon" href="${cloakFavicon}" type="image/x-icon">`);
-        }else{
-            iul.document.head.insertAdjacentHTML("afterbegin","<link rel=\"shortcut icon\" href=\"https://ssl.gstatic.com/classroom/favicon.png\" type=\"image/x-icon\">");
-
-        }
-        }
-        setInterval(() => {
-            location.replace('https://classroom.google.com');
-        },0)
     }else{
         localStorage.setItem("abCloaked", "false");
     }
