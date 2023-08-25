@@ -282,7 +282,7 @@ document.addEventListener('mousemove', function checkHover() {
     //define selector 'n stuff
     let appSelector = g('appSelector')
     appSelector.innerText = '';
-    
+
     //define hover stuff idk
     let hoveredCodeEx = isHover(JSIcon);
     let hoveredFreezer = isHover(filterIcon);
@@ -290,39 +290,53 @@ document.addEventListener('mousemove', function checkHover() {
     let hoveredExp = isHover(expIcon);
     let hoveredC = isHover(cIcon);
     let hoveredEdit = isHover(textIcon);
+    let hoveredNone = 0;
 
     //if statements that hurt my brain but i dont feel like using jQuery or any other alternative lmao
     if (hoveredCodeEx !== checkHover.hoveredCodeEx) {
         checkHover.hoveredCodeEx = hoveredCodeEx;
         appSelector.style.display = "block";
         appSelector.innerText = "Code Executor";
-    }
+    }else{
+        hoveredNone++;
+    };
     if (hoveredFreezer !== checkHover.hoveredFreezer) {
         checkHover.hoveredFreezer = hoveredFreezer;
         appSelector.style.display = "block";
         appSelector.innerText = "Extension Freezer";
-      }
+      }else{
+        hoveredNone++;
+      };
       if (hoveredG !== checkHover.hoveredG) {
         checkHover.hoveredG = hoveredG;
         appSelector.style.display = "block";
         appSelector.innerText = "Games";
-      }
+      }else{
+        hoveredNone++;
+      };
       if (hoveredExp !== checkHover.hoveredExp) {
         checkHover.hoveredExp = hoveredExp;
         appSelector.style.display = "block";
         appSelector.innerText = "Experiments";
-      }
+      }else{
+        hoveredNone++;
+      };
       if (hoveredC !== checkHover.hoveredC) {
         checkHover.hoveredC = hoveredC;
         appSelector.style.display = "block";
         appSelector.innerText = "Cloaker";
-      }
+      }else{
+        hoveredNone++;
+      };
       if (hoveredEdit !== checkHover.hoveredEdit) {
         checkHover.hoveredEdit = hoveredEdit;
         appSelector.style.display = "block";
         appSelector.innerText = "Text Editor";
-      }
-      if(appSelector.innerText === ''){
+      }else{
+        hoveredNone++;
+      };
+      if(hoveredNone === 6){
+        appSelector.innerText === ''
         appSelector.style.display = "none";
       }
   });  
