@@ -344,6 +344,7 @@ div#codeExContainer{
     font-size: 15px;
     overflow: auto;
     font-family: monospace;
+    border-radius: 15px;
 }
 div#executeCodeButton {
     padding: 10px;
