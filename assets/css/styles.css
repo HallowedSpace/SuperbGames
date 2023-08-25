@@ -369,3 +369,11 @@ div#cloakContainer{
     flex-direction: column;
     align-items: center;
 }
+div#textEdContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+}
