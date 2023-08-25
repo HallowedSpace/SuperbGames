@@ -278,7 +278,7 @@ filterIcon.onclick = () => {
 let gIcon = g('activitesIcon');
 
 //expApp
-let expIcon = g('experimentsIcon')
+let expIcon = g('experimentsIcon');
 
 //cApp
 let cIcon = g('cloakIcon');
