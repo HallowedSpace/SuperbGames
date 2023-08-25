@@ -306,8 +306,7 @@ document.addEventListener('mousemove', (w) => {
     }else{
         hoveredNone++;
     };
-    if (hoveredFreezer !== checkHover.hoveredFreezer) {
-        checkHover.hoveredFreezer = hoveredFreezer;
+    if (hoveredFreezer === true) {
         appSelector.style.display = "block";
         appSelector.innerText = "Extension Freezer";
         hoveredNone = 0;
