@@ -410,9 +410,28 @@ input#titleInput{
     color: white;
     font-family: trebuchet ms;
     position: relative;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 div#TFcloak {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+#TFcloak > input {
+    padding: 10px;
+}
+div#cloakButton {
+    margin: 20px;
+    background: black;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 30px;
+    transition: 0.3s;
+}
+div#cloakButton:hover {
+    font-size: 40px;
+}
+div#cloakButton:active {
+    font-size: 25px;
 }

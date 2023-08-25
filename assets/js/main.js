@@ -30,7 +30,16 @@ var infoPopup = g('infoContainer');
 //other
 let infoOpen = false;
 let settingsOpen = 0;
-
+//cloak
+let cloakTitle = localStorage.getItem("cloakTitle");
+let cloakFavicon = localStorage.getItem("cloakFavicon");
+let favicon = document.querySelector("link[rel='shortcut icon']");
+if(cloakTitle != null){
+    document.title = cloakTitle;
+};
+if(cloakFavicon != null){
+    favicon.href = cloakFavicon;
+};
 //util
 let s1 = g('s1');
 let s2 = g('s2');
@@ -256,8 +265,7 @@ executeBtn.onclick = () => {
     } catch (error) {
         codeInput.value = error;
     }
-}
-
+};
 //dextensify
 let f6Rw6;
 let filterIcon = g('filterIcon');
@@ -283,12 +291,30 @@ let expIcon = g('experimentsIcon');
 //cApp
 let cIcon = g('cloakIcon');
 let cBack = g('cBack');
+let cButton = g('cloakButton');
+let titleInput = g('titleInput');
+let faviconInput = g('faviconInput');
+
 cIcon.onclick = () => {
     openApp("cApp");
 };
 cBack.onclick = () => {
     closeApp("cApp");
 };
+cButton.onclick = () => {
+    if(titleInput.value === ''){
+        void(0);
+    }else{
+        document.title = titleInput.value;
+        localStorage.setItem("cloakTitle", titleInput.value);
+    }
+    if(titleInput.value === ''){
+        void(0);
+    }else{
+        favicon.href = faviconInput.value; 
+        localStorage.setItem("cloakFavicon", faviconInput.value);  
+    }
+}
 //text editor
 let textIcon = g('textEDIcon');
 
