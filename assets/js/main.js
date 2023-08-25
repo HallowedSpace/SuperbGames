@@ -7,7 +7,14 @@ function g(e){
         return undefined;
     }
 }
-
+//inframe
+function inIframe () {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
+    }
+}
 //global
 const welcomeMsg = ["Welcome!", "Hello there!", "Greetings!", "Salutations!", "Nice to see ya!", "Glad you could make it!", "Enjoy!", "Have a good time!", "Hope you have a good time!"];
 
@@ -34,12 +41,7 @@ let settingsOpen = 0;
 let cloakTitle = localStorage.getItem("cloakTitle");
 let cloakFavicon = localStorage.getItem("cloakFavicon");
 let favicon = document.querySelector("link[rel='shortcut icon']");
-if(cloakTitle != null){
-    document.title = cloakTitle;
-};
-if(cloakFavicon != null){
-    favicon.href = cloakFavicon;
-};
+let abCloaked = localStorage.getItem("abCloaked");
 //util
 let s1 = g('s1');
 let s2 = g('s2');
@@ -75,6 +77,40 @@ if(localStorage.getItem("theme") === null){
     theme1.classList.add("selectedTheme");
 }
 function swapStage(){ 
+    if(cloakTitle != null){
+        document.title = cloakTitle;
+    };
+    if(cloakFavicon != null){
+        favicon.href = cloakFavicon;
+    };
+    if(abCloaked != null){
+        if(abCloaked === 'true'){
+            var inframe = inIframe();
+            if(inframe === false){
+            var iul = window.open();
+            iul.document.body.style.margin = '0';
+            iul.document.body.style.height = '100vh';
+            var ignk = win.document.createElement('iframe');
+            ignk.style.border = 'none';
+            ignk.style.width = '100%';
+            ignk.style.height = '100%';
+            ignk.style.margin = '0';
+            ignk.src = window.location.href;
+            iul.document.body.appendChild(ignk);
+            if(cloakTitle != null){
+                iul.document.head.insertAdjacentHTML("afterbegin",`<title>${cloakTitle}</title>`);
+            }else{
+                iul.document.head.insertAdjacentHTML("afterbegin","<title>Home</title>");
+            }
+            if(cloakFavicon != null){
+                iul.document.head.insertAdjacentHTML("afterbegin",`<link rel="shortcut icon" href="${cloakFavicon}" type="image/x-icon">`);
+            }else{
+                iul.document.head.insertAdjacentHTML("afterbegin","<link rel=\"shortcut icon\" href=\"https://ssl.gstatic.com/classroom/favicon.png\" type=\"image/x-icon\">");
+
+            }
+            }
+        }
+    };
     if(currentS === 1){
         s1.style.display = "none";
         s2.style.display = "grid";
@@ -294,6 +330,7 @@ let cBack = g('cBack');
 let cButton = g('cloakButton');
 let titleInput = g('titleInput');
 let faviconInput = g('faviconInput');
+let abTog = g('abToggle');
 
 cIcon.onclick = () => {
     openApp("cApp");
@@ -303,16 +340,36 @@ cBack.onclick = () => {
 };
 cButton.onclick = () => {
     if(titleInput.value === ''){
-        void(0);
+        document.title = `Dewollah Inc.`;
+        localStorage.setItem("cloakTitle", `Dewollah Inc.`);
     }else{
         document.title = titleInput.value;
         localStorage.setItem("cloakTitle", titleInput.value);
     }
     if(faviconInput.value === ''){
-        void(0);
+        favicon.href = `/assets/img/favicon.png`; 
+        localStorage.setItem("cloakFavicon", `/assets/img/favicon.png`); 
     }else{
         favicon.href = faviconInput.value; 
         localStorage.setItem("cloakFavicon", faviconInput.value);  
+    }
+};
+abTog.onclick = () => {
+    if(abTog.checked){
+        localStorage.setItem("abCloaked", "true");
+        let JGS = window.open();
+        JGS.document.body.style.margin = '0';
+        JGS.document.body.style.height = '100vh';
+        let KqkU = win.document.createElement('iframe');
+        KqkU.style.border = 'none';
+        KqkU.style.width = '100%';
+        KqkU.style.height = '100%';
+        KqkU.style.margin = '0';
+        KqkU.src = window.location.href;
+        JGS.document.body.appendChild(KqkU);
+        location.replace("https://classroom.google.com");
+    }else{
+        localStorage.setItem("abCloaked", "false");
     }
 };
 //text editor
