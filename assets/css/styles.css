@@ -393,7 +393,7 @@ input#faviconInput {
     background: black;
     border: none;
     border-radius: 15px;
-    width: 300px;
+    width: 600px;
     height: 50px;
     color: white;
     top: 10px;
@@ -405,7 +405,7 @@ input#titleInput{
     background: black;
     border: none;
     border-radius: 15px;
-    width: 300px;
+    width: 600px;
     height: 50px;
     color: white;
     font-family: trebuchet ms;
