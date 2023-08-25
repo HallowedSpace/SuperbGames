@@ -333,3 +333,13 @@ div#codeExContainer{
     display: flex;
     position: fixed;
 }
+#codeInput {
+    z-index: 9999999;
+    background: #1a1a1a;
+    color: white;
+    border: black solid 2px;
+    margin: 10px;
+    font-size: 15px;
+    overflow: auto;
+    font-family: monospace;
+}
