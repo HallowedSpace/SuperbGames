@@ -370,10 +370,10 @@ cButton.onclick = () => {
             ignk.style.margin = '0';
             ignk.src = window.location.href;
             iul.document.body.appendChild(ignk);
-            if (cloakInput.value === '') {
+            if (titleInput.value === '') {
                 iul.document.head.insertAdjacentHTML("afterbegin", `<title>Home</title>`);
             } else {
-                iul.document.head.insertAdjacentHTML("afterbegin", `<title>${cloakInput.value}</title>`);
+                iul.document.head.insertAdjacentHTML("afterbegin", `<title>${titleInput.value}</title>`);
             }
             if(faviconInput.value === ''){
                 iul.document.head.insertAdjacentHTML("afterbegin", `<link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">`); 
