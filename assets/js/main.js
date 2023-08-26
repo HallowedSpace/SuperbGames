@@ -42,6 +42,10 @@ let cloakTitle = localStorage.getItem("cloakTitle");
 let cloakFavicon = localStorage.getItem("cloakFavicon");
 let favicon = document.querySelector("link[rel='shortcut icon']");
 let abCloaked = localStorage.getItem("abCloaked");
+let abTog = g('abToggle');
+if(abCloaked === 'true'){
+    abTog.checked = true;
+};
 //util
 let s1 = g('s1');
 let s2 = g('s2');
@@ -333,7 +337,6 @@ let cBack = g('cBack');
 let cButton = g('cloakButton');
 let titleInput = g('titleInput');
 let faviconInput = g('faviconInput');
-let abTog = g('abToggle');
 
 cIcon.onclick = () => {
     openApp("cApp");
