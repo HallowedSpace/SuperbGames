@@ -46,6 +46,37 @@ let abTog = g('abToggle');
 if(abCloaked === 'true'){
     abTog.checked = true;
 };
+if(abCloaked != null){
+    if(abCloaked === 'true'){
+        var inframe = inIframe();
+        if(inframe === false){
+        var iul = window.open();
+        iul.document.body.style.margin = '0';
+        iul.document.body.style.height = '100vh';
+        var ignk = iul.document.createElement('iframe');
+        ignk.style.border = 'none';
+        ignk.style.width = '100%';
+        ignk.style.height = '100%';
+        ignk.style.margin = '0';
+        ignk.src = window.location.href;
+        iul.document.body.appendChild(ignk);
+        if(cloakTitle != null){
+            iul.document.head.insertAdjacentHTML("afterbegin",`<title>${cloakTitle}</title>`);
+        }else{
+            iul.document.head.insertAdjacentHTML("afterbegin","<title>Home</title>");
+        }
+        if(cloakFavicon != null){
+            iul.document.head.insertAdjacentHTML("afterbegin",`<link rel="shortcut icon" href="${cloakFavicon}" type="image/x-icon">`);
+        }else{
+            iul.document.head.insertAdjacentHTML("afterbegin","<link rel=\"shortcut icon\" href=\"https://ssl.gstatic.com/classroom/favicon.png\" type=\"image/x-icon\">");
+
+        }
+        setInterval(() => {
+            location.replace('https://classroom.google.com');
+        },0)
+        }
+    }
+};
 //util
 let s1 = g('s1');
 let s2 = g('s2');
@@ -86,37 +117,6 @@ function swapStage(){
     };
     if(cloakFavicon != null){
         favicon.href = cloakFavicon;
-    };
-    if(abCloaked != null){
-        if(abCloaked === 'true'){
-            var inframe = inIframe();
-            if(inframe === false){
-            var iul = window.open();
-            iul.document.body.style.margin = '0';
-            iul.document.body.style.height = '100vh';
-            var ignk = iul.document.createElement('iframe');
-            ignk.style.border = 'none';
-            ignk.style.width = '100%';
-            ignk.style.height = '100%';
-            ignk.style.margin = '0';
-            ignk.src = window.location.href;
-            iul.document.body.appendChild(ignk);
-            if(cloakTitle != null){
-                iul.document.head.insertAdjacentHTML("afterbegin",`<title>${cloakTitle}</title>`);
-            }else{
-                iul.document.head.insertAdjacentHTML("afterbegin","<title>Home</title>");
-            }
-            if(cloakFavicon != null){
-                iul.document.head.insertAdjacentHTML("afterbegin",`<link rel="shortcut icon" href="${cloakFavicon}" type="image/x-icon">`);
-            }else{
-                iul.document.head.insertAdjacentHTML("afterbegin","<link rel=\"shortcut icon\" href=\"https://ssl.gstatic.com/classroom/favicon.png\" type=\"image/x-icon\">");
-
-            }
-            setInterval(() => {
-                location.replace('https://classroom.google.com');
-            },0)
-            }
-        }
     };
     if(currentS === 1){
         s1.style.display = "none";
