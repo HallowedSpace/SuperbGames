@@ -356,9 +356,7 @@ cButton.onclick = () => {
         favicon.href = faviconInput.value; 
         localStorage.setItem("cloakFavicon", faviconInput.value);  
     }
-    if (localStorage.getItem("abCloaked") === 'true') {
-        var inframe = inIframe();
-        if (inframe === true) {
+    if (abTog.checked) {
             var iul = window.open();
             iul.document.body.style.margin = '0';
             iul.document.body.style.height = '100vh';
@@ -378,7 +376,6 @@ cButton.onclick = () => {
                 iul.document.head.insertAdjacentHTML("afterbegin", `<link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">`); 
             }else{ 
                 iul.document.head.insertAdjacentHTML("afterbegin", `<link rel="shortcut icon" href="${faviconInput.value}" type="image/x-icon">`); 
-               }
             }
             setInterval(() => {
                 location.replace('https://classroom.google.com');
