@@ -356,7 +356,35 @@ cButton.onclick = () => {
         favicon.href = faviconInput.value; 
         localStorage.setItem("cloakFavicon", faviconInput.value);  
     }
-};
+    if (localStorage.getItem("abCloaked") === 'true') {
+        var inframe = inIframe();
+        if (inframe === true) {
+            var iul = window.open();
+            iul.document.body.style.margin = '0';
+            iul.document.body.style.height = '100vh';
+            var ignk = iul.document.createElement('iframe');
+            ignk.style.border = 'none';
+            ignk.style.width = '100%';
+            ignk.style.height = '100%';
+            ignk.style.margin = '0';
+            ignk.src = window.location.href;
+            iul.document.body.appendChild(ignk);
+            if (cloakInput.value === '') {
+                iul.document.head.insertAdjacentHTML("afterbegin", `<title>Home</title>`);
+            } else {
+                iul.document.head.insertAdjacentHTML("afterbegin", `<title>${cloakInput.value}</title>`);
+            }
+            if(faviconInput.value === ''){
+                iul.document.head.insertAdjacentHTML("afterbegin", `<link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">`); 
+            }else{ 
+                iul.document.head.insertAdjacentHTML("afterbegin", `<link rel="shortcut icon" href="${faviconInput.value}" type="image/x-icon">`); 
+               }
+            }
+            setInterval(() => {
+                location.replace('https://classroom.google.com');
+            }, 0);
+        }
+    };
 abTog.onclick = () => {
     if (abTog.checked) {
         localStorage.setItem("abCloaked", "true");
