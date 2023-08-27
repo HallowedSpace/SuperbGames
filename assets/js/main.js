@@ -48,6 +48,7 @@ let abTog = g('abToggle');
 let atTog = g('atToggle');
 if (abCloaked != 'true') {
     if(atr === 'true'){
+        atTog.checked = "true";
         window.onbeforeunload = () => {
             return 0;
         }
@@ -56,7 +57,20 @@ if (abCloaked != 'true') {
             //do nothing (clears it)
         }
     }
-};
+}else{
+    if(atTog.checked){
+        localStorage.setItem("antiTab", "false");
+        atr = 'false';
+        atTog.checked = false;
+        g('atSlider').style.cursor = "not-allowed";
+        g('atSlider').style.background = "#545454";
+        atTog.setAttribute("disabled", "true");
+    }else{
+        g('atSlider').style.cursor = "not-allowed";
+        g('atSlider').style.background = "#545454";
+        atTog.setAttribute("disabled", "true");
+    }
+}
 if(abCloaked === 'true'){
     abTog.checked = true;
 };
@@ -413,11 +427,11 @@ abTog.onclick = () => {
             atr = 'false';
             atTog.checked = false;
             g('atSlider').style.cursor = "not-allowed";
-            g('atSlider').style.backgroundColor = "#545454";
+            g('atSlider').style.background = "#545454";
             atTog.setAttribute("disabled", "true");
         }else{
             g('atSlider').style.cursor = "not-allowed";
-            g('atSlider').style.backgroundColor = "#545454";
+            g('atSlider').style.background = "#545454";
             atTog.setAttribute("disabled", "true");
         }
         localStorage.setItem("abCloaked", "true");
@@ -451,7 +465,7 @@ abTog.onclick = () => {
     }else{
         localStorage.setItem("abCloaked", "false");
         g('atSlider').style.cursor = "pointer";
-            g('atSlider').style.backgroundColor = "#cd4c4c";
+            g('atSlider').style.background = "";
             if (atTog.hasAttribute("disabled")) {
                 atTog.removeAttribute("disabled");
             }
