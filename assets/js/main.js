@@ -358,7 +358,6 @@ let cBack = g('cBack');
 let cButton = g('cloakButton');
 let titleInput = g('titleInput');
 let faviconInput = g('faviconInput');
-let atTog = g('atToggle');
 
 cIcon.onclick = () => {
     openApp("cApp");
