@@ -1,4 +1,7 @@
-//GEBI
+// hi welcome to my script it may be garbage but i am stupid so ignore
+//anyway i added comments so you know the method to my madness
+
+//GEBI (get element by id)
 function g(e){
     let o = document.getElementById(e);
     if(o){
@@ -7,7 +10,7 @@ function g(e){
         return undefined;
     }
 }
-//inframe
+//inframe (checks if in iframe)
 function inIframe () {
     try {
         return window.self !== window.top;
@@ -15,9 +18,7 @@ function inIframe () {
         return true;
     }
 }
-//global
-const welcomeMsg = ["Welcome!", "Hello there!", "Greetings!", "Salutations!", "Nice to see ya!", "Glad you could make it!", "Enjoy!", "Have a good time!", "Hope you have a good time!"];
-
+//variables 'n stuff
 //stage1
 let article_S1 = g('article-stage1');
 let topbar_S1 = g('topbar-stage1');
@@ -41,12 +42,24 @@ let settingsOpen = 0;
 let cloakTitle = localStorage.getItem("cloakTitle");
 let cloakFavicon = localStorage.getItem("cloakFavicon");
 let favicon = document.querySelector("link[rel='shortcut icon']");
+let atr = localStorage.getItem("antiTab");
 let abCloaked = localStorage.getItem("abCloaked");
 let abTog = g('abToggle');
+let atTog = g('atToggle');
+if (abCloaked != 'true') {
+    if(atr === 'true'){
+        window.onbeforeunload = () => {
+            return 0;
+        }
+    }else{
+        window.onbeforeunload = () => {
+            //do nothing (clears it)
+        }
+    }
+};
 if(abCloaked === 'true'){
     abTog.checked = true;
 };
-if(abCloaked != null){
     if(abCloaked === 'true'){
         var inframe = inIframe();
         if(inframe === false){
@@ -75,8 +88,7 @@ if(abCloaked != null){
             location.replace('https://classroom.google.com');
         },0)
         }
-    }
-};
+    };
 //util
 let s1 = g('s1');
 let s2 = g('s2');
@@ -346,6 +358,7 @@ let cBack = g('cBack');
 let cButton = g('cloakButton');
 let titleInput = g('titleInput');
 let faviconInput = g('faviconInput');
+let atTog = g('atToggle');
 
 cIcon.onclick = () => {
     openApp("cApp");
@@ -396,6 +409,18 @@ cButton.onclick = () => {
     };
 abTog.onclick = () => {
     if (abTog.checked) {
+        if(atTog.checked){
+            localStorage.setItem("antiTab", "false");
+            atr = 'false';
+            atTog.checked = false;
+            g('atSlider').style.cursor = "not-allowed";
+            g('atSlider').style.backgroundColor = "#545454";
+            atTog.setAttribute("disabled", "true");
+        }else{
+            g('atSlider').style.cursor = "not-allowed";
+            g('atSlider').style.backgroundColor = "#545454";
+            atTog.setAttribute("disabled", "true");
+        }
         localStorage.setItem("abCloaked", "true");
         var inframe = inIframe();
         if (inframe === false) {
@@ -426,8 +451,35 @@ abTog.onclick = () => {
         }
     }else{
         localStorage.setItem("abCloaked", "false");
+        g('atSlider').style.cursor = "pointer";
+            g('atSlider').style.backgroundColor = "#cd4c4c";
+            if (atTog.hasAttribute("disabled")) {
+                atTog.removeAttribute("disabled");
+            }
     }
 };
+atTog.onclick = () => {
+    if (abCloaked != 'true') {
+            if (atTog.checked) {
+        localStorage.setItem("antiTab", "true");
+        atr = 'true';
+    } else {
+        localStorage.setItem("antiTab", "false");
+        atr = 'false';
+    }
+    if(atr === 'true'){
+        window.onbeforeunload = () => {
+            return 0;
+        }
+    }else{
+        window.onbeforeunload = () => {
+            //do nothing (clears it)
+        }
+    }
+}else{
+    //do nothing
+}
+}
 //text editor
 let textIcon = g('textEDIcon');
 

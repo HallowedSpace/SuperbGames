@@ -488,3 +488,6 @@ div#cloakButton:active {
 #cloakOptions{
     margin-top: 60px;
 }
+#cloakOptions > h3 {
+    margin-top: 20px;
+}
