@@ -495,6 +495,20 @@ atTog.onclick = () => {
 }
 //text editor
 let textIcon = g('textEDIcon');
+let teArea;
+let teToolbar;
+let docTitle;
+function saveTextAsFile() {
+    var textToWrite = teArea.value;
+    var textFileAsBlob = new Blob([ textToWrite ], { type: 'text/plain' });
+    var fileNameToSaveAs = `${docTitle}.txt`;
+    var link = document.createElement('a');
+    link.href = textFileAsBlob;
+    link.setAttribute('download', fileNameToSaveAs);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+}
 
 //app is hovered checker and display
 function isHover(e){
