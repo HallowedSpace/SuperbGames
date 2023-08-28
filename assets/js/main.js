@@ -38,6 +38,12 @@ var infoPopup = g('infoContainer');
 //other
 let infoOpen = false;
 let settingsOpen = 0;
+//pre-open
+if(window.location.href.includes("?app=")){
+    let appAr = window.location.href.split(`?app=`);
+    swapStage();
+    openApp(appAr[1]);
+};
 //cloak
 let cloakTitle = localStorage.getItem("cloakTitle");
 let cloakFavicon = localStorage.getItem("cloakFavicon");
