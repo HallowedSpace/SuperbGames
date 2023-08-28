@@ -585,7 +585,11 @@ document.addEventListener('mousemove', (w) => {
 if(window.location.href.includes("?app=")){
     let appAr = window.location.href.split(`?app=`);
     swapStage();
-    openApp(appAr[1]);
+    if(appAr[1] === exFr){
+        filterIcon.click();
+    }else{
+        openApp(appAr[1]);
+    }
 };
 //event listener
 document.addEventListener("keydown", (event) => {
