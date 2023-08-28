@@ -291,6 +291,7 @@ exitInfo.onclick = () => {
 //available app names for App functions
 // gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments)
 //(must be a string)
+// (exFr app is to be used only for pre-open)
 
 //App functions
 function openApp(appName) {
