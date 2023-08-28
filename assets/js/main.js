@@ -296,6 +296,9 @@ exitInfo.onclick = () => {
 //App functions
 function openApp(appName) {
     let app = g(appName);
+    if(appName === "textEdApp"){
+            textOpen++;
+    }
     try {
         app.style.display = "flex";
         setTimeout(() => {
@@ -494,23 +497,44 @@ atTog.onclick = () => {
     //do nothing
 }
 }
-//text editor
+//=text editor=
+
+//variables
 let textIcon = g('textEDIcon');
+let teBack = g('textBack');
 let teArea;
 let teToolbar;
 let docTitle;
+let textOpen = false;
+
+//save as file function
 function saveTextAsFile() {
-    var textToWrite = teArea.value;
+    var textToWrite;
     var textFileAsBlob = new Blob([ textToWrite ], { type: 'text/plain' });
     var fileNameToSaveAs = `${docTitle}.txt`;
-    var link = document.createElement('a');
-    link.href = textFileAsBlob;
-    link.setAttribute('download', fileNameToSaveAs);
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    if (window.webkitURL != null) {
+      downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    } else {
+      downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+      downloadLink.onclick = destroyClickedElement;
+      downloadLink.style.display = "none";
+      document.body.appendChild(downloadLink);
+    }
+    downloadLink.click();
+  }
+  function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+  }
+textIcon.onclick = () => {
+    openApp("textEdApp");
 }
-
+textBack.onclick = () => {
+    closeApp("textEdApp");
+    textOpen = false;
+}
 //app is hovered checker and display
 function isHover(e){
     if(e.parentElement.querySelector(':hover') === e){
