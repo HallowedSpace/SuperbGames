@@ -446,7 +446,7 @@ abTog.onclick = () => {
             ignk.style.width = '100%';
             ignk.style.height = '100%';
             ignk.style.margin = '0';
-            ignk.src = window.location.href;
+            ignk.src = window.location.href + "?app=cApp";
             iul.document.body.appendChild(ignk);
             if (cloakTitle != null) {
                 iul.document.head.insertAdjacentHTML("afterbegin", `<title>${cloakTitle}</title>`);
