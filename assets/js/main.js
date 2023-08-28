@@ -586,7 +586,7 @@ document.addEventListener('mousemove', (w) => {
 if(window.location.href.includes("?app=")){
     let appAr = window.location.href.split(`?app=`);
     swapStage();
-    if(appAr[1] === exFr){
+    if(appAr[1] === "exFr"){
         filterIcon.click();
     }else{
         openApp(appAr[1]);
