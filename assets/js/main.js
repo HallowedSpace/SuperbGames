@@ -504,9 +504,10 @@ atTog.onclick = () => {
 let textIcon = g('textEDIcon');
 let teBack = g('textBack');
 let teArea = g('TextEditor');
-let teToolbar;
+let teToolbar = g('');
 let docTitle;
 let textOpen = false;
+let clearText = g("clearTextSVG");
 
 //save as file function
 function saveTextAsFile() {
@@ -537,6 +538,10 @@ textBack.onclick = () => {
     closeApp("textEdApp");
     textOpen = false;
 }
+clearText.onclick = () => {
+    teArea.value = '';
+}
+
 //app is hovered checker and display
 function isHover(e){
     if(e.parentElement.querySelector(':hover') === e){

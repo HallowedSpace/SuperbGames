@@ -529,3 +529,6 @@ div#textToolbar > div > svg {
     margin: 10px;
     cursor: pointer;
 }
+div#clearTextSVG {
+    transition: 0.5s;
+}
