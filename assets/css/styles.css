@@ -500,6 +500,7 @@ div#textEdWindow {
     position: fixed;
     display: flex;
     top: 0.5vh;
+    justify-content: center;
 }
 textarea#TextEditor {
     height: 98.5vh;
@@ -511,4 +512,6 @@ textarea#TextEditor {
     border: none;
     word-wrap: break-word;
     position: relative;
+    border-radius: 15px;
+    font-size: 15px;
 }
