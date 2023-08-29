@@ -512,8 +512,12 @@ let teToolbar = g('textToolbar');
 let docTitle;
 let textOpen = false;
 let clearText = g("clearTextSVG");
+//popup windows
+let docTitlePW = g('docTitlePopupWindow');
+let keybindsPW = g('keybindsPopupWindow');
+let infoPW = g('infoPopupWindow');
 
-//save as file function
+//functions
 function saveTextAsFile() {
     var textToWrite;
     var textFileAsBlob = new Blob([ textToWrite ], { type: 'text/plain' });
@@ -540,6 +544,12 @@ function saveTextAsFile() {
     setTimeout(() => {
         tePopupBar.style.top = "-100px";
     }, 3000);
+  }
+  function openTextPW(windowElement) {
+    windowElement.style.display = "flex";
+  }
+  function closeTextPW(windowElement) {
+    windowElement.style.display = "none";
   }
 textIcon.onclick = () => {
     openApp("textEdApp");
@@ -633,7 +643,7 @@ document.addEventListener('mousemove', (w) => {
         hoveredNone = 0;
       }
   });
-  
+
   //pre-open
 if(window.location.href.includes("?app=")){
     let appAr = window.location.href.split(`?app=`);
