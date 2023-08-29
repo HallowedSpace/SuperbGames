@@ -504,7 +504,8 @@ atTog.onclick = () => {
 let textIcon = g('textEDIcon');
 let teBack = g('textBack');
 let teArea = g('TextEditor');
-let teToolbar = g('');
+let tePopupBar = g('textPopupBar');
+let teToolbar = g('textToolbar');
 let docTitle;
 let textOpen = false;
 let clearText = g("clearTextSVG");
@@ -530,6 +531,13 @@ function saveTextAsFile() {
   function destroyClickedElement(event) {
     document.body.removeChild(event.target);
   }
+  function TextPopupBar(text) {
+    tePopupBar.innerText = text;
+    tePopupBar.style.top = "10px";
+    setTimeout(() => {
+        tePopupBar.style.top = "-100px";
+    }, 3000);
+  }
 textIcon.onclick = () => {
     openApp("textEdApp");
     teArea.focus();
@@ -540,6 +548,7 @@ textBack.onclick = () => {
 }
 clearText.onclick = () => {
     teArea.value = '';
+    TextPopupBar("Cleared The Text");
 }
 
 //app is hovered checker and display
