@@ -627,7 +627,7 @@ document.addEventListener('mousemove', (w) => {
       }else{
         hoveredNone++;
       };
-      if(hoveredNone === 6){
+      if(hoveredNone === 7){
         appSelector.innerText === ''
         appSelector.style.display = "none";
         hoveredNone = 0;
