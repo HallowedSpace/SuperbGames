@@ -502,7 +502,7 @@ atTog.onclick = () => {
 //variables
 let textIcon = g('textEDIcon');
 let teBack = g('textBack');
-let teArea;
+let teArea = g('TextEditor');
 let teToolbar;
 let docTitle;
 let textOpen = false;
