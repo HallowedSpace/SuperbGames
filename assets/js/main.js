@@ -289,7 +289,7 @@ exitInfo.onclick = () => {
 //==APPS==
 
 //available app names for App functions
-// gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments)
+// gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments), devApp (dev)
 //(must be a string)
 // (exFr app is to be used only for pre-open)
 
@@ -321,6 +321,9 @@ function closeApp(appName) {
     }
 }
 //app icons
+
+//dev app
+let devIcon = g('devIcon');
 
 //code executor
 let JSIcon = g('JSexIcon');
@@ -566,6 +569,7 @@ document.addEventListener('mousemove', (w) => {
 
     //define hover stuff idk
     let hoveredCodeEx = isHover(JSIcon);
+    let hoveredDev = isHover(devIcon); 
     let hoveredFreezer = isHover(filterIcon);
     let hoveredG = isHover(gIcon);
     let hoveredExp = isHover(expIcon);
@@ -574,6 +578,13 @@ document.addEventListener('mousemove', (w) => {
     let hoveredNone = 0;
 
     //if statements that hurt my brain but i dont feel like using jQuery or any other alternative lmao
+    if (hoveredDev === true) {
+        appSelector.style.display = "block";
+        appSelector.innerText = "Developer Mode";
+        hoveredNone = 0;
+    }else{
+        hoveredNone++;
+    };
     if (hoveredCodeEx === true) {
         appSelector.style.display = "block";
         appSelector.innerText = "Code Executor";
