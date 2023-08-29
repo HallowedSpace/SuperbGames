@@ -515,3 +515,18 @@ textarea#TextEditor {
     border-radius: 15px;
     font-size: 15px;
 }
+div#textToolbar {
+    display: flex;
+    position: relative;
+    height: 99vh;
+    width: 50px;
+    z-index: 99;
+    left: 75%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+div#textToolbar > div > svg {
+    margin: 10px;
+    cursor: pointer;
+}
