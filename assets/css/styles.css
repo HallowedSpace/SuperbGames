@@ -521,7 +521,6 @@ div#textToolbar {
     height: 99vh;
     width: 50px;
     z-index: 99;
-    left: 75%;
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
