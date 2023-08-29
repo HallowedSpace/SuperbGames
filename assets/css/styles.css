@@ -491,3 +491,24 @@ div#cloakButton:active {
 #cloakOptions > h3 {
     margin-top: 20px;
 }
+div#textEdWindow {
+    z-index: 99;
+    height: 99vh;
+    width: 90%;
+    background: #1a1a1a;
+    border-radius: 15px;
+    position: fixed;
+    display: flex;
+    top: 0.5vh;
+}
+textarea#TextEditor {
+    height: 98.5vh;
+    width: 70%;
+    resize: none;
+    font-family: trebuchet ms;
+    background: #151414;
+    color: white;
+    border: none;
+    word-wrap: break-word;
+    position: relative;
+}
