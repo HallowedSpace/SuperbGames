@@ -633,6 +633,7 @@ document.addEventListener('mousemove', (w) => {
         hoveredNone = 0;
       }
   });
+  
   //pre-open
 if(window.location.href.includes("?app=")){
     let appAr = window.location.href.split(`?app=`);
