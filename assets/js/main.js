@@ -297,7 +297,8 @@ exitInfo.onclick = () => {
 function openApp(appName) {
     let app = g(appName);
     if(appName === "textEdApp"){
-            textOpen++;
+            textOpen = true;
+            teArea.focus();
     }
     try {
         app.style.display = "flex";
@@ -530,6 +531,7 @@ function saveTextAsFile() {
   }
 textIcon.onclick = () => {
     openApp("textEdApp");
+    teArea.focus();
 }
 textBack.onclick = () => {
     closeApp("textEdApp");
