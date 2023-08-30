@@ -544,12 +544,14 @@ div#textPopupBar {
     font-size: 25px;
 }
 .textEdPopupWindowShadow {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 9999999999999999999999999999999999999999999;
     height: 100vh;
     width: 100%;
     border-radius: 15px;
     position: fixed;
+    top: 0;
+    left: 0;
 }
 .textEdPopupWindow {
     background: black;
