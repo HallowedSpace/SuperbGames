@@ -579,7 +579,7 @@ docTitleSubmitButton.onclick = () => {
     if(docTitleInput.value === ''){
         TextPopupBar("Title must be at least 1 character long");
         let invalid = true;
-        break;
+        return void(0)
     }
     for (let i = 0; i < invalidChars.length; i++) {
         let value = docTitleInput.value;
@@ -587,7 +587,7 @@ docTitleSubmitButton.onclick = () => {
         if(value.includes(element)){
             TextPopupBar(`Invalid Character "${element}"`);
             let invalid = true;
-            break;
+            return void(0);
         }
     }
     if(invalid === false){
