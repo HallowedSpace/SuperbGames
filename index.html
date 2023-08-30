@@ -205,7 +205,14 @@
                         <div class="textEdPopupWindowShadow"></div><div class="textEdPopupWindow"></div>
                     </div>
                     <div id="docTitlePopupWindow" style="display: none;">
-                        <div class="textEdPopupWindowShadow"></div><div class="textEdPopupWindow"></div>
+                        <div class="textEdPopupWindowShadow"></div>
+                        <div class="textEdPopupWindow">
+                            <input type="text" id="docTitleInput" placeholder="Type In The New Document Title" maxlength="50">
+                              <div id="docTitleButtons">
+                                  <div class="popupButton" id="submitDocTitle">Submit</div>
+                                  <div class="popupButton" id="cancelDocTitle">Cancel</div>
+                              </div>
+                          </div>
                     </div>
                     <div id="textEdWindow">
                         <textarea id="TextEditor" rows="14" cols="10" placeholder="Type Text Here..."></textarea>
