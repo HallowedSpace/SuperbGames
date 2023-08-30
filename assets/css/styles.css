@@ -532,11 +532,12 @@ div#textToolbar > div > svg {
 div#clearTextSVG {
     transition: 0.5s;
 }
+/* ignore z-index i just dont feel like organizing everything lol maybe after first release i will manually beautify everything lol */
 div#textPopupBar {
     padding: 10px;
     background: black;
     border-radius: 15px;
-    z-index: 9999;
+    z-index: 999999999999999999999999999999999999999999999999999;
     transition: top 0.5s;
     top: -100px;
     position: fixed;
@@ -553,14 +554,19 @@ div#textPopupBar {
     top: calc(50% - 200px);
     left: calc(50% - 200px);
 }
-.textEdPopupWindowShadow {
-    width: 100%;
-    height: 100vh;
+.textEdPopupWindow {
+    background: black;
+    z-index: 9999999999999999999999999999999999999999999;
+    height: 200px;
+    width: 400px;
+    border-radius: 15px;
     position: fixed;
-    top: 0;
-    background: rgb(0 0 0 / 35%);
-    left: 0;
-    z-index: 9999999999999;
+    display: flex;
+    top: calc(50% - 100px);
+    left: calc(50% - 200px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 input#docTitleInput {
     background: #0b0b0b;

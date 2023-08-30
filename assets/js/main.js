@@ -504,16 +504,21 @@ atTog.onclick = () => {
 //=text editor=
 
 //variables
+const invalidChars = ["/", "\\", "<", ">", ":", "?", "~", "|"];
 let textIcon = g('textEDIcon');
 let teBack = g('textBack');
 let teArea = g('TextEditor');
 let tePopupBar = g('textPopupBar');
 let teToolbar = g('textToolbar');
-let docTitle;
+let docTitle = "text";
 let textOpen = false;
 let clearText = g("clearTextSVG");
+let docTitleSVG = g("docTitleSVG");
 //popup windows
 let docTitlePW = g('docTitlePopupWindow');
+let docTitleInput = g('docTitleInput');
+let docTitleSubmitButton = g('submitDocTitle');
+let docTitleCancelButton = g('cancelDocTitle');
 let keybindsPW = g('keybindsPopupWindow');
 let infoPW = g('infoPopupWindow');
 
@@ -562,6 +567,34 @@ textBack.onclick = () => {
 clearText.onclick = () => {
     teArea.value = '';
     TextPopupBar("Cleared The Text");
+}
+docTitleSVG.onclick = () => {
+    openTextPW(docTitlePW);
+}
+docTitleCancelButton.onclick = () => {
+    closeTextPW(docTitlePW);
+}
+docTitleSubmitButton.onclick = () => {
+    let invalid = false;
+    if(docTitleInput.value === ''){
+        TextPopupBar("Title must be at least 1 character long");
+        let invalid = true;
+        break;
+    }
+    for (let i = 0; i < invalidChars.length; i++) {
+        let value = docTitleInput.value;
+        const element = invalidChars[i];
+        if(value.includes(element)){
+            TextPopupBar(`Invalid Character "${element}"`);
+            let invalid = true;
+            break;
+        }
+    }
+    if(invalid === false){
+        docTitle = docTitleInput.value;
+        closeTextPW(docTitlePW);
+        TextPopupBar("Successfully Set Title");
+    }
 }
 
 //app is hovered checker and display
