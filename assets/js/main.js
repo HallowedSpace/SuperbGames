@@ -576,6 +576,7 @@ docTitleCancelButton.onclick = () => {
     closeTextPW(docTitlePW);
 }
 docTitleSubmitButton.onclick = () => {
+    docTitleInput.value = docTitle;
     let invalid = false;
     if(docTitleInput.value === ''){
         TextPopupBar("Title must be at least 1 character long");
@@ -695,7 +696,6 @@ document.addEventListener('mousemove', (w) => {
         hoveredNone = 0;
       }
   });
-
   //pre-open
 if(window.location.href.includes("?app=")){
     let appAr = window.location.href.split(`?app=`);
