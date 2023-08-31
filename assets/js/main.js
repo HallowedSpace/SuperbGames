@@ -610,6 +610,9 @@ uploadFileInp.onchange = () => {
             teArea.value = fileContent;
             docTitle = elementFilename;
             }
+        }else{
+            TextPopupBar("Error: Wrong File Type");
+            uploadFileInp.files = [];
         }
     }
 
