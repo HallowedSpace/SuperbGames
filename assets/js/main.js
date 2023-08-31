@@ -515,6 +515,7 @@ let textOpen = false;
 let clearText = g("clearTextSVG");
 let docTitleSVG = g("docTitleSVG");
 let uploadFileInp = g('uploadFileSVG');
+let downloadDocSVG = g('downloadDocSVG');
 //popup windows
 let docTitlePW = g('docTitlePopupWindow');
 let docTitleInput = g('docTitleInput');
@@ -615,7 +616,9 @@ uploadFileInp.onchange = () => {
             TextPopupBar("Error: Wrong File Type");
         }
     }
-
+downloadDocSVG.onclick = () => {
+    saveTextAsFile();
+}
 //app is hovered checker and display
 function isHover(e){
     if(e.parentElement.querySelector(':hover') === e){
