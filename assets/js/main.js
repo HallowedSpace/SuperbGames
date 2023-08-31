@@ -525,7 +525,7 @@ let infoPW = g('infoPopupWindow');
 
 //functions
 function saveTextAsFile() {
-    var textToWrite;
+    var textToWrite = teArea.value;
     var textFileAsBlob = new Blob([ textToWrite ], { type: 'text/plain' });
     var fileNameToSaveAs = `${docTitle}.txt`;
     var downloadLink = document.createElement("a");
