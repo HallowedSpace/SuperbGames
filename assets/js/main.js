@@ -565,6 +565,7 @@ textIcon.onclick = () => {
 textBack.onclick = () => {
     closeApp("textEdApp");
     textOpen = false;
+    document.removeEventListener(textKeybinds)
 }
 clearText.onclick = () => {
     teArea.value = '';
@@ -714,4 +715,41 @@ document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
         swapStage();
     };
+    if(textOpen === true){
+        if(event.keyCode === 83 && event.ctrlKey){
+            saveTextAsFile();
+        }
+        if(event.keyCode === 79 && event.ctrlKey){
+            downloadDocSVG.click();
+        }
+    }else{
+        //disable ctrl + s and ctrl + o keybinds to prevent saving of the html doc
+        if(event.keyCode === 83 && event.ctrlKey){
+            event.preventDefault();
+        }
+        if(event.keyCode === 79 && event.ctrlKey){
+            event.preventDefault();
+        }
+    }
 });
+//disable inspect element
+let removeThisToDisableInspectElement = `document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+});
+document.onkeydown = (e) => {
+    if (e.key == 123) {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.shiftKey && e.key == 'I') {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.shiftKey && e.key == 'C') {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.shiftKey && e.key == 'J') {
+        e.preventDefault();
+    }
+    if (e.ctrlKey && e.key == 'U') {
+        e.preventDefault();
+    }
+};`//remove this to disable inspect element (enabled for development purposes)
