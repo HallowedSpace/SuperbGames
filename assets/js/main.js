@@ -618,6 +618,7 @@ uploadFileInp.onchange = () => {
     }
 downloadDocSVG.onclick = () => {
     saveTextAsFile();
+    TextPopupBar("Downloaded File");
 }
 //app is hovered checker and display
 function isHover(e){
