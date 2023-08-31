@@ -604,13 +604,13 @@ uploadFileInp.onchange = () => {
         let files = uploadFileInp.files;
         let file = files[0];
         let elementFilename = file.name;
-        if(file.type === "text/plain"){
+        if(file.type === "text/plain" || file.type === "text/javascript" || file.type === "text/html" || file.type === "text/css"){
             let reader = new FileReader();
             reader.readAsText(file);
             reader.onload = function() {
             let fileContent = reader.result;
             teArea.value = fileContent;
-            docTitle = elementFilename.replace(".txt", "");
+            docTitle = elementFilename.split(".")[0];
             }
         }else{
             TextPopupBar("Error: Wrong File Type");
