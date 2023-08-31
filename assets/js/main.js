@@ -602,7 +602,7 @@ uploadFileInp.onchange = () => {
         let files = uploadFileInp.files;
         let file = files[0];
         let elementFilename = file.name;
-        if(element.type === "text/plain"){
+        if(file.type === "text/plain"){
             let reader = new FileReader();
             reader.readAsText(file);
             reader.onload = function() {
