@@ -565,7 +565,6 @@ textIcon.onclick = () => {
 textBack.onclick = () => {
     closeApp("textEdApp");
     textOpen = false;
-    document.removeEventListener(textKeybinds)
 }
 clearText.onclick = () => {
     teArea.value = '';
