@@ -607,3 +607,8 @@ input#uploadFileSVG {
 label#uploadFileSVGLabel {
     cursor: pointer;
 }
+b {
+    font-size: large;
+    color: white;
+    font-weight: bolder;
+}
