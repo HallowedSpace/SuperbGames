@@ -514,6 +514,7 @@ let docTitle = "text";
 let textOpen = false;
 let clearText = g("clearTextSVG");
 let docTitleSVG = g("docTitleSVG");
+let uploadFileInp = g('uploadFileSVG');
 //popup windows
 let docTitlePW = g('docTitlePopupWindow');
 let docTitleInput = g('docTitleInput');
@@ -596,6 +597,21 @@ docTitleSubmitButton.onclick = () => {
         TextPopupBar("Successfully Set Title");
     }
 }
+//read files lmao
+uploadFileInp.onchange = () => {
+        let files = uploadFileInp.files;
+        let file = files[0];
+        let elementFilename = element.name;
+        if(element.type === "text/plain"){
+            let reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = function() {
+            let fileContent = reader.result;
+            teArea.value = fileContent;
+            docTitle = elementFilename;
+            }
+        }
+    }
 
 //app is hovered checker and display
 function isHover(e){

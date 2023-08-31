@@ -601,3 +601,10 @@ div#docTitleButtons {
 .popupButton:active {
     transform: translateY(5px);
 }
+input#uploadFileSVG {
+    display: none;
+}
+
+label#uploadFileSVGLabel {
+    cursor: pointer;
+}
