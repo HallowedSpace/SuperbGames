@@ -601,7 +601,7 @@ docTitleSubmitButton.onclick = () => {
 uploadFileInp.onchange = () => {
         let files = uploadFileInp.files;
         let file = files[0];
-        let elementFilename = element.name;
+        let elementFilename = file.name;
         if(element.type === "text/plain"){
             let reader = new FileReader();
             reader.readAsText(file);
