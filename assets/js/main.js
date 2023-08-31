@@ -609,11 +609,10 @@ uploadFileInp.onchange = () => {
             reader.onload = function() {
             let fileContent = reader.result;
             teArea.value = fileContent;
-            docTitle = elementFilename;
+            docTitle = elementFilename.replace(".txt", "");
             }
         }else{
             TextPopupBar("Error: Wrong File Type");
-            uploadFileInp.files = [];
         }
     }
 
