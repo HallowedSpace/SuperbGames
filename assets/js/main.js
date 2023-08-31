@@ -572,12 +572,12 @@ clearText.onclick = () => {
 }
 docTitleSVG.onclick = () => {
     openTextPW(docTitlePW);
+    docTitleInput.value = docTitle;
 }
 docTitleCancelButton.onclick = () => {
     closeTextPW(docTitlePW);
 }
 docTitleSubmitButton.onclick = () => {
-    docTitleInput.value = docTitle;
     let invalid = false;
     if(docTitleInput.value === ''){
         TextPopupBar("Title must be at least 1 character long");
