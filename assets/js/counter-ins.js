@@ -1,4 +1,4 @@
-function detectDevTool(allow) {
+function detectIns(allow) {
     if(isNaN(+allow)) allow = 100;
     var start = +new Date();
     debugger;
@@ -9,20 +9,20 @@ function detectDevTool(allow) {
   }
   if(window.attachEvent) {
     if (document.readyState === "complete" || document.readyState === "interactive") {
-        detectDevTool();
-      window.attachEvent('onresize', detectDevTool);
-      window.attachEvent('onmousemove', detectDevTool);
-      window.attachEvent('onfocus', detectDevTool);
-      window.attachEvent('onblur', detectDevTool);
+        detectIns();
+      window.attachEvent('onresize', detectIns);
+      window.attachEvent('onmousemove', detectIns);
+      window.attachEvent('onfocus', detectIns);
+      window.attachEvent('onblur', detectIns);
     } else {
         setTimeout(argument.callee, 0);
     }
   } else {
-    window.addEventListener('load', detectDevTool);
-    window.addEventListener('resize', detectDevTool);
-    window.addEventListener('mousemove', detectDevTool);
-    window.addEventListener('focus', detectDevTool);
-    window.addEventListener('blur', detectDevTool);
+    window.addEventListener('load', detectIns);
+    window.addEventListener('resize', detectIns);
+    window.addEventListener('mousemove', detectIns);
+    window.addEventListener('focus', detectIns);
+    window.addEventListener('blur', detectIns);
   }
   document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
