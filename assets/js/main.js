@@ -521,9 +521,7 @@ let docTitlePW = g('docTitlePopupWindow');
 let docTitleInput = g('docTitleInput');
 let docTitleSubmitButton = g('submitDocTitle');
 let docTitleCancelButton = g('cancelDocTitle');
-let keybindsPW = g('keybindsPopupWindow');
 let infoPW = g('infoPopupWindow');
-
 //functions
 function saveTextAsFile() {
     var textToWrite = teArea.value;
@@ -716,9 +714,11 @@ document.addEventListener("keydown", (event) => {
     };
     if(textOpen === true){
         if(event.keyCode === 83 && event.ctrlKey){
+            event.preventDefault();
             saveTextAsFile();
         }
         if(event.keyCode === 79 && event.ctrlKey){
+            event.preventDefault();
             downloadDocSVG.click();
         }
     }else{
