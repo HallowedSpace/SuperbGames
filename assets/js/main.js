@@ -527,6 +527,7 @@ function saveTextAsFile() {
     var textToWrite = teArea.value;
     var textFileAsBlob = new Blob([ textToWrite ], { type: 'text/plain' });
     var fileNameToSaveAs = `${docTitle}.txt`;
+  
     var downloadLink = document.createElement("a");
     downloadLink.download = fileNameToSaveAs;
     downloadLink.innerHTML = "Download File";
@@ -538,6 +539,7 @@ function saveTextAsFile() {
       downloadLink.style.display = "none";
       document.body.appendChild(downloadLink);
     }
+  
     downloadLink.click();
   }
   function destroyClickedElement(event) {
