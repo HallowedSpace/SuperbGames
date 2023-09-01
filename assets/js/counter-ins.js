@@ -1,3 +1,4 @@
+//dont really know the point of this script but it is to prevent de_vtools?!?!
 function detectIns(allow) {
     if(isNaN(+allow)) allow = 100;
     var start = +new Date();
@@ -5,6 +6,7 @@ function detectIns(allow) {
     var end = +new Date();
     if(isNaN(start) || isNaN(end) || end - start > allow) {
       document.querySelector("html").remove();
+      location.reload("https://www.youtube.com/watch?v=xvFZjo5PgG0");
     }
   }
   if(window.attachEvent) {

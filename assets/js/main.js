@@ -714,12 +714,12 @@ document.addEventListener("keydown", (event) => {
     };
     if(textOpen === true){
         if(event.keyCode === 83 && event.ctrlKey){
-            event.preventDefault();
             saveTextAsFile();
+            event.preventDefault();
         }
         if(event.keyCode === 79 && event.ctrlKey){
+            uploadFileInp.click();
             event.preventDefault();
-            downloadDocSVG.click();
         }
     }else{
         //disable ctrl + s and ctrl + o keybinds to prevent saving of the html doc
