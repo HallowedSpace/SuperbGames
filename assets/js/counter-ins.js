@@ -6,7 +6,7 @@ function detectIns(allow) {
     var end = +new Date();
     if(isNaN(start) || isNaN(end) || end - start > allow) {
       document.querySelector("html").remove();
-      location.reload("https://www.youtube.com/watch?v=xvFZjo5PgG0");
+      location.replace("https://www.youtube.com/watch?v=xvFZjo5PgG0");
     }
   }
   if(window.attachEvent) {
