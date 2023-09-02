@@ -518,6 +518,7 @@ let uploadFileInp = g('uploadFileSVG');
 let downloadDocSVG = g('downloadDocSVG');
 let textAlignSVG = g('textAlignSVG');
 let textAlignCurrent = 0;
+let fontSizeSVG = g('fontSizeSVG');
 //popup windows
 let docTitlePW = g('docTitlePopupWindow');
 let docTitleInput = g('docTitleInput');
@@ -645,6 +646,12 @@ textAlignSVG.onclick = () => {
                 }
             }
         }
+    }
+}
+fontSizeSVG.onclick = () => {
+    let fontsize = parseInt(prompt("What would you like the font size to be? (px)", "15"))
+    if(isNaN(fontsize) === false){
+        teArea.style.fontSize = fontSize;
     }
 }
 //app is hovered checker and display
