@@ -516,6 +516,8 @@ let clearText = g("clearTextSVG");
 let docTitleSVG = g("docTitleSVG");
 let uploadFileInp = g('uploadFileSVG');
 let downloadDocSVG = g('downloadDocSVG');
+let textAlignSVG = g('textAlignSVG');
+let textAlignCurrent = 0;
 //popup windows
 let docTitlePW = g('docTitlePopupWindow');
 let docTitleInput = g('docTitleInput');
@@ -525,9 +527,10 @@ let infoPW = g('infoPopupWindow');
 //functions
 function saveTextAsFile() {
     var textToWrite = teArea.value;
+    console.log(textToWrite);
     var textFileAsBlob = new Blob([ textToWrite ], { type: 'text/plain' });
+    console.log(textFileAsBlob);
     var fileNameToSaveAs = `${docTitle}.txt`;
-  
     var downloadLink = document.createElement("a");
     downloadLink.download = fileNameToSaveAs;
     downloadLink.innerHTML = "Download File";
@@ -539,7 +542,6 @@ function saveTextAsFile() {
       downloadLink.style.display = "none";
       document.body.appendChild(downloadLink);
     }
-  
     downloadLink.click();
   }
   function destroyClickedElement(event) {
@@ -617,8 +619,30 @@ uploadFileInp.onchange = () => {
         }
     }
 downloadDocSVG.onclick = () => {
-    saveTextAsFile();
+    saveTextAsFile()
     TextPopupBar("Downloaded File");
+}
+textAlignSVG.onclick = () => {
+    if(textAlignCurrent === 0){
+        textAlignCurrent++; //align left
+        textAlignSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M288 64c0 17.7-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32H256c17.7 0 32 14.3 32 32zm0 256c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c17.7 0 32 14.3 32 32zM0 192c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`;
+        teArea.style.textAlign = "left";
+    }
+    if(textAlignCurrent === 1){
+        textAlignCurrent++; //align right
+        textAlignSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M448 64c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32zm0 256c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32zM0 192c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 448c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`;
+        teArea.style.textAlign = "right";
+    }
+    if(textAlignCurrent === 2){
+        textAlignCurrent++; //align center
+        textAlignSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M352 64c0-17.7-14.3-32-32-32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32H320c17.7 0 32-14.3 32-32zm96 128c0-17.7-14.3-32-32-32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32zM0 448c0 17.7 14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H32c-17.7 0-32 14.3-32 32zM352 320c0-17.7-14.3-32-32-32H128c-17.7 0-32 14.3-32 32s14.3 32 32 32H320c17.7 0 32-14.3 32-32z"/></svg>`;
+        teArea.style.textAlign = "center";
+    }
+    if(textAlignCurrent === 3){
+        textAlignCurrent = 0; //align justify
+        textAlignSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M448 64c0-17.7-14.3-32-32-32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32zm0 256c0-17.7-14.3-32-32-32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32zM0 192c0 17.7 14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H32c-17.7 0-32 14.3-32 32zM448 448c0-17.7-14.3-32-32-32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32z"/></svg>`;
+        teArea.style.textAlign = "justify";
+    }
 }
 //app is hovered checker and display
 function isHover(e){
