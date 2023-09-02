@@ -651,7 +651,7 @@ textAlignSVG.onclick = () => {
 fontSizeSVG.onclick = () => {
     let fontsize = parseInt(prompt("What would you like the font size to be? (px)", "15"))
     if(isNaN(fontsize) === false){
-        teArea.style.fontSize = fontSize;
+        teArea.style.fontSize = fontsize;
     }
 }
 //app is hovered checker and display
