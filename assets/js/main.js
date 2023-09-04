@@ -526,7 +526,7 @@ let docTitlePW = g('docTitlePopupWindow');
 let docTitleInput = g('docTitleInput');
 let docTitleSubmitButton = g('submitDocTitle');
 let docTitleCancelButton = g('cancelDocTitle');
-let infoPW = g('infoPopupWindow');
+let infoPW = g('infoTextPopupWindow');
 //functions
 function saveTextAsFile() {
     var textToWrite = teArea.value;
