@@ -612,3 +612,9 @@ b {
     color: white;
     font-weight: bolder;
 }
+div#textInfoBackSVG {
+    cursor: pointer;
+    position: relative;
+    right: 5px;
+    top: 5px;
+}

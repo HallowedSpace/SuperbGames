@@ -519,6 +519,8 @@ let downloadDocSVG = g('downloadDocSVG');
 let textAlignSVG = g('textAlignSVG');
 let textAlignCurrent = 0;
 let fontSizeSVG = g('fontSizeSVG');
+let teInfoSVG = g('textInfoSVG');
+let teInfoBackSVG = g('textInfoBackSVG');
 //popup windows
 let docTitlePW = g('docTitlePopupWindow');
 let docTitleInput = g('docTitleInput');
@@ -655,6 +657,15 @@ fontSizeSVG.onclick = () => {
         teArea.style.fontSize = fontsize + "px";
     }
 }
+teInfoSVG.onclick = () => {
+    openTextPW(infoPW);
+}
+teInfoBackSVG.onclick = () => {
+    closeTextPW(infoPW);
+}
+
+//==important stuff==
+//
 //app is hovered checker and display
 function isHover(e){
     if(e.parentElement.querySelector(':hover') === e){
