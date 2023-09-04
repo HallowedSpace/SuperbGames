@@ -1,4 +1,4 @@
-//dont really know the point of this script but it is to prevent de_vtools?!?!
+//dont really know the point of this script but it is to prevent de_vtools
 function detectIns(allow) {
     if(isNaN(+allow)) allow = 100;
     var start = +new Date();
