@@ -605,6 +605,7 @@ docTitleSubmitButton.onclick = () => {
     }
 }
 //read files lmao
+let filesUploaded = "False";
 uploadFileInp.onchange = () => {
         let files = uploadFileInp.files;
         let file = files[0];
@@ -616,6 +617,7 @@ uploadFileInp.onchange = () => {
             let fileContent = reader.result;
             teArea.value = fileContent;
             docTitle = elementFilename.split(".")[0];
+            let filesUploaded = "True";
             }
         }else{
             TextPopupBar("Error: Wrong File Type");
@@ -658,6 +660,18 @@ fontSizeSVG.onclick = () => {
     }
 }
 teInfoSVG.onclick = () => {
+    let wordCounter = 0;
+    for (let i = 0; i < teArea.value.length; i++) {
+        let elem = teArea.value[i];
+        g('textWordCounter').innerText = `Words: ${wordCounter},`;
+        if(elem === ' '){
+            //word counter
+            wordCounter++;
+            g('textWordCounter').innerText = `Words: ${wordCounter},`;
+        }
+    }
+    g('filesUploadedText').innerText = `Files Uploaded: ${filesUploaded},`;
+    g('docTitleInfoText').innerText = `Document Title: ${docTitle},`;
     openTextPW(infoPW);
 }
 teInfoBackSVG.onclick = () => {
