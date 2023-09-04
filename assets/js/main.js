@@ -661,18 +661,14 @@ fontSizeSVG.onclick = () => {
 }
 teInfoSVG.onclick = () => {
     let wordCounter = 1;
-    g('textWordCounter').innerText = `Words: 0,`
+    g('textWordCounter').innerText = `Words: 0,`;
     for (let i = 0; i < teArea.value.length; i++) {
+        
         let elem = teArea.value[i];
         g('textWordCounter').innerText = `Words: ${wordCounter},`;
         if(elem === ' '){
-            if(teArea.value.length === i){
-                g('textWordCounter').innerText = `Words: ${wordCounter},`;
-
-            }else{
                 wordCounter++;
                 g('textWordCounter').innerText = `Words: ${wordCounter},`;
-            }
         }
     }
     g('filesUploadedText').innerText = `Files Uploaded: ${filesUploaded},`;
