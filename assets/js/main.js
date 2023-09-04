@@ -663,12 +663,17 @@ teInfoSVG.onclick = () => {
     let wordCounter = 1;
     g('textWordCounter').innerText = `Words: 0,`;
     for (let i = 0; i < teArea.value.length; i++) {
-        
         let elem = teArea.value[i];
         g('textWordCounter').innerText = `Words: ${wordCounter},`;
-        if(elem === ' '){
-                wordCounter++;
+        if(teArea.value.length === i){
+            if(elem === ' '){
                 g('textWordCounter').innerText = `Words: ${wordCounter},`;
+               }
+        }else{
+            if(elem === ' '){
+                    wordCounter++;
+                    g('textWordCounter').innerText = `Words: ${wordCounter},`;
+            }
         }
     }
     g('filesUploadedText').innerText = `Files Uploaded: ${filesUploaded},`;
