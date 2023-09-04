@@ -613,8 +613,24 @@ b {
     font-weight: bolder;
 }
 div#textInfoBackSVG {
+    align-self: normal;
     cursor: pointer;
     position: relative;
-    right: 5px;
+    left: 5px;
     top: 5px;
+    display: flex;
+    justify-content: normal;
+}
+#textInfoPopupWindow{
+    background: black;
+    z-index: 9999999999999999999999999999999999999999999;
+    height: 200px;
+    width: 400px;
+    border-radius: 15px;
+    position: absolute;
+    display: flex;
+    top: calc(50% - 100px);
+    left: calc(50% - 200px);
+    flex-direction: column;
+    align-items: center;
 }
