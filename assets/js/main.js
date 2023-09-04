@@ -661,11 +661,8 @@ fontSizeSVG.onclick = () => {
 }
 teInfoSVG.onclick = () => {
     let wordCounter = 1;
+    g('textWordCounter').innerText = `Words: 0,`
     for (let i = 0; i < teArea.value.length; i++) {
-        if(teArea.value.length === 0){
-            
-            g('textWordCounter').innerText = `Words: 0,`
-        }
         let elem = teArea.value[i];
         g('textWordCounter').innerText = `Words: ${wordCounter},`;
         if(elem === ' '){
