@@ -679,7 +679,7 @@ teInfoSVG.onclick = () => {
         }
     }
     g('filesUploadedText').innerText = `Files Uploaded: ${filesUploaded},`;
-    g('docTitleInfoText').innerText = `Document Title: "${docTitle}"`;
+    g('docTitleInfoText').innerText = `Document Title: "${docTitle}".`;
     openTextPW(infoPW);
 }
 teInfoBackSVG.onclick = () => {
