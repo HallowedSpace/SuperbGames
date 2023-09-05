@@ -646,15 +646,17 @@ div#expWindow {
     position: fixed;
     height: 100vh;
     width: 90%;
-    background: #272121;
+    background: #1a1717;
     top: 0;
     right: 5%;
     z-index: 999999;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 div#currentVersion {
-    position: relative;
+    position: absolute;
     top: 5px;
     left: 5px;
     padding: 10px;
@@ -664,4 +666,20 @@ div#currentVersion {
     display: flex;
     align-items: center;
     font-family: monospace;
+}
+div#expLocked {
+    position: relative;
+    background: black;
+    padding: 200px;
+    border-radius: 50px;
+    cursor: not-allowed;
+    margin-top: 30px;
+}
+div#expLockedHeader {
+    position: relative;
+    top: 10px;
+    font-size: 30px;
+    color: white;
+    font-family: trebuchet ms;
+    vertical-align: middle;
 }
