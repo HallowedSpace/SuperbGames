@@ -373,6 +373,14 @@ let gIcon = g('activitesIcon');
 
 //expApp
 let expIcon = g('experimentsIcon');
+let expAppBack = g('expAppBack');
+
+expIcon.onclick = () => {
+    openApp("expApp");
+}
+expAppBack.onclick = () => {
+    closeApp("expApp");
+}
 
 //cApp
 let cIcon = g('cloakIcon');
