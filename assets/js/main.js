@@ -19,6 +19,9 @@ function inIframe () {
     }
 }
 //variables 'n stuff
+//version
+const version = "Dev Build";
+
 //stage1
 let article_S1 = g('article-stage1');
 let topbar_S1 = g('topbar-stage1');
