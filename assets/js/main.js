@@ -323,7 +323,7 @@ function closeApp(appName) {
         console.error(err);
     }
 }
-//app icons
+//app handling
 
 //dev app
 let devIcon = g('devIcon');
@@ -371,12 +371,18 @@ filterIcon.onclick = () => {
         f6Rw6.document.head.insertAdjacentHTML("afterbegin",`<link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">`);
     }
 }
-//gApp
+//=gApp=
+//
 let gIcon = g('activitesIcon');
 
-//expApp
+//=expApp=
+//
 let expIcon = g('experimentsIcon');
 let expAppBack = g('expAppBack');
+let currVersion = g('currentVersion');
+
+//version (will be remade later on because i have an idea in mind)
+currVersion.innerText = version;
 
 expIcon.onclick = () => {
     openApp("expApp");
