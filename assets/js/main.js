@@ -22,29 +22,46 @@ function inIframe () {
         return true;
     }
 }
-//variables 'n stuff
 //version
-function checkVersion(){
-    fetch("https://cdn.jsdelivr.net/gh/hallowedspace/SuperbGames@latest/assets/txt/version.txt")
-   .then(response => response.text())
-   .then((response) => {
-       if(response != currentVersion){
-        console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
-       }
-   })
-   .catch((err) => {
-    console.log(`%cRan into error fetching version: ${err}, Switching to backup to fetch version.`, "color: red; font-size: 20px;background:black;");
-    fetch("https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt")
-   .then(response => response.text())
-   .then((response) => {
-       if(response != currentVersion){
-        console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
-       }
-   })
-   .catch(err => console.log(`Ran into error fetching version from backup: '${err}'`))
-})
+//this hurts but i have no choice
+function fetchVersion(){
+    try {
+        fetch("https://cdn.jsdelivr.net/gh/hallowedspace/SuperbGames@latest/assets/txt/version.txt")
+        .then(response => response.text())
+        .then((response) => {
+            if(response != currentVersion){
+             console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
+            }
+        })
+        .catch((err) => {
+         console.log(`%cRan into error fetching version: ${err}, Switching to backup to fetch version.`, "color: red; font-size: 20px;background:black;");
+         fetch("https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt")
+        .then(response => response.text())
+        .then((response) => {
+            if(response != currentVersion){
+             console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
+            }
+        })
+        .catch(err => console.log(`Ran into error fetching version from backup: '${err}'`))
+     })
+    }catch (error) {
+        try {
+            console.log(`%cRan into error fetching version: ${error}, Switching to backup to fetch version.`, "color: red; font-size: 20px;background:black;");
+         fetch("https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt")
+        .then(response => response.text())
+        .then((response) => {
+            if(response != currentVersion){
+             console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
+            }
+        })
+        .catch(err => console.log(`Ran into error fetching version from backup: '${err}'`))
+        } catch (error2) {
+            console.log(`Ran into error fetching version from backup: '${err}'`);
+        }
+        
+    }
 }
-checkVersion();
+fetchVersion();
 //stage1
 let article_S1 = g('article-stage1');
 let topbar_S1 = g('topbar-stage1');
