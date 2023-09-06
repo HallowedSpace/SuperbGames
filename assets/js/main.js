@@ -405,7 +405,7 @@ let expAppBack = g('expAppBack');
 let currVersion = g('currentVersion');
 
 //version (will be remade later on because i have an idea in mind)
-currVersion.innerText = version;
+currVersion.innerText = versionCurrent;
 
 expIcon.onclick = () => {
     openApp("expApp");
