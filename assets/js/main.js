@@ -1,5 +1,7 @@
 // hi welcome to my script it may be garbage but i am stupid so ignore
 //anyway i added comments so you know the method to my madness
+console.log(`%cHello and welcome to the console!`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius: 15px;");
+console.log(`%cIf you've entered this somehow, get trolled lol.`, "color:red; padding: 20px; background: black; font-size: 50px; border-radius: 15px;");
 
 const version = "dev build"; //version
 //GEBI (get element by id)
@@ -22,16 +24,18 @@ function inIframe () {
 //variables 'n stuff
 //version
 function checkVersion(){
-    fetch('https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt')
+    //cdn should be unguarded by pro_xee
+    fetch('https://cdn.jsdelivr.net/gh/hallowedspace/SuperbGames@latest/assets/txt/version.txt')
     .then((e) => {
-        let updatedVersion = e;
+        let updatedVersion = e.text();
         console.log(updatedVersion);
         if(updatedVersion != version){
-
+            console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px;");
         }
     })
+    .catch((err) => {console.error(`Ran into error fetching version: ${err}`)})
 }
-
+checkVersion();
 //stage1
 let article_S1 = g('article-stage1');
 let topbar_S1 = g('topbar-stage1');
