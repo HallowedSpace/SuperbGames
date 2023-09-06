@@ -695,3 +695,38 @@ div#versionWarningPopup {
     align-items: center;
     cursor: pointer;
 }
+div#mainWindowVersionWarning {
+    width: 50%;
+    height: 25%;
+    z-index: 99999;
+    position: fixed;
+    background: #1a1a1a;
+    border-radius: 15px;
+    box-shadow: inset 10px -10px rgba(0,0,0,.2);
+    top: calc(50% - 12.5%);
+    left: calc((75% / 2) - 12.5%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#shadowWindowVersionWarning {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background: #000000c9;
+    z-index: 9999;
+}
+
+div#versionWarningText {
+    margin: 30px;
+    font-size: 25px;
+}
+
+div#versionWarningWinClose {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}

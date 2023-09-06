@@ -26,6 +26,7 @@ const versionCurrent = 'dev build';//version
 let versionWarningWin = g('versionWarningWindow');
 let versionWarningPopup = g('versionWarningPopup');
 let versionWarningWinClose = g('versionWarningWinClose');
+let versionWarningText = g('versionWarningText');
 function versionWarningPopupOpen() {
     versionWarningPopup.style.display = "flex";
 }
@@ -38,6 +39,13 @@ function versionWarningWindowOpen() {
 function versionWarningWindowClose() {
     versionWarningWin.style.display = "none";
 }
+versionWarningPopup.onclick = () => {
+    versionWarningPopupClose();
+    versionWarningWindowOpen();
+}
+versionWarningWinClose.onclick = () => {
+    versionWarningWindowClose();
+}
 function fetchVersion(){
     try {
         fetch("https://cdn.jsdelivr.net/gh/hallowedspace/SuperbGames@latest/assets/txt/version.txt")
@@ -46,7 +54,8 @@ function fetchVersion(){
             if(response === currentVersion){
                 console.log(`%cVersion is up to date.`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
             }else{
-                
+                versionWarningPopupOpen();
+                versionWarningText.innerHTML = `Site Version is not up to date.<br>If you have deployed this site, please sync it to the newest version. <br> The current version is "${versionCurrent}", whilst the newest version is "${response}".`;
             }
         })
         .catch((err) => {
@@ -57,10 +66,15 @@ function fetchVersion(){
             if(response === currentVersion){
              console.log(`%cVersion is up to date.`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
             }else{
-
+                versionWarningPopupOpen();
+                versionWarningText.innerHTML = `Site Version is not up to date.<br>If you have deployed this site, please sync it to the newest version. <br> The current version is "${versionCurrent}", whilst the newest version is "${response}".`;
             }
         })
-        .catch(err => console.log(`Ran into error fetching version from backup: '${err}'`))
+        .catch(err => {
+            console.log(`Ran into error fetching version from backup: '${err}'`);
+            versionWarningPopupOpen();
+            versionWarningText.innerHTML = `Had a problem fetching the version. Please check the console.`;
+    })
      })
     }catch (error) {
         try {
@@ -68,13 +82,22 @@ function fetchVersion(){
          fetch("https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt")
         .then(response => response.text())
         .then((response) => {
-            if(response != currentVersion){
-             console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
+            if(response === currentVersion){
+                console.log(`%cVersion is up to date.`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
+            }else{
+                versionWarningPopupOpen();
+                versionWarningText.innerHTML = `Site Version is not up to date.<br>If you have deployed this site, please sync it to the newest version. <br> The current version is "${versionCurrent}", whilst the newest version is "${response}".`;
             }
         })
-        .catch(err => console.log(`Ran into error fetching version from backup: '${err}'`))
+        .catch(err => {
+            console.log(`Ran into error fetching version from backup: '${err}'`)
+            versionWarningPopupOpen();
+            versionWarningText.innerHTML = `Had a problem fetching the version. Please check the console.`;
+        })
         } catch (error2) {
             console.log(`Ran into error fetching version from backup: '${err}'`);
+            versionWarningPopupOpen();
+            versionWarningText.innerHTML = `Had a problem fetching the version. Please check the console.`;
         }
         
     }
