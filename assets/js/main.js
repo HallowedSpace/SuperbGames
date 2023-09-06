@@ -3,7 +3,8 @@
 console.log(`%cHello and welcome to the console!`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius: 15px;");
 console.log(`%cIf you've entered this somehow, get trolled lol.`, "color:red; padding: 20px; background: black; font-size: 50px; border-radius: 15px;");
 
-const version = "dev build"; //version
+const versionCurrent = 'dev build';//version
+
 //GEBI (get element by id)
 function g(e){
     let o = document.getElementById(e);
@@ -24,16 +25,24 @@ function inIframe () {
 //variables 'n stuff
 //version
 function checkVersion(){
-    //cdn should be unguarded by pro_xee
-    fetch('https://cdn.jsdelivr.net/gh/hallowedspace/SuperbGames@latest/assets/txt/version.txt')
-    .then((e) => {
-        let updatedVersion = e.text();
-        console.log(updatedVersion);
-        if(updatedVersion != version){
-            console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px;");
-        }
-    })
-    .catch((err) => {console.error(`Ran into error fetching version: ${err}`)})
+    fetch("https://cdn.jsdelivr.net/gh/hallowedspace/SuperbGames@latest/assets/txt/version.txt")
+   .then(response => response.text())
+   .then((response) => {
+       if(response != currentVersion){
+        console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
+       }
+   })
+   .catch((err) => {
+    console.log(`%cRan into error fetching version: ${err}, Switching to backup to fetch version.`, "color: red; font-size: 20px;background:black;");
+    fetch("https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt")
+   .then(response => response.text())
+   .then((response) => {
+       if(response != currentVersion){
+        console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
+       }
+   })
+   .catch(err => console.log(`Ran into error fetching version from backup: '${err}'`))
+})
 }
 checkVersion();
 //stage1
