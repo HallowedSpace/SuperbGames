@@ -694,6 +694,7 @@ div#versionWarningPopup {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    z-index: 99;
 }
 div#mainWindowVersionWarning {
     width: 50%;
