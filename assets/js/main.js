@@ -1,9 +1,7 @@
 // hi welcome to my script it may be garbage but i am stupid so ignore
 //anyway i added comments so you know the method to my madness
 console.log(`%cHello and welcome to the console!`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius: 15px;");
-console.log(`%cIf you've entered this somehow, get trolled lol.`, "color:red; padding: 20px; background: black; font-size: 50px; border-radius: 15px;");
-
-const versionCurrent = 'dev build';//version
+console.log(`%cIf you are trying to inject some funny scripts, then good for you.`, "color:blue; padding: 20px; background: black; font-size: 30px; border-radius: 15px;");
 
 //GEBI (get element by id)
 function g(e){
@@ -24,13 +22,31 @@ function inIframe () {
 }
 //version
 //this hurts but i have no choice
+const versionCurrent = 'dev build';//version
+let versionWarningWin = g('versionWarningWindow');
+let versionWarningPopup = g('versionWarningPopup');
+let versionWarningWinClose = g('versionWarningWinClose');
+function versionWarningPopupOpen() {
+    versionWarningPopup.style.display = "flex";
+}
+function versionWarningPopupClose() {
+    versionWarningPopup.style.display = "none";
+}
+function versionWarningWindowOpen() {
+    versionWarningWin.style.display = "flex";
+}
+function versionWarningWindowClose() {
+    versionWarningWin.style.display = "none";
+}
 function fetchVersion(){
     try {
         fetch("https://cdn.jsdelivr.net/gh/hallowedspace/SuperbGames@latest/assets/txt/version.txt")
         .then(response => response.text())
         .then((response) => {
-            if(response != currentVersion){
-             console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
+            if(response === currentVersion){
+                console.log(`%cVersion is up to date.`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
+            }else{
+                
             }
         })
         .catch((err) => {
@@ -38,8 +54,10 @@ function fetchVersion(){
          fetch("https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt")
         .then(response => response.text())
         .then((response) => {
-            if(response != currentVersion){
-             console.log(`%cVersion isn't up to date.`, "color:red; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
+            if(response === currentVersion){
+             console.log(`%cVersion is up to date.`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
+            }else{
+
             }
         })
         .catch(err => console.log(`Ran into error fetching version from backup: '${err}'`))

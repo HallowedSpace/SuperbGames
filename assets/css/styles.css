@@ -683,3 +683,15 @@ div#expLockedHeader {
     font-family: trebuchet ms;
     vertical-align: middle;
 }
+div#versionWarningPopup {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background: black;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
