@@ -1,6 +1,7 @@
 // hi welcome to my script it may be garbage but i am stupid so ignore
 //anyway i added comments so you know the method to my madness
 
+const version = "dev build"; //version
 //GEBI (get element by id)
 function g(e){
     let o = document.getElementById(e);
@@ -20,7 +21,16 @@ function inIframe () {
 }
 //variables 'n stuff
 //version
-const version = "Dev Build";
+function checkVersion(){
+    fetch('https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt')
+    .then((e) => {
+        let updatedVersion = e;
+        console.log(updatedVersion);
+        if(updatedVersion != version){
+
+        }
+    })
+}
 
 //stage1
 let article_S1 = g('article-stage1');
