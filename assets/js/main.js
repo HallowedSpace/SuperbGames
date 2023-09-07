@@ -1,7 +1,7 @@
 // hi welcome to my script it may be garbage but i am stupid so ignore
 //anyway i added comments so you know the method to my madness
 console.log(`%cHello and welcome to the console!`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius: 15px;");
-console.log(`%cIf you are trying to inject some funny scripts, then good for you.`, "color:blue; padding: 20px; background: black; font-size: 30px; border-radius: 15px;");
+console.log(`%cIf you understand what you are doing, come work with us here at "https://discord.gg/ubACu5WEMy".`, "color:green; padding: 20px; background: black; font-size: 30px; border-radius: 15px;");
 
 //GEBI (get element by id)
 function g(e){
@@ -22,7 +22,7 @@ function inIframe () {
 }
 //version
 //this hurts but i have no choice
-const versionCurrent = 'dev build';//version
+let versionCurrent = 'dev build'; //version
 let versionWarningWin = g('versionWarningWindow');
 let versionWarningPopup = g('versionWarningPopup');
 let versionWarningWinClose = g('versionWarningWinClose');
