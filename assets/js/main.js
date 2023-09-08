@@ -22,7 +22,7 @@ function inIframe () {
 }
 //version
 //this hurts but i have no choice
-let versionCurrent = '0.0.1'; //version
+let versionCurrent = 'dev build (unstable)'; //version
 let versionWarningWin = g('versionWarningWindow');
 let versionWarningPopup = g('versionWarningPopup');
 let versionWarningWinClose = g('versionWarningWinClose');
@@ -51,7 +51,7 @@ function fetchVersion(){
         fetch("https://cdn.jsdelivr.net/gh/hallowedspace/SuperbGames@latest/assets/txt/version.txt")
         .then(response => response.text())
         .then((response) => {
-            if(response === currentVersion){
+            if(response === versionCurrent){
                 console.log(`%cVersion is up to date.`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
             }else{
                 versionWarningPopupOpen();
@@ -63,7 +63,7 @@ function fetchVersion(){
          fetch("https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt")
         .then(response => response.text())
         .then((response) => {
-            if(response === currentVersion){
+            if(response === versionCurrent){
              console.log(`%cVersion is up to date.`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
             }else{
                 versionWarningPopupOpen();
@@ -82,7 +82,7 @@ function fetchVersion(){
          fetch("https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt")
         .then(response => response.text())
         .then((response) => {
-            if(response === currentVersion){
+            if(response === versionCurrent){
                 console.log(`%cVersion is up to date.`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius:15px;");
             }else{
                 versionWarningPopupOpen();
@@ -460,7 +460,7 @@ let gIcon = g('activitesIcon');
 //
 let expIcon = g('experimentsIcon');
 let expAppBack = g('expAppBack');
-let currVersion = g('currentVersion');
+let currVersion = g('versionCurrent');
 
 //version (will be remade later on because i have an idea in mind)
 currVersion.innerText = versionCurrent;
