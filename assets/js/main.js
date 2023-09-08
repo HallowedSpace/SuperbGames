@@ -22,7 +22,7 @@ function inIframe () {
 }
 //version
 //this hurts but i have no choice
-let versionCurrent = 'dev build (unstable)'; //version
+let versionCurrent = 'dev build'; //version
 let versionWarningWin = g('versionWarningWindow');
 let versionWarningPopup = g('versionWarningPopup');
 let versionWarningWinClose = g('versionWarningWinClose');
