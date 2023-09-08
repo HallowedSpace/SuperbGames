@@ -628,7 +628,7 @@ div#textInfoBackSVG {
     height: 200px;
     width: 400px;
     border-radius: 15px;
-    position: absolute;
+    position: fixed;
     display: flex;
     top: calc(50% - 100px);
     left: calc(50% - 200px);
