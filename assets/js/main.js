@@ -460,7 +460,7 @@ let gIcon = g('activitesIcon');
 //
 let expIcon = g('experimentsIcon');
 let expAppBack = g('expAppBack');
-let currVersion = g('versionCurrent');
+let currVersion = g('currentVersion');
 
 //version (will be remade later on because i have an idea in mind)
 currVersion.innerText = versionCurrent;
