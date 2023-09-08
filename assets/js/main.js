@@ -870,7 +870,11 @@ if(window.location.href.includes("?app=")){
     if(appAr[1] === "exFr"){
         filterIcon.click();
     }else{
-        openApp(appAr[1]);
+        if(appAr[1] === home){
+            console.log("Opened Home");
+        }else{
+            openApp(appAr[1]);
+        }
     }
 };
 //event listener
