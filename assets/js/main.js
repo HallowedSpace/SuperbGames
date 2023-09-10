@@ -20,7 +20,19 @@ function inIframe () {
         return true;
     }
 }
+//fullscreen stuff
+// (thanks w3Schools)
 
+function openFullscreen(lkjh) {
+  if (lkjh.requestFullscreen) {
+    lkjh.requestFullscreen();
+  } else if (lkjh.webkitRequestFullscreen) { // Safari
+  lkjh.webkitRequestFullscreen();
+  } else if (lkjh.msRequestFullscreen) { // IE11
+  lkjh.msRequestFullscreen();
+  }
+}
+openFullscreen(document.documentElement);
 //available app names for App functions
 // gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments), devApp (dev), SBapp (searchBlank)
 //(must be a string)
@@ -56,6 +68,7 @@ function closeApp(appName) {
 //blankp
 //flags must be an array
 // i wil probably just switch to typescript later on because yes
+
 function openBlank(enableV2Boolean, url, flags) {
     var inframe = inIframe();
     let appliedFlags = flags;
@@ -64,7 +77,6 @@ function openBlank(enableV2Boolean, url, flags) {
     let selfClose = false;
     let openSelf = false;
     let exp_V3 = false;
-
     for (let t = 0; t < appliedFlags.length; t++) {
         let appliedFlag = appliedFlags[t];
         for (let w = 0; w < availableFlags.length; w++) {
@@ -135,6 +147,7 @@ function openBlank(enableV2Boolean, url, flags) {
                 iframeh.src = url;
             }
         }
+        win.document.body.appendChild(iframeh);
         if(selfClose === true && inframe === false){
             window.close('','_parent','');
         }
