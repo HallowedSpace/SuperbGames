@@ -282,7 +282,9 @@ let settingsOpen = 0;
 //==app variables==
 //
 
-//
+//ab search variables
+let sbIcon = g('searchBlankIcon');
+let sbBack = g('sbBack');
 
 //dev variables
 let devIcon = g('devIcon');
@@ -874,6 +876,13 @@ teInfoSVG.onclick = () => {
 teInfoBackSVG.onclick = () => {
     closeTextPW(infoPW);
 }
+//sbApp handling
+sbIcon.onclick = () => {
+    openApp("sbApp");
+}
+sbBack.onclick = () => {
+    closeApp("sbApp");
+}
 
 //==important stuff==
 //
@@ -898,6 +907,7 @@ document.addEventListener('mousemove', (w) => {
     let hoveredExp = isHover(expIcon);
     let hoveredC = isHover(cIcon);
     let hoveredEdit = isHover(textIcon);
+    let hoveredSB = isHover(sbIcon);
     let hoveredNone = 0;
 
     //if statements that hurt my brain but i dont feel like using jQuery or any other alternative lmao
@@ -950,7 +960,14 @@ document.addEventListener('mousemove', (w) => {
       }else{
         hoveredNone++;
       };
-      if(hoveredNone === 7){
+      if (hoveredSB === true) {
+        appSelector.style.display = "block";
+        appSelector.innerText = "About:Blank Creator";
+        hoveredNone = 0;
+      }else{
+        hoveredNone++;
+      };
+      if(hoveredNone === 8){
         appSelector.innerText === ''
         appSelector.style.display = "none";
         hoveredNone = 0;
