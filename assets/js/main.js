@@ -20,6 +20,162 @@ function inIframe () {
         return true;
     }
 }
+
+//available app names for App functions
+// gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments), devApp (dev), SBapp (searchBlank)
+//(must be a string)
+// (exFr app is to be used only for pre-open)
+
+//App functions
+function openApp(appName) {
+    let app = g(appName);
+    if(appName === "textEdApp"){
+            textOpen = true;
+            teArea.focus();
+    }
+    try {
+        app.style.display = "flex";
+        setTimeout(() => {
+            app.style.opacity = 1;
+        }, 0);
+    } catch (err) {
+        console.error(err);
+    }
+};
+function closeApp(appName) {
+    let app = g(appName);
+    try {
+        app.style.opacity = 0;
+        setTimeout(() => {
+           app.style.display = "none";
+        }, 601);
+    } catch (err) {
+        console.error(err);
+    }
+}
+//blankp
+//flags must be an array
+// i wil probably just switch to typescript later on because yes
+function openBlank(enableV2Boolean, url, flags) {
+    var inframe = inIframe();
+    let appliedFlags = flags;
+    //flags
+    let availableFlags = ["selfClose", "openSelf"];
+    let selfClose = false;
+    let openSelf = false;
+    let exp_V3 = false;
+
+    for (let t = 0; t < appliedFlags.length; t++) {
+        let appliedFlag = appliedFlags[t];
+        for (let w = 0; w < availableFlags.length; w++) {
+            let comparationFlag = availableFlags[w];
+            if(comparationFlag === appliedFlag){
+                if (appliedFlag.includes("selfClose")) {
+                    selfClose = true;
+                } else {
+                    if (appliedFlag.includes("openSelf")) {
+                        openSelf = true;
+                    }
+                }
+            }
+        }
+        
+    }
+    if (enableV2Boolean === true) {            
+        var win;
+        win = window.open();
+        win.document.body.style.margin = '0';
+        win.document.body.style.height = '100vh';
+        var iframeh = win.document.createElement('iframe');
+        iframeh.style.border = 'none';
+        iframeh.style.width = '100%';
+        iframeh.style.height = '100%';
+        iframeh.style.margin = '0';
+        if(url.startsWith("https://") || url.startsWith("http://") || url.startsWith("data:text/html;") || url === ("about:blank")){
+            iframeh.src = url;
+        }else{
+            if (openSelf === true && inframe === false) {
+                iframeh.src = window.location.href;
+            } else {
+                url = "https://" + url;
+                iframeh.src = url;
+            }
+        }        
+        win.document.body.appendChild(iframeh);
+        var div = document.createElement('div');
+        div.innerHTML = '<div id="link">🔗</div><div id="popup"><input id="popupInput" value="" placeholder="Put Link Here." autocomplete="on" type="text" autofocus/><button id="popupButton" role="button">Go to URL</button></div>'
+        win.document.body.appendChild(div);
+        var script = document.createElement("script");
+        script.innerHTML = 'var url=document.getElementById("popupInput");document.getElementById("popupButton").onclick=function(){"https://"!==url.value.substring(0,8)&&"http://"!==url.value.substring(0,7)?url.value="https://"+url.value.split("https://").pop():"http://"==url.value.substring(0,7)&&(url.value="https://"+url.value.split("http://").pop()),document.getElementsByTagName("iframe")[0].src=url.value};let i=0;var popup=document.getElementById("popup");document.getElementById("link").onclick=function(){0===i?(popup.style.visibility="visible",i++):(popup.style.visibility="hidden",i=0)};'
+        win.document.body.appendChild(script);
+        var style = document.createElement('style')
+        style.innerHTML = "#popup,input{border-radius:30px}#link,#popup{position:absolute;right:10px;bottom:10px;display:grid}#popupButton,input{font-family:trebuchet MS}#link{height:50px;width:50px;border-radius:50%;background:rgb(0,0,0);text-align:center;justify-items:stretch;align-items:center;font-size:30px;z-index:999999999999999999}#link:hover{transform:translateY(-3px);cursor:pointer}#popup{visibility:hidden;z-index:1000000;background:#161616;border:2px solid #0a0a0a;width:50%;height:15%;align-content:center}input{width:98%;margin:5px 0;border:3px solid #000;color:#000;padding:12px 20px;box-sizing:border-box}#popupButton{border-radius:30px;background:#101010;border:3px solid #070707;width:150px;height:30px;cursor:pointer;text-align:center;filter:drop-shadow(-1px 13px 4px #000);color:#fff;margin:10px}#popupButton:hover{transform:translateY(-2px);filter:drop-shadow(-1px 15px 4px #000)}#popupButton:active{transform:translateY(2px);filter:drop-shadow(-1px 11px 4px #000)}"
+        win.document.body.appendChild(style);
+        win.document.head.insertAdjacentHTML("afterbegin","<link rel=\"shortcut icon\" href=\"https://ssl.gstatic.com/classroom/favicon.png\" type=\"image/x-icon\"><title>Classes</title>");
+        if(selfClose === true && inframe === false){
+            window.close('','_parent','');
+        }
+    }else{
+        var win;
+        win = window.open();
+        win.document.body.style.margin = '0';
+        win.document.body.style.height = '100vh';
+        var iframeh = win.document.createElement('iframe');
+        iframeh.style.border = 'none';
+        iframeh.style.width = '100%';
+        iframeh.style.height = '100%';
+        iframeh.style.margin = '0';
+        if(url.startsWith("https://") || url.startsWith("http://") || url.startsWith("data:text/html;") || url === ("about:blank")){
+            iframeh.src = url;
+        }else{
+            if (openSelf === true && inframe === false) {
+                iframeh.src = window.location.href;
+            } else {
+                url = "https://" + url;
+                iframeh.src = url;
+            }
+        }
+        if(selfClose === true && inframe === false){
+            window.close('','_parent','');
+        }
+    }
+}
+//functions
+function saveTextAsFile() {
+    var textToWrite = teArea.value;
+    console.log(textToWrite);
+    var textFileAsBlob = new Blob([ textToWrite ], { type: 'text/plain' });
+    console.log(textFileAsBlob);
+    var fileNameToSaveAs = `${docTitle}.txt`;
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    if (window.webkitURL != null) {
+      downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    } else {
+      downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+      downloadLink.onclick = destroyClickedElement();
+      downloadLink.style.display = "none";
+      document.body.appendChild(downloadLink);
+    }
+    downloadLink.click();
+  }
+  function destroyClickedElement(event) {
+    document.body.removeChild(event.target);
+  }
+  function TextPopupBar(text) {
+    tePopupBar.innerText = text;
+    tePopupBar.style.top = "10px";
+    setTimeout(() => {
+        tePopupBar.style.top = "-100px";
+    }, 3000);
+  }
+  function openTextPW(windowElement) {
+    windowElement.style.display = "flex";
+  }
+  function closeTextPW(windowElement) {
+    windowElement.style.display = "none";
+  }
 //version
 //this hurts but i have no choice
 let versionCurrent = 'dev build'; //version
@@ -122,7 +278,61 @@ var infoPopup = g('infoContainer');
 //other
 let infoOpen = false;
 let settingsOpen = 0;
-//cloak
+
+//==app variables==
+//
+
+//
+
+//dev variables
+let devIcon = g('devIcon');
+
+//gApp variables
+let gIcon = g('activitesIcon');
+
+//exp app variables
+let expIcon = g('experimentsIcon');
+let expAppBack = g('expAppBack');
+let currVersion = g('currentVersion');
+
+//clo Variables
+let cIcon = g('cloakIcon');
+let cBack = g('cBack');
+let cButton = g('cloakButton');
+let titleInput = g('titleInput');
+let faviconInput = g('faviconInput');
+
+// text editor variables
+const invalidChars = ["/", "\\", "<", ">", ":", "?", "~", "|"];
+let textIcon = g('textEDIcon');
+let teBack = g('textBack');
+let teArea = g('TextEditor');
+let tePopupBar = g('textPopupBar');
+let teToolbar = g('textToolbar');
+let docTitle = "text";
+let textOpen = false;
+let clearText = g("clearTextSVG");
+let docTitleSVG = g("docTitleSVG");
+let uploadFileInp = g('uploadFileSVG');
+let downloadDocSVG = g('downloadDocSVG');
+let textAlignSVG = g('textAlignSVG');
+let textAlignCurrent = 0;
+let fontSizeSVG = g('fontSizeSVG');
+let teInfoSVG = g('textInfoSVG');
+let teInfoBackSVG = g('textInfoBackSVG');
+let docTitlePW = g('docTitlePopupWindow');
+let docTitleInput = g('docTitleInput');
+let docTitleSubmitButton = g('submitDocTitle');
+let docTitleCancelButton = g('cancelDocTitle');
+let infoPW = g('infoTextPopupWindow');
+
+//code executor
+let JSIcon = g('JSexIcon');
+let JSback = g('codeExArrow');
+let codeInput = g('codeInput');
+let executeBtn = g('executeCodeButton');
+
+//abC-LocalStorage variables
 let cloakTitle = localStorage.getItem("cloakTitle");
 let cloakFavicon = localStorage.getItem("cloakFavicon");
 let favicon = document.querySelector("link[rel='shortcut icon']");
@@ -130,6 +340,7 @@ let atr = localStorage.getItem("antiTab");
 let abCloaked = localStorage.getItem("abCloaked");
 let abTog = g('abToggle');
 let atTog = g('atToggle');
+//ab handling
 if (abCloaked != 'true') {
     if(atr === 'true'){
         atTog.checked = "true";
@@ -366,54 +577,15 @@ info.onclick = () => {
     infoOpen = true;
 };
 
+//===APP HANDLING===
+//variables at lines 282-350 (ctrl + g)
+
+//jsExec (like 3 lines of code lol)
 exitInfo.onclick = () => {
     infoPopup.style.display = "none";
     infoOpen = false;
 }
-//==APPS==
 
-//available app names for App functions
-// gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments), devApp (dev)
-//(must be a string)
-// (exFr app is to be used only for pre-open)
-
-//App functions
-function openApp(appName) {
-    let app = g(appName);
-    if(appName === "textEdApp"){
-            textOpen = true;
-            teArea.focus();
-    }
-    try {
-        app.style.display = "flex";
-        setTimeout(() => {
-            app.style.opacity = 1;
-        }, 0);
-    } catch (err) {
-        console.error(err);
-    }
-};
-function closeApp(appName) {
-    let app = g(appName);
-    try {
-        app.style.opacity = 0;
-        setTimeout(() => {
-           app.style.display = "none";
-        }, 601);
-    } catch (err) {
-        console.error(err);
-    }
-}
-//app handling
-
-//dev app
-let devIcon = g('devIcon');
-
-//code executor
-let JSIcon = g('JSexIcon');
-let JSback = g('codeExArrow');
-let codeInput = g('codeInput');
-let executeBtn = g('executeCodeButton');
 JSIcon.onclick = () => {
     openApp("codeExApp");
 };
@@ -452,19 +624,8 @@ filterIcon.onclick = () => {
         f6Rw6.document.head.insertAdjacentHTML("afterbegin",`<link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">`);
     }
 }
-//=gApp=
-//
-let gIcon = g('activitesIcon');
-
 //=expApp=
-//
-let expIcon = g('experimentsIcon');
-let expAppBack = g('expAppBack');
-let currVersion = g('currentVersion');
-
-//version (will be remade later on because i have an idea in mind)
 currVersion.innerText = versionCurrent;
-
 expIcon.onclick = () => {
     openApp("expApp");
 }
@@ -473,12 +634,6 @@ expAppBack.onclick = () => {
 }
 
 //cApp
-let cIcon = g('cloakIcon');
-let cBack = g('cBack');
-let cButton = g('cloakButton');
-let titleInput = g('titleInput');
-let faviconInput = g('faviconInput');
-
 cIcon.onclick = () => {
     openApp("cApp");
 };
@@ -599,68 +754,6 @@ atTog.onclick = () => {
     //do nothing
 }
 }
-//=text editor=
-
-//variables
-const invalidChars = ["/", "\\", "<", ">", ":", "?", "~", "|"];
-let textIcon = g('textEDIcon');
-let teBack = g('textBack');
-let teArea = g('TextEditor');
-let tePopupBar = g('textPopupBar');
-let teToolbar = g('textToolbar');
-let docTitle = "text";
-let textOpen = false;
-let clearText = g("clearTextSVG");
-let docTitleSVG = g("docTitleSVG");
-let uploadFileInp = g('uploadFileSVG');
-let downloadDocSVG = g('downloadDocSVG');
-let textAlignSVG = g('textAlignSVG');
-let textAlignCurrent = 0;
-let fontSizeSVG = g('fontSizeSVG');
-let teInfoSVG = g('textInfoSVG');
-let teInfoBackSVG = g('textInfoBackSVG');
-//popup windows
-let docTitlePW = g('docTitlePopupWindow');
-let docTitleInput = g('docTitleInput');
-let docTitleSubmitButton = g('submitDocTitle');
-let docTitleCancelButton = g('cancelDocTitle');
-let infoPW = g('infoTextPopupWindow');
-//functions
-function saveTextAsFile() {
-    var textToWrite = teArea.value;
-    console.log(textToWrite);
-    var textFileAsBlob = new Blob([ textToWrite ], { type: 'text/plain' });
-    console.log(textFileAsBlob);
-    var fileNameToSaveAs = `${docTitle}.txt`;
-    var downloadLink = document.createElement("a");
-    downloadLink.download = fileNameToSaveAs;
-    downloadLink.innerHTML = "Download File";
-    if (window.webkitURL != null) {
-      downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
-    } else {
-      downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
-      downloadLink.onclick = destroyClickedElement();
-      downloadLink.style.display = "none";
-      document.body.appendChild(downloadLink);
-    }
-    downloadLink.click();
-  }
-  function destroyClickedElement(event) {
-    document.body.removeChild(event.target);
-  }
-  function TextPopupBar(text) {
-    tePopupBar.innerText = text;
-    tePopupBar.style.top = "10px";
-    setTimeout(() => {
-        tePopupBar.style.top = "-100px";
-    }, 3000);
-  }
-  function openTextPW(windowElement) {
-    windowElement.style.display = "flex";
-  }
-  function closeTextPW(windowElement) {
-    windowElement.style.display = "none";
-  }
 textIcon.onclick = () => {
     openApp("textEdApp");
     teArea.focus();
