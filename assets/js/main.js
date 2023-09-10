@@ -980,7 +980,7 @@ if(window.location.href.includes("?app=")){
     if(appAr[1] === "exFr"){
         filterIcon.click();
     }else{
-        if(appAr[1] === home){
+        if(appAr[1].toLowerCase === "home"){
             console.log("Opened Home");
         }else{
             openApp(appAr[1]);
