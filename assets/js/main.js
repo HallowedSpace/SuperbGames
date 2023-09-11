@@ -69,7 +69,16 @@ function closeApp(appName) {
 //flags must be an array
 // i wil probably just switch to typescript later on because yes
 
-function openBlank(enableV2Boolean, url, flags) {
+function openBlank(enableV2, url, flags) {
+    if (typeof enableV2 != boolean) {
+        return void(0);
+    }
+    if (typeof url != string) {
+        return void(0);
+    }
+    if (typeof flags != array) {
+        return void(0);
+    }
     var inframe = inIframe();
     let appliedFlags = flags;
     //flags
@@ -93,7 +102,7 @@ function openBlank(enableV2Boolean, url, flags) {
         }
         
     }
-    if (enableV2Boolean === true) {            
+    if (enableV2 === true) {            
         var win;
         win = window.open();
         win.document.body.style.margin = '0';
