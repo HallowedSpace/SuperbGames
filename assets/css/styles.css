@@ -711,7 +711,6 @@ div#mainWindowVersionWarning {
     justify-content: center;
     align-items: center;
 }
-
 div#shadowWindowVersionWarning {
     position: fixed;
     height: 100vh;
@@ -719,16 +718,97 @@ div#shadowWindowVersionWarning {
     background: #000000c9;
     z-index: 9999;
 }
-
 div#versionWarningText {
     margin: 30px;
     font-size: 25px;
 }
-
 div#versionWarningWinClose {
     position: absolute;
     right: 20px;
     top: 20px;
     cursor: pointer;
     transition: 0.5s;
+}
+div#sbAppWindow {
+    position: fixed;
+    top: calc( 50% - (90% / 2));
+    left: calc( 50% - (75% / 2));
+    height: 90%;
+    width: 75%;
+    background: black;
+    border-radius: 15px;
+    z-index: 999999;
+}
+
+div#sbAppWindow {
+    position: fixed;
+    top: calc( 50% - (90% / 2));
+    left: calc( 50% - (75% / 2));
+    height: 90%;
+    width: 75%;
+    background: black;
+    border-radius: 15px;
+    z-index: 999999;
+}
+
+div#sbAppSearchPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+input#sbAppPanelUrlInput {
+    background: black;
+    border: white solid 1px;
+    color: white;
+    border-radius: 15px;
+    width: 90%;
+    height: 50px;
+    transition: 0.5s;
+    font-family: trebuchet ms;
+        padding: 10px;
+        font-size: 20px;
+}
+
+input#sbAppPanelUrlInput:focus {
+    border: black 1px solid;
+    transition: 0.5s;
+    color: black;
+    background: white;
+    font-weight: 500;
+    font-family: trebuchet ms;
+}
+
+div#sbAppPanelSearchButton {
+    margin: 20px;
+    border: white 1px solid;
+    color: white;
+    height: 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+div#sbAppPanelSearchButton:hover {
+    border: black 1px solid;
+    color: black;
+    cursor: pointer;
+    transition: 0.7s;
+    background: white;
+    transform: rotate(2deg)
+}
+div#sbAppPanelSearchButton:active {
+    border: black 1px solid;
+    color: black;
+    cursor: pointer;
+    transition: 0.1s;
+    background: white;
+    font-size: 15px;
+    padding: 15px;
 }

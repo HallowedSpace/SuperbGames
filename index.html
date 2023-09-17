@@ -107,9 +107,7 @@
                             <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"></path>
                         </svg>
                   </div>
-                    <div id="versionWarningText">Site Version is not up to date.<br>If you have deployed this site, please sync it to the newest version.<br>
-                        The current version is "dev build", whilst the newest version is "1.0.0".
-                    </div>
+                    <div id="versionWarningText"></div>
                 </div>
                 <div id="shadowWindowVersionWarning">
                 </div>
@@ -205,6 +203,14 @@
                 <div class="themedBackground"></div>
             </div>
             <div id="sbApp" style="display: none; opacity: 0;">
+                <div id="sbAppContainer">
+                    <div id="sbAppWindow">
+                        <div id="sbAppSearchPanel">
+                            <input type="text" id="sbAppPanelUrlInput">
+                          <div id="sbAppPanelSearchButton">Open About:Blank Page</div>
+                      </div>                      
+                    </div>
+                </div>
                 <div class="backArrow" id="sbBack"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></div>
                 <div class="themedBackground"></div>
             </div>
