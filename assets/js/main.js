@@ -29,7 +29,7 @@ function getChromeVersion() {
 }
 let chromeVersion = parseInt(getChromeVersion());
 if(chromeVersion >= 115){
-    console.log(`Chrome Version 115 or Above:` + chromeVersion);
+    console.log(`Chrome Version 115 or Above: ` + chromeVersion);
 }else{
     g('filterIcon').style.display = 'none';
 }
