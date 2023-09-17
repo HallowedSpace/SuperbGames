@@ -378,10 +378,10 @@ div#textEdContainer{
     flex-direction: column;
     align-items: center;
 }
-div#cloakWindow {
+div#cloakWindow{
     background: #1a1a1a;
     width: 700px;
-    height: 700px;
+    height: 90%;
     position: fixed;
     z-index: 9999999999;
     top: 50px;

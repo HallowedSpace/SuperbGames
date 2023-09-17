@@ -22,8 +22,8 @@ function inIframe () {
 }
 //fullscreen stuff
 // (thanks w3Schools)
-
 function openFullscreen(lkjh) {
+    lkjh.click();
   if (lkjh.requestFullscreen) {
     lkjh.requestFullscreen();
   } else if (lkjh.webkitRequestFullscreen) { // Safari
