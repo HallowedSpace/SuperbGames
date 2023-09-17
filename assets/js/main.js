@@ -48,7 +48,7 @@ function openFullscreen(lkjh) {
 openFullscreen(document.documentElement);
 //available app names for App functions
 // gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments), devApp (dev), SBapp (searchBlank)
-//(must be a string)
+//(must be a string me when typescript)
 // (exFr app is to be used only for pre-open)
 
 //App functions
