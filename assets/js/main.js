@@ -20,6 +20,19 @@ function inIframe () {
         return true;
     }
 }
+//useragent version
+function getChromeVersion() {
+    if (navigator.userAgent.indexOf("Chrome") > -1) {
+        var chromeVersionofUser = navigator.userAgent.match(/Chrome\/(\d+)/)[1];
+        return chromeVersionofUser;
+      }
+}
+let chromeVersion = parseInt(getChromeVersion());
+if(chromeVersion >= 115){
+    console.log(`Chrome Version 115 or Above:` + chromeVersion);
+}else{
+    g('filterIcon').style.display = 'none';
+}
 //fullscreen stuff
 // (thanks w3Schools)
 function openFullscreen(lkjh) {
@@ -602,7 +615,7 @@ info.onclick = () => {
 };
 
 //===APP HANDLING===
-//variables at lines 282-350 (ctrl + g)
+//variables at lines 304-374 (ctrl + g)
 
 //jsExec (like 3 lines of code lol)
 exitInfo.onclick = () => {
@@ -623,7 +636,7 @@ executeBtn.onclick = () => {
         codeInput.value = error;
     }
 };
-//dextensify
+//dex_tensi-fy
 let f6Rw6;
 let filterIcon = g('filterIcon');
 filterIcon.onclick = () => {
