@@ -926,6 +926,11 @@ openBlankBtnSB.onclick = () => {
     let atrToggledBool = atrClkSwitchSB.checked;
         let win;
         win = window.open();
+        if (atrToggledBool === true) {
+            let atrScript = win.document.createElement('script');
+            atrScript.innerHTML = `window.onbeforeunload = () => {alert("hi");}`;
+            win.document.body.appendChild(atrScript);
+        }
         win.document.body.style.margin = '0';
         win.document.body.style.height = '100vh';
         let iframeh = win.document.createElement('iframe');
@@ -953,11 +958,6 @@ openBlankBtnSB.onclick = () => {
             win.document.head.insertAdjacentHTML("afterbegin","<link rel=\"shortcut icon\" href=\"https://ssl.gstatic.com/classroom/favicon.png\" type=\"image/x-icon\"><title>Classes</title>");
         }else{
             win.document.body.appendChild(iframeh);
-        }
-        if (atrToggledBool === true) {
-            let atrScript = win.document.createElement('script');
-            atrScript.innerHTML = `window.onbeforeunload = () => {alert("hi");}`;
-            win.document.body.appendChild(atrScript);
         }
 }
 //==important stuff==
