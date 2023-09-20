@@ -933,6 +933,12 @@ openBlankBtnSB.onclick = () => {
         iframeh.style.width = '100%';
         iframeh.style.height = '100%';
         iframeh.style.margin = '0';
+        if(urlInputSB.value.startsWith("https://") || urlInputSB.value.startsWith("http://") || urlInputSB.value.startsWith("data:text/html;base64,") || urlInputSB.value.startsWith("data:text/html,") || urlInputSB.value === "about:blank"){
+            iframeh.src = urlInputSB.value;
+        }else{
+            let URLSBAPPCLK = "https://" + urlInputSB.value;
+            iframeh.src = URLSBAPPCLK;
+        }
         if (v2ToggledBool === true) {
             win.document.body.appendChild(iframeh);
             var div = document.createElement('div');
