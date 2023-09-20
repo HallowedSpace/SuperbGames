@@ -956,7 +956,7 @@ openBlankBtnSB.onclick = () => {
         }
         if (atrToggledBool === true) {
             let atrScript = win.document.createElement('script');
-            atrScript.innerHTML = `window.onbeforeunload = () => {return 0;}`;
+            atrScript.innerHTML = `window.onbeforeunload = () => {alert("hi");}`;
             win.document.body.appendChild(atrScript);
         }
 }
