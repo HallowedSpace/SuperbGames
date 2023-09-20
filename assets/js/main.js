@@ -911,13 +911,49 @@ teInfoBackSVG.onclick = () => {
     closeTextPW(infoPW);
 }
 //sbApp handling
+let urlInputSB = g('sbAppPanelUrlInput');
+let openBlankBtnSB = g('sbAppPanelSearchButton');
+let v2ClkSwitchSB = g('v2ClkSwitchSB');
+let atrClkSwitchSB = g('atrClkSwitchSB');
 sbIcon.onclick = () => {
     openApp("sbApp");
 }
 sbBack.onclick = () => {
     closeApp("sbApp");
 }
-
+openBlankBtnSB.onclick = () => {
+    let v2ToggledBool = v2ClkSwitchSB.checked;
+    let atrToggledBool = atrClkSwitchSB.checked;
+        let win;
+        win = window.open();
+        win.document.body.style.margin = '0';
+        win.document.body.style.height = '100vh';
+        let iframeh = win.document.createElement('iframe');
+        iframeh.style.border = 'none';
+        iframeh.style.width = '100%';
+        iframeh.style.height = '100%';
+        iframeh.style.margin = '0';
+        if (v2ToggledBool === true) {
+            win.document.body.appendChild(iframeh);
+            var div = document.createElement('div');
+            div.innerHTML = '<div id="link">🔗</div><div id="popup"><input id="popupInput" value="" placeholder="Put Link Here." autocomplete="on" type="text" autofocus/><button id="popupButton" role="button">Go to URL</button></div>'
+            win.document.body.appendChild(div);
+            var script = document.createElement("script");
+            script.innerHTML = 'var url=document.getElementById("popupInput");document.getElementById("popupButton").onclick=function(){"https://"!==url.value.substring(0,8)&&"http://"!==url.value.substring(0,7)?url.value="https://"+url.value.split("https://").pop():"http://"==url.value.substring(0,7)&&(url.value="https://"+url.value.split("http://").pop()),document.getElementsByTagName("iframe")[0].src=url.value};let i=0;var popup=document.getElementById("popup");document.getElementById("link").onclick=function(){0===i?(popup.style.visibility="visible",i++):(popup.style.visibility="hidden",i=0)};'
+            win.document.body.appendChild(script);
+            var style = document.createElement('style')
+            style.innerHTML = "#popup,input{border-radius:30px}#link,#popup{position:absolute;right:10px;bottom:10px;display:grid}#popupButton,input{font-family:trebuchet MS}#link{height:50px;width:50px;border-radius:50%;background:rgb(0,0,0);text-align:center;justify-items:stretch;align-items:center;font-size:30px;z-index:999999999999999999}#link:hover{transform:translateY(-3px);cursor:pointer}#popup{visibility:hidden;z-index:1000000;background:#161616;border:2px solid #0a0a0a;width:50%;height:15%;align-content:center}input{width:98%;margin:5px 0;border:3px solid #000;color:#000;padding:12px 20px;box-sizing:border-box}#popupButton{border-radius:30px;background:#101010;border:3px solid #070707;width:150px;height:30px;cursor:pointer;text-align:center;filter:drop-shadow(-1px 13px 4px #000);color:#fff;margin:10px}#popupButton:hover{transform:translateY(-2px);filter:drop-shadow(-1px 15px 4px #000)}#popupButton:active{transform:translateY(2px);filter:drop-shadow(-1px 11px 4px #000)}"
+            win.document.body.appendChild(style);
+            win.document.head.insertAdjacentHTML("afterbegin","<link rel=\"shortcut icon\" href=\"https://ssl.gstatic.com/classroom/favicon.png\" type=\"image/x-icon\"><title>Classes</title>");
+        }else{
+            win.document.body.appendChild(iframeh);
+        }
+        if (atrToggledBool === true) {
+            let atrScript = win.document.createElement('script');
+            atrScript.innerHTML = `window.onbeforeunload = () => {return 0;}`;
+            win.document.body.appendChild(atrScript);
+        }
+}
 //==important stuff==
 //
 //app is hovered checker and display
