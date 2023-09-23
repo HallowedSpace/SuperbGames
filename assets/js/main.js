@@ -49,7 +49,9 @@ openFullscreen(document.documentElement);
 // gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments), devApp (dev), SBapp (searchBlank)
 //(must be a string me when typescript)
 // (exFr app is to be used only for pre-open)
-
+function momazos() {
+    document.body.innerHTML = `<div id="momazosContainer"><video width="100%" height="100%" id="momazosDiego" autoplay="" loop=""><source src="/assets/img/momazosdiego.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>`;
+}
 //App functions
 function openApp(appName) {
     let app = g(appName);
