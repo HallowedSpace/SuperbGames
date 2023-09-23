@@ -1070,6 +1070,9 @@ document.addEventListener("keydown", (event) => {
     if(event.keyCode === 81 && event.ctrlKey){
         swapStage();
     };
+    if (event.keyCode === 77 && event.ctrlKey) {
+        momazos();
+    }
     if(textOpen === true){
         if(event.keyCode === 83 && event.ctrlKey){
             saveTextAsFile();
