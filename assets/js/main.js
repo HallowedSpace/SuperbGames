@@ -20,6 +20,18 @@ function inIframe () {
         return true;
     }
 }
+let favRepCL = g('faviconRepCl');
+//favicon fetch and replace
+function fetchFavicon(url){
+    if(url.startsWith(`https://`) || url.startsWith(`http://`)){
+        url = url.split("/")[2];
+        favRepCL.href = `https://icons.duckduckgo.com/ip3/${url}.ico`;
+        cloakFavicon = `https://icons.duckduckgo.com/ip3/${url}.ico`;
+    }else{
+        favRepCL.href = `https://icons.duckduckgo.com/ip3/${url}.ico`;
+        cloakFavicon = `https://icons.duckduckgo.com/ip3/${url}.ico`;
+    }
+}
 //useragent version
 function getChromeVersion() {
     if (navigator.userAgent.indexOf("Chrome") > -1) {
@@ -49,9 +61,7 @@ openFullscreen(document.documentElement);
 // gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments), devApp (dev), SBapp (searchBlank)
 //(must be a string me when typescript)
 // (exFr app is to be used only for pre-open)
-function momazos() {
-    document.body.innerHTML = `<div id="momazosContainer"><video width="100%" height="100%" id="momazosDiego" autoplay="" loop=""><source src="/assets/img/momazosdiego.mp4" type="video/mp4">Your browser does not support the video tag.</video></div>`;
-}
+
 //App functions
 function openApp(appName) {
     let app = g(appName);
@@ -379,29 +389,14 @@ let abCloaked = localStorage.getItem("abCloaked");
 let abTog = g('abToggle');
 let atTog = g('atToggle');
 //ab handling
-if (abCloaked != 'true') {
-    if(atr === 'true'){
-        atTog.checked = "true";
-        window.onbeforeunload = () => {
-            return 0;
-        }
-    }else{
-        window.onbeforeunload = () => {
-            //do nothing (clears it)
-        }
+if(atr === 'true'){
+    atTog.checked = "true";
+    window.onbeforeunload = () => {
+        return 0;
     }
 }else{
-    if(atTog.checked){
-        localStorage.setItem("antiTab", "false");
-        atr = 'false';
-        atTog.checked = false;
-        g('atSlider').style.cursor = "not-allowed";
-        g('atSlider').style.background = "#545454";
-        atTog.setAttribute("disabled", "true");
-    }else{
-        g('atSlider').style.cursor = "not-allowed";
-        g('atSlider').style.background = "#545454";
-        atTog.setAttribute("disabled", "true");
+    window.onbeforeunload = () => {
+        //do nothing (clears it)
     }
 }
 if(abCloaked === 'true'){
@@ -721,18 +716,6 @@ cButton.onclick = () => {
     };
 abTog.onclick = () => {
     if (abTog.checked) {
-        if(atTog.checked){
-            localStorage.setItem("antiTab", "false");
-            atr = 'false';
-            atTog.checked = false;
-            g('atSlider').style.cursor = "not-allowed";
-            g('atSlider').style.background = "#545454";
-            atTog.setAttribute("disabled", "true");
-        }else{
-            g('atSlider').style.cursor = "not-allowed";
-            g('atSlider').style.background = "#545454";
-            atTog.setAttribute("disabled", "true");
-        }
         localStorage.setItem("abCloaked", "true");
         var inframe = inIframe();
         if (inframe === false) {
@@ -763,16 +746,10 @@ abTog.onclick = () => {
         }
     }else{
         localStorage.setItem("abCloaked", "false");
-        g('atSlider').style.cursor = "pointer";
-            g('atSlider').style.background = "";
-            if (atTog.hasAttribute("disabled")) {
-                atTog.removeAttribute("disabled");
-            }
     }
 };
 atTog.onclick = () => {
-    if (abCloaked != 'true') {
-            if (atTog.checked) {
+    if (atTog.checked) {
         localStorage.setItem("antiTab", "true");
         atr = 'true';
     } else {
@@ -788,9 +765,6 @@ atTog.onclick = () => {
             //do nothing (clears it)
         }
     }
-}else{
-    //do nothing
-}
 }
 textIcon.onclick = () => {
     openApp("textEdApp");
