@@ -22,15 +22,25 @@ function inIframe () {
 }
 let favRepCL = g('faviconRepCl');
 //favicon fetch and replace
-function fetchFavicon(url){
-    if(url.startsWith(`https://`) || url.startsWith(`http://`)){
-        url = url.split("/")[2];
+function fetchFaviconAndTitle(url){
+        url = url.replace(`https://`, ``);
+        url = url.replace(`http://`, ``);
+        url.replace(`/`, ``);
+
+    //favicon fetch
         favRepCL.href = `https://icons.duckduckgo.com/ip3/${url}.ico`;
         cloakFavicon = `https://icons.duckduckgo.com/ip3/${url}.ico`;
-    }else{
-        favRepCL.href = `https://icons.duckduckgo.com/ip3/${url}.ico`;
-        cloakFavicon = `https://icons.duckduckgo.com/ip3/${url}.ico`;
-    }
+        localStorage.setItem("cloakFavicon", `https://icons.duckduckgo.com/ip3/${url}.ico`); 
+    //fetch title
+    fetch(`https://uncors.vercel.app/?url=${url}`)
+        .then(response => response.text())
+        .then((response) => {
+            const regex = new RegExp(`(?<=<title>)(.*)(?=</title>)`);
+            const found = paragraph.match(regex);
+            document.title = found[0];
+            cloakTitle = found[0];
+            localStorage.setItem("cloakTitle", found[0]);            
+        })
 }
 //useragent version
 function getChromeVersion() {
