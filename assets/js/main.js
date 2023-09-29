@@ -23,23 +23,24 @@ function inIframe () {
 let favRepCL = g('faviconRepCl');
 //favicon fetch and replace
 function fetchFaviconAndTitle(url){
-        url = url.replace(`https://`, ``);
-        url = url.replace(`http://`, ``);
-        url.replace(`/`, ``);
+    let array = url.split("/")
+    array = array.splice(0, 3);
+    array.shift();
+    let newurl = array.join().replaceAll(",", "");
 
     //favicon fetch
-        favRepCL.href = `https://icons.duckduckgo.com/ip3/${url}.ico`;
-        cloakFavicon = `https://icons.duckduckgo.com/ip3/${url}.ico`;
-        localStorage.setItem("cloakFavicon", `https://icons.duckduckgo.com/ip3/${url}.ico`); 
+        favRepCL.href = `https://www.google.com/s2/favicons?domain=${newurl}`;
+        cloakFavicon = `https://www.google.com/s2/favicons?domain=${newurl}`;
+        localStorage.setItem("cloakFavicon", `https://www.google.com/s2/favicons?domain=${newurl}`); 
     //fetch title
-    fetch(`https://uncors.vercel.app/?url=${url}`)
+    fetch(`https://uncors.vercel.app/?url=${newurl}`)
         .then(response => response.text())
         .then((response) => {
-            const regex = new RegExp(`(?<=<title>)(.*)(?=</title>)`);
-            const found = paragraph.match(regex);
-            document.title = found[0];
-            cloakTitle = found[0];
-            localStorage.setItem("cloakTitle", found[0]);            
+            const regex = new RegExp(`<title>(.*)</title>`);
+            const found = response.match(regex);
+            document.title = found;
+            cloakTitle = found;
+            localStorage.setItem("cloakTitle", found);            
         })
 }
 //useragent version
