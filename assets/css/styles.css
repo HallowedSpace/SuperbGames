@@ -427,14 +427,14 @@ div#cloakButton {
     padding: 10px;
     border-radius: 15px;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 20px;
     transition: 0.3s;
 }
 div#cloakButton:hover {
-    font-size: 40px;
+    font-size: 30px;
 }
 div#cloakButton:active {
-    font-size: 25px;
+    font-size: 15px;
 }
 .switch {
     display: inline-block;
@@ -485,9 +485,6 @@ div#cloakButton:active {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-}
-#cloakOptions{
-    margin-top: 60px;
 }
 #cloakOptions > h3 {
     margin-top: 20px;
@@ -867,4 +864,40 @@ div#momazosContainer {
     width: 100%;
     position: fixed;
     z-index: 99999999999999999999999;
+}
+input#fetchUrlCloakInput {
+    background: black;
+    border: none;
+    border-radius: 15px;
+    width: 600px;
+    height: 30px;
+    color: white;
+    top: 10px;
+    font-family: trebuchet ms;
+    position: relative;
+    padding: 10px;
+}
+
+div#fetchUrlCloakBtn {
+    margin: 20px;
+    background: black;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.2s;
+}
+.cloakWindDivider {
+    margin: 40px;
+    height: 5px;
+    width: 95%;
+    background: rgb(255 255 255 / 3%);
+    position: relative;
+    border-radius: 15px;
+}
+div#fetchUrlCloakBtn:hover {
+    font-size: 30px;
+}
+div#fetchUrlCloakBtn:active {
+    font-size: 15px;
 }
