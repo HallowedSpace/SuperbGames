@@ -690,12 +690,12 @@ expAppBack.onclick = () => {
 let fetchUrlCloakBtn = g('fetchUrlCloakBtn');
 let fetchUrlCloakInput = g('fetchUrlCloakInput');
 function cloakPopup(duration, text) {
-    let cloakPopup = g('cAppPopup');
-    cloakPopup.style.top = `20px`;
-    cloakPopup.innerText = text;
+    let cloakPopupC = g('cAppPopup');
+    cloakPopupC.style.top = `20px`;
+    cloakPopupC.innerText = text;
     setTimeout(() => {
-        cloakPopup.style.top = `-100px`;
-        cloakPopup.innerText = ``;
+        cloakPopupC.style.top = `-100px`;
+        cloakPopupC.innerText = ``;
     }, duration * 1000);
 }
 fetchUrlCloakBtn.onclick = () => {
@@ -707,8 +707,6 @@ fetchUrlCloakBtn.onclick = () => {
         fetchFaviconAndTitle(value);
     }
 }
-
-
 cIcon.onclick = () => {
     openApp("cApp");
 };
