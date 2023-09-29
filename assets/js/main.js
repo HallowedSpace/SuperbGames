@@ -41,7 +41,7 @@ function fetchFaviconAndTitle(url){
         .then((response) => {
             const regex = new RegExp(`<title>(.*)</title>`);
             const found = response.match(regex);
-            if(found != null){
+            try {
                 found.forEach((foundElem) => {
                     if(foundElem.includes(`<title>`) != true){
                         document.title = foundElem;
@@ -49,9 +49,9 @@ function fetchFaviconAndTitle(url){
                         localStorage.setItem("cloakTitle", foundElem);       
                     }
                 }) 
-            }else{
-                console.log(`Could not fetch title from ${url}`);
-            }    
+            } catch (error) {
+                cloakPopup(3, `Could not fetch title from ${url}`);
+            }
         })
 }
 //useragent version
@@ -69,7 +69,6 @@ if(chromeVersion >= 115){
 //fullscreen stuff
 // (thanks w3Schools)
 function openFullscreen(lkjh) {
-    lkjh.click();
   if (lkjh.requestFullscreen) {
     lkjh.requestFullscreen();
   } else if (lkjh.webkitRequestFullscreen) { // Safari
@@ -78,7 +77,6 @@ function openFullscreen(lkjh) {
   lkjh.msRequestFullscreen();
   }
 }
-openFullscreen(document.documentElement);
 //available app names for App functions
 // gApp (Game App), cApp (Cloaker App), textEdApp (Text Editor), codeExApp (code executor), expApp (Expiriments), devApp (dev), SBapp (searchBlank)
 //(must be a string me when typescript)
@@ -92,7 +90,7 @@ function openApp(appName) {
             teArea.focus();
     }
     try {
-        app.style.display = "flex";
+        app.style.display = "grid";
         setTimeout(() => {
             app.style.opacity = 1;
         }, 0);
@@ -689,6 +687,28 @@ expAppBack.onclick = () => {
 }
 
 //cApp
+let fetchUrlCloakBtn = g('fetchUrlCloakBtn');
+let fetchUrlCloakInput = g('fetchUrlCloakInput');
+function cloakPopup(duration, text) {
+    let cloakPopup = g('cAppPopup');
+    cloakPopup.style.top = `20px`;
+    cloakPopup.innerText = text;
+    setTimeout(() => {
+        cloakPopup.style.top = `-100px`;
+        cloakPopup.innerText = ``;
+    }, duration * 1000);
+}
+fetchUrlCloakBtn.onclick = () => {
+    let value = fetchUrlCloakInput.value;
+    if(value.startsWith("https://") || value.startsWith("http://")){
+        fetchFaviconAndTitle(value);
+    }else{
+        value = `https://` + value;
+        fetchFaviconAndTitle(value);
+    }
+}
+
+
 cIcon.onclick = () => {
     openApp("cApp");
 };
