@@ -41,9 +41,9 @@ function fetchFaviconAndTitle(url){
         .then((response) => {
             const regex = new RegExp(`<title>(.*)</title>`);
             const found = response.match(regex);
-            document.title = found;
-            cloakTitle = found;
-            localStorage.setItem("cloakTitle", found);            
+            document.title = found[1];
+            cloakTitle = found[1];
+            localStorage.setItem("cloakTitle", found[1]);            
         })
 }
 //useragent version
