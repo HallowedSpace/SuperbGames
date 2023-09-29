@@ -27,13 +27,16 @@ function fetchFaviconAndTitle(url){
     array = array.splice(0, 3);
     array.shift();
     let newurl = array.join().replaceAll(",", "");
+    let arrayTitle = url.split("/")
+    arrayTitle = arrayTitle.splice(0, 3);
+    let newUrlTitleCl = arrayTitle.join().replaceAll(",", "/");
 
     //favicon fetch
-        favRepCL.href = `https://www.google.com/s2/favicons?domain=${newurl}`;
-        cloakFavicon = `https://www.google.com/s2/favicons?domain=${newurl}`;
-        localStorage.setItem("cloakFavicon", `https://www.google.com/s2/favicons?domain=${newurl}`); 
+        favRepCL.href = `https://icons.duckduckgo.com/ip3/${newurl}.ico`;
+        cloakFavicon = `https://icons.duckduckgo.com/ip3/${newurl}.ico`;
+        localStorage.setItem("cloakFavicon", `https://icons.duckduckgo.com/ip3/${newurl}.ico`); 
     //fetch title
-    fetch(`https://uncors.vercel.app/?url=${newurl}`)
+    fetch(`https://uncors.vercel.app/?url=${newUrlTitleCl}`)
         .then(response => response.text())
         .then((response) => {
             const regex = new RegExp(`<title>(.*)</title>`);
