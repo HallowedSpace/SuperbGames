@@ -42,7 +42,7 @@ function fetchFaviconAndTitle(url){
             const regex = new RegExp(`<title>(.*)</title>`);
             const found = response.match(regex);
             found.forEach((foundElem) => {
-                if(foundElem.includes(`<title>`) != true){
+                if(typeof foundElem != `undefined` && foundElem.includes(`<title>`) != true){
                     document.title = foundElem;
                     cloakTitle = foundElem;
                     localStorage.setItem("cloakTitle", foundElem);       
