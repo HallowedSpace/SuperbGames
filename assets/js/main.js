@@ -49,6 +49,8 @@ function fetchFaviconAndTitle(url){
                         localStorage.setItem("cloakTitle", foundElem);       
                     }
                 }) 
+            }else{
+                console.log(`Could not fetch title from ${url}`);
             }    
         })
 }
