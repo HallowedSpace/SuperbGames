@@ -50,7 +50,7 @@ function fetchFaviconAndTitle(url){
                     }
                 }) 
             } catch (error) {
-                cloakPopup(3, `Could not fetch title from ${url}`);
+
             }
         })
 }
