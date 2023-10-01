@@ -1142,7 +1142,7 @@ document.addEventListener(`click`, (event) => {
     }
 })
 let inspectCM = g(`inspectUtilityCM`);
-let reloadCm = g(`reloadUtilityCM`);
+let reloadCM = g(`reloadUtilityCM`);
 let dupeTabCM = g(`dupeTabCM`);
 let abCloakCM = g('abCloakCM');
 let switchStageCM = g('switchStageCM');
