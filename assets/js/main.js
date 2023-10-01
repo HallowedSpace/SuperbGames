@@ -1195,5 +1195,5 @@ abCloakCM.onclick = () => {
     let win = window.open();
     win.document.body.style.padding = 0;
     win.document.body.style.margin = 0;
-    win.document.write(`<head><title>Classes</title> <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">  </head><body><iframe height="100%" width="100%" src="${window.location.href}"></iframe></body>`)
+    win.document.write(`<head><title>Classes</title> <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">  </head><body><iframe style="border: none; position: fixed; width: 100%; height: 100%; top: 0; right: 0;" src="${window.location.href}"></iframe></body>`)
 }
