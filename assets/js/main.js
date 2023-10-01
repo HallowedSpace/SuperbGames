@@ -1121,7 +1121,9 @@ document.addEventListener("contextmenu", (event) => {
         contextMenu.style.left = event.clientX + "px";
         contextMenu.style.top = event.clientY + "px";
         contextMenu.style.display = `flex`;
-        contextMenu.style.opacity = 1;
+        setTimeout(() => {
+            contextMenu.style.opacity = 1;
+        }, 100);
     }
 
 })
