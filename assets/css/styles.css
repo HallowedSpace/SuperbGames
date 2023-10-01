@@ -917,6 +917,7 @@ contextmenu{
     align-items: center;
     align-content: center;
     flex-direction: column;
+    padding: 5px;
 }
 @keyframes rainbow{
     0%{color:rgb(240, 154, 154)(255, 122, 122);}
