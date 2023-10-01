@@ -1119,7 +1119,11 @@ document.addEventListener("contextmenu", (event) => {
     } else {
         contextMenuOpen = true;
         contextMenu.style.left = event.clientX + "px";
-        contextMenu.style.top = event.clientY + "px";
+        if((screen.height / 2) > event.clientY){
+            contextMenu.style.top = event.clientY + "px";
+        }else{
+            contextMenu.style.top = (event.clientY - 250) + "px";
+        }
         contextMenu.style.display = `flex`;
         setTimeout(() => {
             contextMenu.style.opacity = 1;
