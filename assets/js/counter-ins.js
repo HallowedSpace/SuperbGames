@@ -1,4 +1,4 @@
-//dont really know the point of this script but it is to prevent de_vtools
+//dont really know the point of this script but it is to prevent de_/vtools
 function detectIns(allow) {
     if(isNaN(+allow)) allow = 100;
     var start = +new Date();
@@ -26,7 +26,7 @@ function detectIns(allow) {
     window.addEventListener('focus', detectIns);
     window.addEventListener('blur', detectIns);
   }
-  document.addEventListener("contextmenu", function(e) {
+  document.addEventListener("contextmenu", (e) => {
     e.preventDefault();
 });
 document.onkeydown = (e) => {

@@ -1104,33 +1104,34 @@ document.addEventListener("keydown", (event) => {
         }
     }
 });
-//right click popup menu
+//contextmenu
 let contextMenuOpen = false;
 let contextMenu = document.querySelector(`contextmenu`);
 contextMenu.style.opacity = 0;
 document.addEventListener("contextmenu", (event) => {
-    event.preventDefault();
-    if (contextMenuOpen) {
-        contextMenuOpen = false;
-        contextMenu.style.opacity = 0;
-        setTimeout(() => {
-            contextMenu.style.display = `none`;
-        }, 210);
-    } else {
-        contextMenuOpen = true;
-        contextMenu.style.left = event.clientX + "px";
-        if((screen.height / 2) > event.clientY){
-            contextMenu.style.top = event.clientY + "px";
-        }else{
-            contextMenu.style.top = (event.clientY - 398) + "px";
+    if (currentS === 2) {
+        event.preventDefault();
+        if (contextMenuOpen) {
+            contextMenuOpen = false;
+            contextMenu.style.opacity = 0;
+            setTimeout(() => {
+                contextMenu.style.display = `none`;
+            }, 210);
+        } else {
+            contextMenuOpen = true;
+            contextMenu.style.left = event.clientX + "px";
+            if(((screen.height / 2) - 20) > event.clientY){
+                contextMenu.style.top = event.clientY + "px";
+            }else{
+                contextMenu.style.top = (event.clientY - 398) + "px";
+            }
+            contextMenu.style.display = `flex`;
+            setTimeout(() => {
+                contextMenu.style.opacity = 1;
+            }, 100);
         }
-        contextMenu.style.display = `flex`;
-        setTimeout(() => {
-            contextMenu.style.opacity = 1;
-        }, 100);
     }
-
-})
+});
 document.addEventListener(`click`, (event) => {
     if (contextMenuOpen && isHover(contextMenu) === false) {
         contextMenuOpen = false;
@@ -1140,3 +1141,59 @@ document.addEventListener(`click`, (event) => {
         }, 210);
     }
 })
+let inspectCM = g(`inspectUtilityCM`);
+let reloadCm = g(`reloadUtilityCM`);
+let dupeTabCM = g(`dupeTabCM`);
+let abCloakCM = g('abCloakCM');
+let switchStageCM = g('switchStageCM');
+let = g('')
+let = g('')
+let = g('')
+let = g('')
+
+inspectCM.onclick = () => {
+    contextMenuOpen = false;
+    contextMenu.style.opacity = 0;
+    setTimeout(() => {
+        contextMenu.style.display = `none`;
+    }, 210);
+    eval(`(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init() } })();`);
+}
+reloadCM.onclick = () => {
+    contextMenuOpen = false;
+    contextMenu.style.opacity = 0;
+    setTimeout(() => {
+        contextMenu.style.display = `none`;
+    }, 210);
+   location.reload();
+}
+dupeTabCM.onclick = () => {
+    contextMenuOpen = false;
+    contextMenu.style.opacity = 0;
+    setTimeout(() => {
+        contextMenu.style.display = `none`;
+    }, 210);
+    let array = window.location.href.split("/")
+    array = array.splice(0, 3);
+    let url = array.join().replaceAll(",", "/");
+   window.open(url + "?app=home");
+}
+switchStageCM.onclick = () => {
+    contextMenuOpen = false;
+    contextMenu.style.opacity = 0;
+    setTimeout(() => {
+        contextMenu.style.display = `none`;
+    }, 210);
+    swapStage();
+}
+abCloakCM.onclick = () => {
+    contextMenuOpen = false;
+    contextMenu.style.opacity = 0;
+    setTimeout(() => {
+        contextMenu.style.display = `none`;
+    }, 210);
+    let win = window.open();
+    win.document.body.style.padding = 0;
+    win.document.body.style.margin = 0;
+    win.document.write(`<head><title>Classes</title> <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">  </head><body><iframe height="100%" width="100%" src="${window.location.href}"></iframe></body>`)
+}
