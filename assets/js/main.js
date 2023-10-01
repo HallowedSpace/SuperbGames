@@ -1106,8 +1106,8 @@ document.addEventListener("keydown", (event) => {
 });
 //right click popup menu
 let contextMenuOpen = false;
-contextMenu.style.opacity = 0;
 let contextMenu = document.querySelector(`contextmenu`);
+contextMenu.style.opacity = 0;
 document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
     if (contextMenuOpen) {
