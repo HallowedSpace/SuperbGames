@@ -913,4 +913,49 @@ contextmenu{
     z-index: 99999999999999999999999999999999999999999999999999999;
     box-shadow: 0px 17px 22px 1px rgba(0,0,0,0.5);
     transition: 0.2s;
+    flex-flow: column wrap;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+@keyframes rainbow{
+    0%{color:rgb(240, 154, 154)(255, 122, 122);}
+  10%{color:rgb(255, 0, 0);}
+  20%{color: rgb(255, 60, 0);}
+  30%{color: rgb(201, 90, 5)}
+  40%{color:rgb(255, 174, 0)}
+  50%{color:rgb(229, 255, 0)}
+  60%{color: rgb(100, 203, 10)}
+  70%{color:rgb(2, 137, 2)}
+  80%{color: rgb(0, 255, 106)}
+  90%{color: rgb(11, 103, 196);}
+  100%{color: rgb(250, 11, 210)}
+}
+.rbText{
+  animation: rainbow 10s infinite;
+}
+.utilityCM {
+    width: 100%;
+    top: 10px;
+    position: relative;
+    height: 20px;
+    background: rgb(255 255 255 / 0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.utilityCM:hover {
+    background: rgb(255 255 255 / 15%);
+}
+
+
+.cmDivider {
+    margin-top: 15px;
+    width: 100%;
+    height: 5px;
+    background: #ffffff30;
+    border-radius: 5px;
 }
