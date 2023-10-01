@@ -1165,6 +1165,7 @@ reloadCM.onclick = () => {
     setTimeout(() => {
         contextMenu.style.display = `none`;
     }, 210);
+    window.onbeforeunload = () => {};
    location.reload();
 }
 dupeTabCM.onclick = () => {
