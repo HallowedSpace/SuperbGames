@@ -1106,23 +1106,31 @@ document.addEventListener("keydown", (event) => {
 });
 //right click popup menu
 let contextMenuOpen = false;
+contextMenu.style.opacity = 0;
 let contextMenu = document.querySelector(`contextmenu`);
 document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
     if (contextMenuOpen) {
         contextMenuOpen = false;
-        contextMenu.style.display = `none`;
+        contextMenu.style.opacity = 0;
+        setTimeout(() => {
+            contextMenu.style.display = `none`;
+        }, 210);
     } else {
         contextMenuOpen = true;
         contextMenu.style.left = event.clientX + "px";
         contextMenu.style.top = event.clientY + "px";
         contextMenu.style.display = `flex`;
+        contextMenu.style.opacity = 1;
     }
 
 })
 document.addEventListener(`click`, (event) => {
     if (contextMenuOpen && isHover(contextMenu) === false) {
         contextMenuOpen = false;
-        contextMenu.style.display = `none`;
+        contextMenu.style.opacity = 0;
+        setTimeout(() => {
+            contextMenu.style.display = `none`;
+        }, 210);
     }
 })
