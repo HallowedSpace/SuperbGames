@@ -1121,7 +1121,7 @@ document.addEventListener("contextmenu", (event) => {
 
 })
 document.addEventListener(`click`, (event) => {
-    if (contextMenuOpen) {
+    if (contextMenuOpen && isHover(contextMenu) === false) {
         contextMenuOpen = false;
         contextMenu.style.display = `none`;
     }
