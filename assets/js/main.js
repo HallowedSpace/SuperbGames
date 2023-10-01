@@ -1201,3 +1201,14 @@ abCloakCM.onclick = () => {
     win.document.body.style.margin = 0;
     win.document.write(`<head><title>Classes</title> <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">  </head><body><iframe style="border: none; position: fixed; width: 100%; height: 100%; top: 0; right: 0;" src="${window.location.href}"></iframe></body>`)
 }
+document.onkeydown = (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key == 'I') {
+        eval(`(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init(); eruda.show()} })();`);
+    }
+    if (e.ctrlKey && e.shiftKey && e.key == 'C') {
+        eval(`(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init(); eruda.show()} })();`);
+    }
+    if (e.ctrlKey && e.shiftKey && e.key == 'J') {
+        eval(`(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init(); eruda.show()} })();`);
+    }
+}
