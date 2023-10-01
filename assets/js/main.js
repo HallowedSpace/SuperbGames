@@ -1166,7 +1166,10 @@ reloadCM.onclick = () => {
         contextMenu.style.display = `none`;
     }, 210);
     window.onbeforeunload = () => {};
-   location.reload();
+    let array = window.location.href.split("/")
+    array = array.splice(0, 3);
+    let url = array.join().replaceAll(",", "/");
+   location.replace(url + "?app=home");
 }
 dupeTabCM.onclick = () => {
     contextMenuOpen = false;
