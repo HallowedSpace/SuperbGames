@@ -1105,10 +1105,24 @@ document.addEventListener("keydown", (event) => {
     }
 });
 //right click popup menu
+let contextMenuOpen = false;
 document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
-    var contextMenu = document.querySelector(`contextmenu`);
-    contextMenu.style.left = event.clientX + "px";
-    contextMenu.style.top = event.clientY + "px";
-    contextMenu.style.display = `flex`;
+    if (contextMenuOpen) {
+        contextMenuOpen = false;
+        contextMenu.style.display = `none`;
+    } else {
+        contextMenuOpen = true;
+        var contextMenu = document.querySelector(`contextmenu`);
+        contextMenu.style.left = event.clientX + "px";
+        contextMenu.style.top = event.clientY + "px";
+        contextMenu.style.display = `flex`;
+    }
+
+})
+document.addEventListener(`click`, (event) => {
+    if (contextMenuOpen) {
+        contextMenuOpen = false;
+        contextMenu.style.display = `none`;
+    }
 })
