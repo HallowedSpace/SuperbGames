@@ -1104,3 +1104,10 @@ document.addEventListener("keydown", (event) => {
         }
     }
 });
+//right click popup menu
+document.addEventListener("contextmenu", (event) => {
+    var contextMenu = document.querySelector(`contextmenu`);
+    contextMenu.style.left = event.clientX + "px";
+    contextMenu.style.top = event.clientY + "px";
+    contextMenu.style.left.display = `flex`;
+})
