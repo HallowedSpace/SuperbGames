@@ -633,6 +633,17 @@ info.onclick = () => {
 //===APP HANDLING===
 //variables at lines 304-374 (ctrl + g)
 
+//gApp
+let gmIcon = g("activitesIcon");
+let gmBack = g("gmBack");
+
+gmIcon.onclick = () => {
+    openApp("gApp");
+}
+gmBack.onclick = () => {
+    closeApp("gApp");
+}
+
 //jsExec (like 3 lines of code lol)
 exitInfo.onclick = () => {
     infoPopup.style.display = "none";
