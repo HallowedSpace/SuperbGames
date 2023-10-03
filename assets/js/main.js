@@ -172,7 +172,7 @@ function openBlank(enableV2, url, flags) {
         win.document.body.appendChild(div);
         var script = document.createElement("script");
         script.innerHTML = 'var url=document.getElementById("popupInput");document.getElementById("popupButton").onclick=function(){"https://"!==url.value.substring(0,8)&&"http://"!==url.value.substring(0,7)?url.value="https://"+url.value.split("https://").pop():"http://"==url.value.substring(0,7)&&(url.value="https://"+url.value.split("http://").pop()),document.getElementsByTagName("iframe")[0].src=url.value};let i=0;var popup=document.getElementById("popup");document.getElementById("link").onclick=function(){0===i?(popup.style.visibility="visible",i++):(popup.style.visibility="hidden",i=0)};'
-        win.document.body.appendChild(script);
+        win.document.body.appendChild(script);1191
         var style = document.createElement('style')
         style.innerHTML = "#popup,input{border-radius:30px}#link,#popup{position:absolute;right:10px;bottom:10px;display:grid}#popupButton,input{font-family:trebuchet MS}#link{height:50px;width:50px;border-radius:50%;background:rgb(0,0,0);text-align:center;justify-items:stretch;align-items:center;font-size:30px;z-index:999999999999999999}#link:hover{transform:translateY(-3px);cursor:pointer}#popup{visibility:hidden;z-index:1000000;background:#161616;border:2px solid #0a0a0a;width:50%;height:15%;align-content:center}input{width:98%;margin:5px 0;border:3px solid #000;color:#000;padding:12px 20px;box-sizing:border-box}#popupButton{border-radius:30px;background:#101010;border:3px solid #070707;width:150px;height:30px;cursor:pointer;text-align:center;filter:drop-shadow(-1px 13px 4px #000);color:#fff;margin:10px}#popupButton:hover{transform:translateY(-2px);filter:drop-shadow(-1px 15px 4px #000)}#popupButton:active{transform:translateY(2px);filter:drop-shadow(-1px 11px 4px #000)}"
         win.document.body.appendChild(style);
@@ -1146,10 +1146,12 @@ let reloadCM = g(`reloadUtilityCM`);
 let dupeTabCM = g(`dupeTabCM`);
 let abCloakCM = g('abCloakCM');
 let switchStageCM = g('switchStageCM');
-let = g('')
-let = g('')
-let = g('')
-let = g('')
+let openGmCM = g('openGameCM');
+let openClkCM = g('openClkCM');
+let openInfoCM = g('openInfoCM');
+let uglyCM = g('uglyCM');
+let pageDestroyCM = g('pageDestroyCM');
+let Page3dCM = g('3dPageCM');
 
 inspectCM.onclick = () => {
     contextMenuOpen = false;
@@ -1200,6 +1202,52 @@ abCloakCM.onclick = () => {
     win.document.body.style.padding = 0;
     win.document.body.style.margin = 0;
     win.document.write(`<head><title>Classes</title> <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">  </head><body><iframe style="border: none; position: fixed; width: 100%; height: 100%; top: 0; right: 0;" src="${window.location.href}"></iframe></body>`)
+}
+openClkCM.onclick = () => {
+    contextMenuOpen = false;
+    contextMenu.style.opacity = 0;
+    setTimeout(() => {
+        contextMenu.style.display = `none`;
+    }, 210);
+    openApp("cApp");
+}
+openGmCM.onclick = () => {
+    contextMenuOpen = false;
+    contextMenu.style.opacity = 0;
+    setTimeout(() => {
+        contextMenu.style.display = `none`;
+    }, 210);
+    openApp("gApp");
+}
+openInfoCM.onclick = () => {
+    infoPopup.style.display = "flex";
+    infoOpen = true;
+}
+uglyCM.onclick = () => {
+    contextMenuOpen = false;
+    contextMenu.style.opacity = 0;
+    setTimeout(() => {
+        contextMenu.style.display = `none`;
+    }, 210);
+    (function(){var elems=document.getElementsByTagName('*');for(var i = 0; i<elems.length;i++){elems[i].style.fontFamily='Comic Sans MS';elems[i].style.fontSize=Math.random()*75+'px';elems[i].style.color='#'+Math.random().toString(16).slice(2, 8);elems[i].style.backgroundColor='#'+Math.random().toString(16).slice(2,8)}})();document.onclick=function(){(function(){var d=0;setInterval(function(){document.body.style['-webkit-transform']= 'rotate('+ d +'deg)';d+=1},100)}());};
+}
+pageDestroyCM.onclick = () => {
+    contextMenuOpen = false;
+    contextMenu.style.opacity = 0;
+    setTimeout(() => {
+        contextMenu.style.display = `none`;
+    }, 210);
+    (function(){
+        window.KICKASSVERSION='2.0';var s = document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='//hi.kickassapp.com/kickass.js';s.onerror=function(){alert('Sorry, the script could not be loaded.')};void(0);
+    });
+}
+Page3dCM.onclick = () => {
+    contextMenuOpen = false;
+    contextMenu.style.opacity = 0;
+    setTimeout(() => {
+        contextMenu.style.display = `none`;
+    }, 210);
+    (function(){var js=document.body.appendChild(document.createElement('script'));js.onerror=function(){alert('Sorry, the script could not be loaded.')};js.src='https://rawgit.com/Krazete/bookmarklets/master/tri.js'})();
 }
 document.onkeydown = (e) => {
     if (e.ctrlKey && e.shiftKey && e.key == 'I') {
