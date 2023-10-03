@@ -25,7 +25,7 @@ function refreshLoop() {
     }
     times.push(now);
     fps = times.length;
-    fpsDisplay.innerText = fps;
+    fpsDisplay.innerText = `FPS: ${fps}`;
     refreshLoop();
   });
 }
