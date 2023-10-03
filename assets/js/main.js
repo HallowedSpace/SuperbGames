@@ -12,6 +12,24 @@ function g(e){
         return undefined;
     }
 }
+//fps checker
+const times = [];
+let fps;
+let fpsDisplay = g('fpsChecker');
+
+function refreshLoop() {
+  window.requestAnimationFrame(() => {
+    const now = performance.now();
+    while (times.length > 0 && times[0] <= now - 1000) {
+      times.shift();
+    }
+    times.push(now);
+    fps = times.length;
+    fpsDisplay.innerText = fps;
+    refreshLoop();
+  });
+}
+refreshLoop();
 //inframe (checks if in iframe)
 function inIframe () {
     try {
