@@ -1203,26 +1203,8 @@ abCloakCM.onclick = () => {
     win.document.body.style.margin = 0;
     win.document.write(`<head><title>Classes</title> <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">  </head><body><iframe style="border: none; position: fixed; width: 100%; height: 100%; top: 0; right: 0;" src="${window.location.href}"></iframe></body>`)
 }
-openClkCM.onclick = () => {
-    contextMenuOpen = false;
-    contextMenu.style.opacity = 0;
-    setTimeout(() => {
-        contextMenu.style.display = `none`;
-    }, 210);
-    openApp("cApp");
-}
-openGmCM.onclick = () => {
-    contextMenuOpen = false;
-    contextMenu.style.opacity = 0;
-    setTimeout(() => {
-        contextMenu.style.display = `none`;
-    }, 210);
-    openApp("gApp");
-}
-openInfoCM.onclick = () => {
-    infoPopup.style.display = "flex";
-    infoOpen = true;
-}
+
+
 uglyCM.onclick = () => {
     contextMenuOpen = false;
     contextMenu.style.opacity = 0;
