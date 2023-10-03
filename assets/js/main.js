@@ -1238,8 +1238,7 @@ pageDestroyCM.onclick = () => {
         contextMenu.style.display = `none`;
     }, 210);
     (function(){
-        window.KICKASSVERSION='2.0';var s = document.createElement('script');s.type='text/javascript';document.body.appendChild(s);s.src='//hi.kickassapp.com/kickass.js';s.onerror=function(){alert('Sorry, the script could not be loaded.')};void(0);
-    });
+       var s=document.createElement('script');s.type='text/javascript';s.onerror=function(e){alert('Failed to load the script. The site\'s Content Security Policy might be blocking it. Feel free to try again.');};document.body.appendChild(s);s.src='https://blog.roysolberg.com/js/dom2.min.js';void(0);});
 }
 Page3dCM.onclick = () => {
     contextMenuOpen = false;
