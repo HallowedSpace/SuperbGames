@@ -130,6 +130,7 @@ function closeApp(appName) {
 //Gframe handling
 let frameOpen = false;
 let fullscreenGFrame = g('iframeGFullscreen');
+let exitIframeGContainer = g('exitIframeGContainer');
 function toggleGFrame(src){
     let frameGContainer = g('iframeGContainer');
     let GFrame = g('iframeGFrame');
@@ -151,6 +152,9 @@ function toggleGFrame(src){
 }
 iframeGFullscreen.onclick = () => {
     openFullscreen(g("iframeGFrame"));
+}
+exitIframeGContainer.onclick = () => {
+    toggleGFrame(``);
 }
 //blankp
 //flags must be an array
