@@ -975,7 +975,9 @@ div#fpsChecker {
 div#iframeGContainer {
     position: fixed;
     z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999;
-    display: flex;
+    display: none;
+    transition: 0.5s;
+    opacity: 0;
 }
 
 div#iframeGTopBar {

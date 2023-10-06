@@ -127,6 +127,31 @@ function closeApp(appName) {
         console.error(err);
     }
 }
+//Gframe handling
+let frameOpen = false;
+let fullscreenGFrame = g('iframeGFullscreen');
+function toggleGFrame(src){
+    let frameGContainer = g('iframeGContainer');
+    let GFrame = g('iframeGFrame');
+    if (frameOpen) {
+        let frameOpen = false;
+        iframeGFrame.src = ``;
+        frameGContainer.style.opacity = `0`;
+        setTimeout(() => {
+            frameGContainer.style.display = `none`;
+        }, 501);
+    } else {
+        let frameOpen = true;
+        iframeGFrame.src = src;
+        frameGContainer.style.opacity = `1`;
+        setTimeout(() => {
+            frameGContainer.style.display = `flex`;
+        }, 501);
+    }
+}
+iframeGFullscreen.onclick = () => {
+    openFullscreen(g("iframeGFrame"));
+}
 //blankp
 //flags must be an array
 // i wil probably just switch to typescript later on because yes
