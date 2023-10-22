@@ -54,6 +54,9 @@ g(`iframeGFrame`).onerror = () => {
         toggleGFrame(``);
     };
 }
+g('gShowcase1').onclick = () => {
+    readUrlTree("slope");
+}
 //fps checker
 const times = [];
 let fps;
