@@ -1,4 +1,4 @@
-// hi welcome to my script it may be garbage but i am stupid so ignore
+// hi welcome to my script it may be garbage but i am stupid so ignore 
 //anyway i added comments so you know the method to my madness
 console.log(`%cHello and welcome to the console!`, "color:blue; padding: 10px; background: black; font-size: 30px; border-radius: 15px;");
 console.log(`%cIf you understand what you are doing, come work with us here at "https://discord.gg/ubACu5WEMy".`, "color:green; padding: 20px; background: black; font-size: 30px; border-radius: 15px;");
@@ -46,7 +46,7 @@ function readUrlTree(key) {
     });
 }
 g(`iframeGFrame`).onerror = () => {
-    currentSRCGFCounter = currentSRCGFCounter++;
+    //currentSRCGFCounter = currentSRCGFCounter++;
     try {
         this.src = window.atob(gUrlTree[keyCurrent][currentSRCGFCounter++]);   
     } catch (error) {
@@ -56,12 +56,6 @@ g(`iframeGFrame`).onerror = () => {
 }
 g('gShowcase1').onclick = function(){ // no arrow functions because the "this" keyword doesnt work (rip)
     readUrlTree((this.querySelector("span").innerText).toLowerCase());
-}
-q(`.gShowcaseModal`, true).forEach = (showcaseElem) => {
-    showcaseElem.onclick = function(){ // no arrow functions because the "this" keyword doesnt work (rip)
-        readUrlTree((this.querySelector("span").innerText).toLowerCase());
-        console.log(this);
-    }
 }
 //fps checker
 const times = [];
