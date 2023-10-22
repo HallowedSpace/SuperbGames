@@ -978,10 +978,23 @@ div#iframeGTopBar {
     display: flex;
     align-items: center;
     z-index: 999999999;
+    border-bottom: #585858 2px solid;
 }
 
-div#iframeGFullscreen {bottom: 5px;right: 5px;position: fixed;border-radius: 15px;background: black;height: 50px;width: 50px;display: flex;align-items: center;justify-content: center;cursor: pointer;z-index: 999999;}
-
+div#iframeGFullscreen{
+    bottom: 5px;
+    right: 5px;
+    position: fixed;
+    border-radius: 15px;
+    background: black;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999999;
+}
 div#exitIframeGContainer {
     position: relative;
     left: 20px;
