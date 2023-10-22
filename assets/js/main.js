@@ -35,13 +35,15 @@ const gUrlTree = {
     slope: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9zazFieC9XZWJTdGFydGVya2l0QDI3MTk3ZDY4NTUwMjk1MzA2NWUzYTMyNTliNmUzNGY1YWNiOTRlNjUvc3JjL3NwMS41LnhtbA=="]
 }
 let currentSRCGF;
-let currenSRCGFCounter = 0;
+let currentSRCGFCounter = 0;
 function readUrlTree(key) {
     let gUrlKeys = Object.keys(gUrlTree);
+    let gUrlTreeStr = JSON.stringify(gUrlTree);
     gUrlKeys.forEach(keyCurrent => {
         if(keyCurrent === key){
             currentSRCGF = keyCurrent;
-            toggleGFrame(window.atob(gUrlTree.keyCurrent[currenSRCGFCounter]));
+            let decodedUrlTree = JSON.parse(gUrlTreeStr.keyCurrent);
+            toggleGFrame(window.atob(decodedUrlTree[currentSRCGFCounter]));
         }
     });
 }
