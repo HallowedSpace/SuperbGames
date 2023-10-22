@@ -30,6 +30,22 @@ function q(e, z) {
         }
     }
 }
+//gUrl Tre
+const gUrlTree = {
+    slope: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9zazFieC9XZWJTdGFydGVya2l0QDI3MTk3ZDY4NTUwMjk1MzA2NWUzYTMyNTliNmUzNGY1YWNiOTRlNjUvc3JjL3NwMS41LnhtbA=="]
+}
+let currentSRCGF;
+let currenSRCGFCounter = 0;
+function readUrlTree(key) {
+    let gUrlKeys = Object.keys(gUrlTree);
+    gUrlKeys.forEach(keyCurrent => {
+        if(keyCurrent === key){
+            currentSRCGF = keyCurrent;
+            toggleGFrame(window.atob(gUrlTree.keyCurrent[currenSRCGFCounter]));
+        }
+    });
+}
+
 //fps checker
 const times = [];
 let fps;
@@ -154,14 +170,14 @@ function toggleGFrame(src){
     let GFrame = g('iframeGFrame');
     if (frameOpen) {
         frameOpen = false;
-        iframeGFrame.src = ``;
+        GFrame.src = ``;
         frameGContainer.style.opacity = `0`;
         setTimeout(() => {
             frameGContainer.style.display = `none`;
         }, 501);
     } else {
         frameOpen = true;
-        iframeGFrame.src = src;
+        GFrame.src = src;
         frameGContainer.style.opacity = `1`;
         setTimeout(() => {
             frameGContainer.style.display = `flex`;
