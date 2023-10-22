@@ -57,6 +57,7 @@ g(`iframeGFrame`).onerror = () => {
 g('gShowcase1').onclick = function(){ // no arrow functions because the "this" keyword doesnt work (rip)
     readUrlTree((this.querySelector("span").innerText).toLowerCase());
 }
+q('.gShowcase', true)
 //fps checker
 const times = [];
 let fps;
