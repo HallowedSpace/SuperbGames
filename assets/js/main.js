@@ -57,9 +57,10 @@ g(`iframeGFrame`).onerror = () => {
 g('gShowcase1').onclick = function(){ // no arrow functions because the "this" keyword doesnt work (rip)
     readUrlTree((this.querySelector("span").innerText).toLowerCase());
 }
-q(`.gShowcaseModal`, true).forEach = (showcase) => {
-    showcase.onclick = function(){ // no arrow functions because the "this" keyword doesnt work (rip)
+q(`.gShowcaseModal`, true).forEach = (showcaseElem) => {
+    showcaseElem.onclick = function(){ // no arrow functions because the "this" keyword doesnt work (rip)
         readUrlTree((this.querySelector("span").innerText).toLowerCase());
+        console.log(this);
     }
 }
 //fps checker
