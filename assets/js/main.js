@@ -32,7 +32,12 @@ function q(e, z) {
 }
 //gUrl Tree (dont hate pls)
 const gUrlTree = {
-    slope: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9zazFieC9XZWJTdGFydGVya2l0QDI3MTk3ZDY4NTUwMjk1MzA2NWUzYTMyNTliNmUzNGY1YWNiOTRlNjUvc3JjL3NwMS41LnhtbA=="]
+    slope: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9zazFieC9XZWJTdGFydGVya2l0QDI3MTk3ZDY4NTUwMjk1MzA2NWUzYTMyNTliNmUzNGY1YWNiOTRlNjUvc3JjL3NwMS41LnhtbA=="],
+    googlebaseball: ["aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9sb2dvcy8yMDE5L2p1bHk0dGgxOS9yMy9qdWx5NHRoMTkuaHRtbA=="],
+    deathrun3d: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9zazFieC92ZXJzaW9uQDkzZjdmNjBiMGYwNTRjOTU2Y2E5YjY2MjJmMmRhZWVlYjQ1MDYzMmMvZGVhdGhfcnVuLnhtbA=="],
+    run3: ["aHR0cHM6Ly9sZWt1Zy5naXRodWIuaW8vdG42cFM5ZENmMzd4QWhrSnYv"],
+    awesometanks2: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vMzc0MDY5MTUtNDcxODM2NDAyMjUzODQ3MTQ2LnByZXZpZXcuZWRpdG15c2l0ZS5jb20vdXBsb2Fkcy9iLzEzOTg5MDEyOS0xNjU3Mjc2NzA2NTMzMzY3MDAvZmlsZXMvYXQyLnhtbA=="],
+    baldisbasics: ["aHR0cHM6Ly9ncmFuZGNhbnlvbnNodXR0bGVzLmNvbS91cGxvYWRzLzUvNS82LzcvNTU2NzE5NC9jdXN0b21fdGhlbWVzLzY2NjM0NDgyMDg0ODM4MDYzMS9iYWxkaS5odG1s"]
 }
 let currentSRCGF;
 let currentSRCGFCounter = 0;
@@ -54,9 +59,13 @@ g(`iframeGFrame`).onerror = () => {
         toggleGFrame(``);
     };
 }
-//g('gShowcase1').onclick = function(){readUrlTree((this.querySelector("span").innerText).toLowerCase());}
+//better optimized onclick handler
 q('.gShowcaseModal', true).forEach(el => el.addEventListener("click", event => {
-    readUrlTree((el.querySelector("span").innerText).toLowerCase());
+    if((el.querySelector("span").innerText).includes(" ")){
+        readUrlTree((el.querySelector("span").innerText).replaceAll(" ", "").toLowerCase());
+    }else{
+        readUrlTree((el.querySelector("span").innerText).toLowerCase());
+    }
 }));
 //fps checker
 const times = [];
