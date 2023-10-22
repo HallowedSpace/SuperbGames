@@ -38,12 +38,10 @@ let currentSRCGF;
 let currentSRCGFCounter = 0;
 function readUrlTree(key) {
     let gUrlKeys = Object.keys(gUrlTree);
-    let gUrlTreeStr = JSON.stringify(gUrlTree);
     gUrlKeys.forEach(keyCurrent => {
         if(keyCurrent === key){
             currentSRCGF = keyCurrent;
-            let decodedUrlTree = JSON.parse(gUrlTreeStr.keyCurrent);
-            toggleGFrame(window.atob(decodedUrlTree[currentSRCGFCounter]));
+            toggleGFrame(window.atob(gUrlTree[keyCurrent][currentSRCGFCounter]));
         }
     });
 }
