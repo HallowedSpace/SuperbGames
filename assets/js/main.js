@@ -54,8 +54,8 @@ g(`iframeGFrame`).onerror = () => {
         toggleGFrame(``);
     };
 }
-g('gShowcase1').onclick = () => {
-    readUrlTree(this.querySelector(`span.gBarSM`).innerText);
+g('gShowcase1').onclick = (w) => {
+    readUrlTree(((w.target).innerText).toLowerCase);
 }
 //fps checker
 const times = [];
