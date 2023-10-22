@@ -37,7 +37,8 @@ const gUrlTree = {
     deathrun3d: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9zazFieC92ZXJzaW9uQDkzZjdmNjBiMGYwNTRjOTU2Y2E5YjY2MjJmMmRhZWVlYjQ1MDYzMmMvZGVhdGhfcnVuLnhtbA=="],
     run3: ["aHR0cHM6Ly9sZWt1Zy5naXRodWIuaW8vdG42cFM5ZENmMzd4QWhrSnYv"],
     awesometanks2: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vMzc0MDY5MTUtNDcxODM2NDAyMjUzODQ3MTQ2LnByZXZpZXcuZWRpdG15c2l0ZS5jb20vdXBsb2Fkcy9iLzEzOTg5MDEyOS0xNjU3Mjc2NzA2NTMzMzY3MDAvZmlsZXMvYXQyLnhtbA=="],
-    baldisbasics: ["aHR0cHM6Ly9ncmFuZGNhbnlvbnNodXR0bGVzLmNvbS91cGxvYWRzLzUvNS82LzcvNTU2NzE5NC9jdXN0b21fdGhlbWVzLzY2NjM0NDgyMDg0ODM4MDYzMS9iYWxkaS5odG1s"]
+    baldisbasics: ["aHR0cHM6Ly9ncmFuZGNhbnlvbnNodXR0bGVzLmNvbS91cGxvYWRzLzUvNS82LzcvNTU2NzE5NC9jdXN0b21fdGhlbWVzLzY2NjM0NDgyMDg0ODM4MDYzMS9iYWxkaS5odG1s"],
+    
 }
 let currentSRCGF;
 let currentSRCGFCounter = 0;
