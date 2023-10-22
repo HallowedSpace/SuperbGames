@@ -55,7 +55,7 @@ g(`iframeGFrame`).onerror = () => {
     };
 }
 g('gShowcase1').onclick = () => {
-    readUrlTree("slope");
+    readUrlTree(this.querySelector(`span.gBarSM`).innerText);
 }
 //fps checker
 const times = [];
