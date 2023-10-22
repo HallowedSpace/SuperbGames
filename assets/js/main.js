@@ -32,7 +32,7 @@ function q(e, z) {
 }
 //gUrl Tree (dont hate pls)
 const gUrlTree = {
-    slope: ["aHR0cHM6Ly9nb29nbGUuY29t", "aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9zazFieC9XZWJTdGFydGVya2l0QDI3MTk3ZDY4NTUwMjk1MzA2NWUzYTMyNTliNmUzNGY1YWNiOTRlNjUvc3JjL3NwMS41LnhtbA=="]
+    slope: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9zazFieC9XZWJTdGFydGVya2l0QDI3MTk3ZDY4NTUwMjk1MzA2NWUzYTMyNTliNmUzNGY1YWNiOTRlNjUvc3JjL3NwMS41LnhtbA=="]
 }
 let currentSRCGF;
 let currentSRCGFCounter = 0;
@@ -54,8 +54,13 @@ g(`iframeGFrame`).onerror = () => {
         toggleGFrame(``);
     };
 }
-g('gShowcase1').onclick = (w) => {
-    readUrlTree(((w.target).innerText).toLowerCase);
+g('gShowcase1').onclick = function(){ // no arrow functions because the "this" keyword doesnt work (rip)
+    readUrlTree((this.querySelector("span").innerText).toLowerCase());
+}
+q(`.gShowcaseModal`, true).forEach = (showcase) => {
+    showcase.onclick = function(){ // no arrow functions because the "this" keyword doesnt work (rip)
+        readUrlTree((this.querySelector("span").innerText).toLowerCase());
+    }
 }
 //fps checker
 const times = [];
