@@ -54,10 +54,10 @@ g(`iframeGFrame`).onerror = () => {
         toggleGFrame(``);
     };
 }
-g('gShowcase1').onclick = function(){ // no arrow functions because the "this" keyword doesnt work (rip)
-    readUrlTree((this.querySelector("span").innerText).toLowerCase());
-}
-q('.gShowcase', true)
+//g('gShowcase1').onclick = function(){readUrlTree((this.querySelector("span").innerText).toLowerCase());}
+q('.gShowcaseModal', true).forEach(el => el.addEventListener("click", event => {
+    readUrlTree((el.querySelector("span").innerText).toLowerCase());
+}));
 //fps checker
 const times = [];
 let fps;
