@@ -62,10 +62,12 @@ g(`iframeGFrame`).onerror = () => {
 }
 //better optimized onclick handler
 q('.gShowcaseModal', true).forEach(el => el.addEventListener("click", event => {
-    if((el.querySelector("span").innerText).includes(" ")){
-        readUrlTree((el.querySelector("span").innerText).replaceAll(" ", "").toLowerCase());
+    if(isNaN(parseInt((el.querySelector("span").innerText).replaceAll(" ", "").replaceAll(".", "").toLowerCase()[0]))){
+        readUrlTree((el.querySelector("span").innerText).replaceAll(" ", "").replaceAll(".", "").toLowerCase())
     }else{
-        readUrlTree((el.querySelector("span").innerText).toLowerCase());
+        let string;
+        //(el.querySelector("span").innerText).replaceAll(" ", "").replaceAll(".", "").toLowerCase()
+        readUrlTree()
     }
 }));
 //fps checker
