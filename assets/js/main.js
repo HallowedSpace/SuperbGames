@@ -30,6 +30,12 @@ function q(e, z) {
         }
     }
 }
+//text replace function ty stack overflow <3
+function setCharAt(str,index,chr) {
+    if(index > str.length-1) return str;
+    return str.substring(0,index) + chr + str.substring(index+1);
+}
+
 //gUrl Tree (dont hate pls)
 const gUrlTree = {
     slope: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9zazFieC9XZWJTdGFydGVya2l0QDI3MTk3ZDY4NTUwMjk1MzA2NWUzYTMyNTliNmUzNGY1YWNiOTRlNjUvc3JjL3NwMS41LnhtbA=="],
@@ -38,7 +44,16 @@ const gUrlTree = {
     run3: ["aHR0cHM6Ly9sZWt1Zy5naXRodWIuaW8vdG42cFM5ZENmMzd4QWhrSnYv"],
     awesometanks2: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vMzc0MDY5MTUtNDcxODM2NDAyMjUzODQ3MTQ2LnByZXZpZXcuZWRpdG15c2l0ZS5jb20vdXBsb2Fkcy9iLzEzOTg5MDEyOS0xNjU3Mjc2NzA2NTMzMzY3MDAvZmlsZXMvYXQyLnhtbA=="],
     baldisbasics: ["aHR0cHM6Ly9ncmFuZGNhbnlvbnNodXR0bGVzLmNvbS91cGxvYWRzLzUvNS82LzcvNTU2NzE5NC9jdXN0b21fdGhlbWVzLzY2NjM0NDgyMDg0ODM4MDYzMS9iYWxkaS5odG1s"],
-    
+    xv1lol: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vY2RuLmpzZGVsaXZyLm5ldC9naC9rbzFvdi9qZDgzaGYwMmxkNjVsYTMybWRsNEA0NGFjMzIwZWVlMzVhNmYzMzJiM2MwN2MwYTgxZTYxMTI2N2U2NDBjLzF2MS54bWw="],
+    xline: ["aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J5bWh2OV85VlBQZHJNamtua3FZWmRDRUNkNWxTWTh1cGd1eHp2OVFCVzhLblBlQWZPaVJWaG5zSGp6WnNLZklvblUvZXhlYw=="],
+    chess: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vczMuYW1hem9uYXdzLmNvbS9wcm9kdWN0aW9uLWFzc2V0c2J1Y2tldC04bGp2eXIxeGN6bWIvOGM0OTFmMjEtNzM1My00ZjFmLWIyYTAtOTU0NDgyNGM0ZDI4JTJGMi1wbGF5ZXItY2hlc3MueG1s"],
+    xslices: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vczMuYW1hem9uYXdzLmNvbS9wcm9kdWN0aW9uLWFzc2V0c2J1Y2tldC04bGp2eXIxeGN6bWIvMWVlMjA2MjEtNjFiYy00ZWM4LWE4ZWMtNWU4MzljMmU2ZWRjJTJGMy1zbGljZXMueG1s"],
+    blackholesquare: ["aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J6akNPWGZUSy1EVllxMGlheWIxTXFOcFNhcm96Qm5yeXFodVl6WUV0QWkxdDRva0dMZXhEV0lzejBZY2ppZnVXdXcvZXhlYw=="],
+    coreball: ["aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J5b2I3SHhraVcyZTB5VDIyUVJpZWpuQV9hbERkVWtQbnJOaXJudkNYMUhZUHJpR1BSNl9HWjJpMVJzZ2xQeXRsRm8vZXhlYw=="],
+    towerblocks: ["aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J5TFdGWUp4LTJKSGxvSjZONHVyLWRiaTczRzk2OTZhbHh5YU96aS1pa05CMEhJT0k2SmVLMTNickpRYmIyZlU5Q2tzZy9leGVj"],
+    spacecraft: ["aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J3TGhVc1VqaFR2aHBZeWx0UW54SEd2X1pkNDBUN0J0N2dmb2dDdG5uRWszdnF4eFNKN1BQbERaTkdlYzJwX0NuTm4vZXhlYw=="],
+    xthinningsmash: ["aHR0cHM6Ly9pbWFnZXMtb3BlbnNvY2lhbC5nb29nbGV1c2VyY29udGVudC5jb20vZ2FkZ2V0cy9pZnI/dXJsPWh0dHBzOi8vczMuYW1hem9uYXdzLmNvbS9wcm9kdWN0aW9uLWFzc2V0c2J1Y2tldC04bGp2eXIxeGN6bWIvOGM0OTFmMjEtNzM1My00ZjFmLWIyYTAtOTU0NDgyNGM0ZDI4JTJGN3RoX2lubmluZ19zbWFzaC54bWw="],
+    x0x10: ["aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J3TzNoS0MwaTIwQ21oNE5rczB6d0I4U3lxTWtka3g0V0o4dWlObEVoYWJmVl9lNXAzaWwxOWxBUW9HZ3RhbldrXzEvZXhlYw=="]
 }
 let currentSRCGF;
 let currentSRCGFCounter = 0;
@@ -51,23 +66,13 @@ function readUrlTree(key) {
         }
     });
 }
-g(`iframeGFrame`).onerror = () => {
-    //currentSRCGFCounter = currentSRCGFCounter++;
-    try {
-        this.src = window.atob(gUrlTree[keyCurrent][currentSRCGFCounter++]);   
-    } catch (error) {
-        currentSRCGFCounter = 0;
-        toggleGFrame(``);
-    };
-}
 //better optimized onclick handler
 q('.gShowcaseModal', true).forEach(el => el.addEventListener("click", event => {
     if(isNaN(parseInt((el.querySelector("span").innerText).replaceAll(" ", "").replaceAll(".", "").toLowerCase()[0]))){
         readUrlTree((el.querySelector("span").innerText).replaceAll(" ", "").replaceAll(".", "").toLowerCase())
     }else{
-        let string;
-        //(el.querySelector("span").innerText).replaceAll(" ", "").replaceAll(".", "").toLowerCase()
-        readUrlTree()
+        let updatedStr = setCharAt((el.querySelector("span").innerText).replaceAll(" ", "").replaceAll(".", "").toLowerCase(), 0, "x")
+        readUrlTree(updatedStr)
     }
 }));
 //fps checker
