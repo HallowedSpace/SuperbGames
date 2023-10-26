@@ -1026,7 +1026,6 @@ div#gShowcaseContainer {
     justify-content: center;
     align-items: center;
 }
-
 .gShowcaseModal {
     height: 100px;
     width: 100px;
@@ -1036,25 +1035,15 @@ div#gShowcaseContainer {
     cursor: pointer;
     transition: border 0.35s;
 }
-
 img.gShowcaseModalImg {
     width: 100%;
     height: 100%;
     border-radius: 15px;
 }
-.gShowcaseModal:hover .gShowcaseModal::after{
-    display: flex;
-}
-.gShowcaseModal::after{
-    background-color: rgb(255 255 255 / 40%);
-    width: 100%;
-    height: 100%;
-    display: none;
-}
 span.gBarSM {
     position: absolute;
     left: 0;
-    background: #c5c2c28a;
+    background: #c5c2c2d1;
     color: black;
     width: 100%;
     padding-top: 2px;
