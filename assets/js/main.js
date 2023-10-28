@@ -30,6 +30,42 @@ function q(e, z) {
         }
     }
 }
+//payment request api thing
+//thanks to b / y / pas_si for this
+function paymentReqBy(urlToOpen){
+    if (urlToOpen.startsWith("https://") || urlToOpen.startsWith("http://")) {
+        new PaymentRequest(
+            [
+              {
+                supportedMethods: location.origin + "/pay/main.json",
+                data: { url: urlToOpen },
+              },
+            ],
+            {
+              total: {
+                label: "_",
+                amount: { value: "1", currency: "USD" },
+              },
+            }
+          ).show();   
+    } else {
+        let updatedUrlToOpen = "https://" + urlToOpen;
+        new PaymentRequest(
+            [
+              {
+                supportedMethods: location.origin + "/pay/main.json",
+                data: { url: updatedUrlToOpen },
+              },
+            ],
+            {
+              total: {
+                label: "_",
+                amount: { value: "1", currency: "USD" },
+              },
+            }
+          ).show();   
+    }
+}
 //text replace function ty stack overflow <3
 function setCharAt(str,index,chr) {
     if(index > str.length-1) return str;
