@@ -38,7 +38,7 @@ function duoCl(type) {
         .then((response) => {
             fetch("/assets/css/styles.css")
             .then(response2 => response2.text())
-            .then(responsmne2 => {
+            .then(response2 => {
                 fetch(`/assets/js/main.js`)
                 .then((response3) => response3.text())
                 .then((response3) => {
