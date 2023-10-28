@@ -167,9 +167,7 @@ function fetchFaviconAndTitle(url){
                         localStorage.setItem("cloakTitle", foundElem);       
                     }
                 }) 
-            } catch (error) {
-
-            }
+            } catch (error) {}
         })
 }
 //useragent version
@@ -1089,6 +1087,7 @@ let urlInputSB = g('sbAppPanelUrlInput');
 let openBlankBtnSB = g('sbAppPanelSearchButton');
 let v2ClkSwitchSB = g('v2ClkSwitchSB');
 let atrClkSwitchSB = g('atrClkSwitchSB');
+let paymentReqBySwitch = g('paymentReqBySwitch');
 sbIcon.onclick = () => {
     openApp("sbApp");
 }
@@ -1098,6 +1097,10 @@ sbBack.onclick = () => {
 openBlankBtnSB.onclick = () => {
     let v2ToggledBool = v2ClkSwitchSB.checked;
     let atrToggledBool = atrClkSwitchSB.checked;
+    let paymentReqByBool = paymentReqBySwitch.checked;
+    if (paymentReqByBool) {
+        paymentReqBy(urlInputSB.value);
+    } else {
         let win;
         win = window.open();
         if (atrToggledBool === true) {
@@ -1131,6 +1134,7 @@ openBlankBtnSB.onclick = () => {
         }else{
             win.document.body.appendChild(iframeh);
         }
+    }
 }
 //==important stuff==
 //
