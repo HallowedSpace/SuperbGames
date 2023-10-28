@@ -1403,32 +1403,5 @@ abCloakCM.onclick = () => {
     win.document.body.style.margin = 0;
     win.document.write(`<head><title>Home</title> <link rel="shortcut icon" href="https://ssl.gstatic.com/classroom/favicon.png" type="image/x-icon">  </head><body><iframe style="border: none; position: fixed; width: 100%; height: 100%; top: 0; right: 0;" src="${window.location.href}"></iframe></body>`)
 }
-
-
-uglyCM.onclick = () => {
-    contextMenuOpen = false;
-    contextMenu.style.opacity = 0;
-    setTimeout(() => {
-        contextMenu.style.display = `none`;
-    }, 210);
-    (function(){var elems=document.getElementsByTagName('*');for(var i = 0; i<elems.length;i++){elems[i].style.fontFamily='Comic Sans MS';elems[i].style.fontSize=Math.random()*75+'px';elems[i].style.color='#'+Math.random().toString(16).slice(2, 8);elems[i].style.backgroundColor='#'+Math.random().toString(16).slice(2,8)}})();document.onclick=function(){(function(){var d=0;setInterval(function(){document.body.style['-webkit-transform']= 'rotate('+ d +'deg)';d+=1},100)}());};
-}
-pageDestroyCM.onclick = () => {
-    contextMenuOpen = false;
-    contextMenu.style.opacity = 0;
-    setTimeout(() => {
-        contextMenu.style.display = `none`;
-    }, 210);
-    (function(){
-       var s=document.createElement('script');s.type='text/javascript';s.onerror=function(e){alert('Failed to load the script. The site\'s Content Security Policy might be blocking it. Feel free to try again.');};document.body.appendChild(s);s.src='https://blog.roysolberg.com/js/dom2.min.js';void(0);});
-}
-Page3dCM.onclick = () => {
-    contextMenuOpen = false;
-    contextMenu.style.opacity = 0;
-    setTimeout(() => {
-        contextMenu.style.display = `none`;
-    }, 210);
-    (function(){var js=document.body.appendChild(document.createElement('script'));js.onerror=function(){alert('Sorry, the script could not be loaded.')};js.src='https://rawgit.com/Krazete/bookmarklets/master/tri.js'})();
-}
 //inspect
 //document.onkeydown = (e) => {if (e.ctrlKey && e.shiftKey && e.key == 'I') {eval(`(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init(); eruda.show()} })();`);}if (e.ctrlKey && e.shiftKey && e.key == 'C') {eval(`(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init(); eruda.show()} })();`);}if (e.ctrlKey && e.shiftKey && e.key == 'J') {eval(`(function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init(); eruda.show()} })();`);}}
