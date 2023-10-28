@@ -1,0 +1,8 @@
+{
+    "name": "Buypass",
+    "short_name": "Buypass",
+    "serviceworker": {
+        "src": "./sw.js",
+        "use_cache": false
+    }
+}
