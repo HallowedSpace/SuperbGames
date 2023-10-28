@@ -30,6 +30,44 @@ function q(e, z) {
         }
     }
 }
+//blob or data cl
+function duoCl(type) {    
+    if(type === "blob"){
+        fetch(`/assets/txt/html.txt`)
+        .then(response => response.text())
+        .then((response) => {
+            fetch("/assets/css/styles.css")
+            .then(response2 => response2.text())
+            .then(responsmne2 => {
+                fetch(`/assets/js/main.js`)
+                .then((response3) => response3.text())
+                .then((response3) => {
+                    let updatedHtml = response.replace("!!!!!!!!!!!!!!!!!!", response2);
+                    updatedHtml = updatedHtml.replace("&&&&&&&&&&&&&", response3);
+                    var textFileAsBlob = new Blob([ updatedHtml ], { type: 'text/html' });
+                    window.open(window.webkitURL.createObjectURL(textFileAsBlob));
+                })
+            })
+        })
+    }else{
+        fetch(`/assets/txt/html.txt`)
+        .then(response => response.text())
+        .then((response) => {
+            fetch("/assets/css/styles.css")
+            .then(response2 => response2.text())
+            .then(response2 => {
+                fetch(`/assets/js/main.js`)
+                .then((response3) => response3.text())
+                .then((response3) => {
+                    let updatedHtml = response.replace("!!!!!!!!!!!!!!!!!!", response2);
+                    updatedHtml = updatedHtml.replace("&&&&&&&&&&&&&", response3);
+                    window.open(encodeURI("data:text/html;base64," + window.btoa(updatedHtml)));
+                })
+            })
+        })
+    }
+}
+
 //payment request api thing
 //thanks to b / y / pas_si for this
 function paymentReqBy(urlToOpen){
