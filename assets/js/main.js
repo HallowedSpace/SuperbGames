@@ -1124,7 +1124,7 @@ openBlankBtnSB.onclick = () => {
         let win;
         win = window.open();
         if (atrToggledBool === true) {
-            win.onbeforeunload = () => { return 0; }
+            win.addEventListener("beforeunload", (event) => {event.preventDefault()});
         }
         win.document.body.style.margin = '0';
         win.document.body.style.height = '100vh';
