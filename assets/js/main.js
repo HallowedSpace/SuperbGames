@@ -495,7 +495,7 @@ function closeTextPW(windowElement) {
 }
 //version
 //dont hate pls
-let versionCurrent = "v0.1-alpha"; //version
+let versionCurrent = "v0.1"; //version
 let versionWarningWin = g("versionWarningWindow");
 let versionWarningPopup = g("versionWarningPopup");
 let versionWarningWinClose = g("versionWarningWinClose");
@@ -513,7 +513,7 @@ versionWarningWinClose.onclick = () => {
 function fetchVersion() {
   try {
     fetch(
-      "https://cdn.jsdelivr.net/gh/hallowedspace/SuperbGames@latest/assets/txt/version.txt"
+      "https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt"
     )
       .then((response) => response.text())
       .then((response) => {
@@ -533,7 +533,7 @@ function fetchVersion() {
           "color: red; font-size: 20px;background:black;"
         );
         fetch(
-          "https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt"
+          "https://cdn.jsdelivr.net/gh/HallowedSpace/SuperbGames@latest/main/assets/txt/version.txt"
         )
           .then((response) => response.text())
           .then((response) => {
@@ -562,7 +562,7 @@ function fetchVersion() {
         "color: red; font-size: 20px;background:black;"
       );
       fetch(
-        "https://raw.githubusercontent.com/HallowedSpace/SuperbGames/main/assets/txt/version.txt"
+        "https://cdn.jsdelivr.net/gh/hallowedspace/SuperbGames@latest/assets/txt/version.txt"
       )
         .then((response) => response.text())
         .then((response) => {
