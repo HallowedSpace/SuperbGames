@@ -1,0 +1,1036 @@
+*{
+    margin: 0;
+}
+body{
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+}
+#topbar-stage1{
+    top: 0;
+    display: flex;
+    position: fixed;
+    border-bottom: #1a1a1a solid 1px;
+    width: 100%;
+    height: 70px;
+    background: var(--default-theme);
+    color: var(--default-font-color);
+    z-index: 999;
+}
+#body-stage1{
+    top: 7em;
+    position: absolute;
+    width: 90%;
+    left: 2em;
+
+}
+#article-stage1{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: var(--default-font-color);
+    
+}
+#settingSidebar{
+    transition: 1s;
+    background-color: black;
+    height: 100vh;
+    width: 0;
+    display: flex;
+    position: fixed;
+    z-index: 998;
+    color: white;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+    align-items: center;
+}
+#settingsContainer {
+    transition: 1s;
+    height: 100%;
+    width: 0;
+    display: flex;
+    position: relative;
+    opacity: 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+#settingsSwitch {
+    background: black;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    border-radius: 50px;
+    align-items: center;
+    display: grid;
+    justify-content: center;
+    bottom: 5px;
+    left: 5px;
+    cursor: pointer;
+    z-index: 999;
+    transition: 1s;
+}
+#addArticles-stage1{
+    bottom: 0;
+    background-color: var(--dark-theme);
+    height: 5em;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    color:var(--dark-theme-font-color);
+}
+.articleItem{
+    color: var(--dark-theme-font-color);
+    transition: 0.5s;
+    width: 33%;
+    text-align: center;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Trebuchet MS';
+    text-decoration: none;
+}
+.articleItem:hover{
+    cursor: pointer;
+    background-color: white;
+    color: var(--default-font-color);
+}
+#articleHeader{
+    font-size: 50px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    left: 40%;
+    font-family: trebuchet MS;
+} 
+#settingsHeader{
+    font-family: trebuchet MS;
+    margin: 10px;
+    font-size: 50px;
+}
+div#infoSVG {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    width: 2em;
+    height: 2em;
+    border-radius: 10px;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+}
+div#popupShadow {
+    height: 100vh;
+    width: 100%;
+    background: rgb(0 0 0 / 77%);
+    position: fixed;
+    z-index: 1000;
+}
+div#infoContainer{
+    transition: 0.5s;
+}
+div#exitInfo {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+div#gCon {
+    height: 100vh;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.gCube {
+    width: 110px;
+    height: 110px;
+    background: rgb(0, 0, 0);
+    border-radius: 15px;
+    transition: 0.5s;
+    cursor: pointer;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gCube:hover {
+    width: 180px;
+    height: 180px;
+    margin: 15px;
+}
+
+.gCube:active {
+    transition: 0.2s;
+    width: 110px;
+    height: 110px;
+}
+.gCube > img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+div#themeContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.themeSelector {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.5s;
+    margin: 5px;
+}
+.themeSelector:hover {
+    width: 40px;
+    height: 40px;
+}
+.themeSelector:active {
+    width: 29px;
+    height: 29px;
+    transition: 0.2s;
+}
+.selectedTheme {
+    border: 2px white solid;
+}
+div#theme1 {
+    background: linear-gradient(127deg, rgba(6,0,172,1) 0%, rgba(102,0,255,1) 100%);
+}
+div#theme2 {
+    background: linear-gradient(124deg, rgba(9,250,41,1) 0%, rgba(19,207,154,1) 33%, rgba(20,132,227,1) 93%);
+}
+div#theme3 {
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+div#theme4 {
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+div#theme5 {
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+div#infoPopupWindow {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    overflow: hidden;
+    top: calc(25% - 25px);
+    right: calc(25% - 25px);
+    background: black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 25px;
+    font-family: trebuchet MS;
+    z-index: 1000;
+    color: white;
+}
+div#gitSVG {
+    left: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+}
+div#discSVG {
+    position: absolute;
+    top: 20px;
+    left: calc(45px + 1em);
+    cursor: pointer;
+}
+div.backArrow {
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+    position: fixed;
+    background: black;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    left: 10px;
+    top: 10px;
+    z-index: 99999999999999999;
+}
+div#s2 {
+    height: 100vh;
+    width: 100%;
+}
+div#dateTime {
+    display: flex;
+    position: fixed;
+    right: 1px;
+    background: black;
+    border-radius: 10px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    top: 1px;
+}
+.themedBackground {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: inherit;
+}
+#apps > div{
+    z-index: 99999;
+    position: absolute;
+    transition: 0.6s;     
+}
+div#appSelector {
+    justify-self: center;
+    background: black;
+    padding: 10px;
+    position: fixed;
+    top: 10px;
+    border-radius: 15px;
+    font-size: 35px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+div#codeExContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+}
+#codeInput {
+    font-family: monospace;}
+div#executeCodeButton {
+    z-index: inherit;
+}
+div#cloakContainer{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100000;
+    justify-items: center;
+    column-gap: 210px;
+    grid-template-columns: repeat(2, 300px);
+    align-items: center;
+    justify-content: center;
+}
+div#textEdContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+}
+.switch {
+    display: inline-block;
+    width: 60px;
+    height: 40px;
+    position: relative;
+    
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cd4c4c;
+    -webkit-transition: .4s;
+    transition: .4s;
+      border-radius: 5px;
+      height: 35px;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 5px;
+  }
+  
+  input:checked + .slider {
+    background-color: #5dff00;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+#cloakOptions > h3 {
+    margin-top: 20px;
+}
+div#textEdWindow {
+    z-index: 99;
+    height: 99vh;
+    width: 90%;
+    background: #050505;
+    border-radius: 15px;
+    position: fixed;
+    display: flex;
+    top: 0.5vh;
+    justify-content: center;
+}
+textarea#TextEditor {
+    height: 98.5vh;
+    width: 70%;
+    resize: none;
+    font-family: trebuchet ms;
+    background: #030303;
+    color: white;
+    border: none;
+    word-wrap: break-word;
+    position: relative;
+    border-radius: 5px;
+    font-size: 15px;
+}
+div#textToolbar {
+    display: flex;
+    position: relative;
+    height: 99vh;
+    width: 50px;
+    z-index: 99;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+div#textToolbar > div > svg {
+    margin: 10px;
+    cursor: pointer;
+}
+div#clearTextSVG {
+    transition: 0.5s;
+}
+/* ignore z-index i just dont feel like organizing everything lol maybe after first release i will manually beautify everything lol */
+div#textPopupBar {
+    padding: 10px;
+    background: black;
+    border-radius: 15px;
+    z-index: 999999999999999999999999999999999999999999999999999;
+    transition: top 0.5s;
+    top: -100px;
+    position: fixed;
+    font-size: 25px;
+}
+.textEdPopupWindowShadow {
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999999999999999999999999999999999999999999;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.textEdPopupWindow {
+    background: black;
+    z-index: 9999999999999999999999999999999999999999999;
+    height: 200px;
+    width: 400px;
+    border-radius: 15px;
+    position: fixed;
+    display: flex;
+    top: calc(50% - 100px);
+    left: calc(50% - 200px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+input#docTitleInput {
+    background: #0b0b0b;
+    border: white;
+    width: 350px;
+    height: 100px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+}
+
+.popupButton {
+    background: #0f0f0f;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.5s;
+}
+
+div#docTitleButtons {
+    bottom: 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.popupButton:hover {
+    transform: translateY(-5px);
+}
+
+.popupButton:active {
+    transform: translateY(5px);
+}
+input#uploadFileSVG {
+    display: none;
+}
+
+label#uploadFileSVGLabel {
+    cursor: pointer;
+}
+b {
+    font-size: large;
+    color: white;
+    font-weight: bolder;
+}
+div#textInfoBackSVG {
+    align-self: normal;
+    cursor: pointer;
+    position: relative;
+    left: 5px;
+    top: 5px;
+    display: flex;
+    justify-content: normal;
+}
+#textInfoPopupWindow{
+    background: black;
+    z-index: 9999999999999999999999999999999999999999999;
+    height: 200px;
+    width: 400px;
+    border-radius: 15px;
+    position: fixed;
+    display: flex;
+    top: calc(50% - 100px);
+    left: calc(50% - 200px);
+    flex-direction: column;
+    align-items: center;
+}
+div#textInfoContainer {
+    margin-top: 20px;
+    font-size: 30px;
+    color: white;
+    position: relative;
+    bottom: 0;
+    text-align: center;
+}
+div#expWindow {
+    position: fixed;
+    height: 90vh;
+    width: 90%;
+    background: #000000;
+    top: 5vh;
+    right: 5%;
+    z-index: 999999;
+    border-radius: 10px;
+    display: grid;
+    align-items: center;
+    overflow-y: scroll;
+    justify-items: center;
+    justify-content: center;
+    column-gap: 110px;
+    grid-template-columns: repeat(2, 300px);
+}
+div#currentVersion {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    padding: 10px;
+    height: 10px;
+    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-family: monospace;
+}
+div#versionWarningPopup {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background: black;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 99;
+}
+div#mainWindowVersionWarning {
+    width: 50%;
+    height: 25%;
+    z-index: 99999;
+    position: fixed;
+    background: black;
+    border-radius: 15px;
+    top: calc(50% - 12.5%);
+    left: calc((75% / 2) - 12.5%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div#shadowWindowVersionWarning {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background: #000000c9;
+    z-index: 9999;
+}
+div#versionWarningText {
+    margin: 30px;
+    font-size: 25px;
+}
+div#versionWarningWinClose {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+div#sbAppWindow {
+    position: fixed;
+    top: calc( 50% - (90% / 2));
+    left: calc( 50% - (75% / 2));
+    height: 90%;
+    width: 75%;
+    background: black;
+    border-radius: 15px;
+    z-index: 999999;
+}
+
+div#sbAppWindow {
+    position: fixed;
+    top: calc( 50% - (90% / 2));
+    left: calc( 50% - (75% / 2));
+    height: 90%;
+    width: 75%;
+    background: black;
+    border-radius: 15px;
+    z-index: 999999;
+}
+
+div#sbAppSearchPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.sleekInput {
+    background: black;
+    border: white solid 1px;
+    color: white;
+    border-radius: 15px;
+    width: 90%;
+    height: 50px;
+    transition: 0.5s;
+    font-family: trebuchet ms;
+    padding: 10px;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.sleekInput:focus {
+    border: black 1px solid;
+    transition: 0.5s;
+    color: black;
+    background: white;
+    font-weight: 500;
+    font-family: trebuchet ms;
+}
+
+.sleekButton {
+    border: white 1px solid;
+    color: white;
+    height: 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.sleekButton:hover {
+    border: black 1px solid;
+    color: black;
+    cursor: pointer;
+    transition: 0.7s;
+    background: white;
+}
+div#sbAppPanelSearchButton:active {
+    border: black 1px solid;
+    color: black;
+    cursor: pointer;
+    transition: 0.1s;
+    background: white;
+    font-size: 15px;
+    padding: 15px;
+}
+div#sbAppSearchOptionsPanel {
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+span.sbAppSlider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    border: white 1px solid;
+    transition: .4s;
+    border-radius: 5px;
+    height: 35px;
+}
+span.sbAppSlider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 5px;
+    align-self: center;
+}
+input:checked + span.sbAppSlider {
+    background: white;
+}
+input:checked + span.sbAppSlider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+        background-color: black;
+}
+.sbAppSwitchContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 17px;
+    margin: 10px;
+}
+contextmenu {
+    display: none;
+    background: #181d28;
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    position: fixed;
+    z-index: 99999999999999999999999999999999999999999999999999999;
+    box-shadow: 0px 17px 22px 1px rgba(0,0,0,0.5);
+    transition: 0.2s;
+    flex-flow: column wrap;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    padding: 5px;
+}
+@keyframes rainbow{
+    0%{color:rgb(240, 154, 154)(255, 122, 122);}
+  10%{color:rgb(255, 0, 0);}
+  20%{color: rgb(255, 60, 0);}
+  30%{color: rgb(201, 90, 5)}
+  40%{color:rgb(255, 174, 0)}
+  50%{color:rgb(229, 255, 0)}
+  60%{color: rgb(100, 203, 10)}
+  70%{color:rgb(2, 137, 2)}
+  80%{color: rgb(0, 255, 106)}
+  90%{color: rgb(11, 103, 196);}
+  100%{color: rgb(250, 11, 210)}
+}
+.rbText{
+  animation: rainbow 10s infinite;
+}
+.utilityCM {
+    width: 100%;
+    top: 10px;
+    position: relative;
+    height: 20px;
+    background: rgb(255 255 255 / 0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.utilityCM:hover {
+    background: rgb(255 255 255 / 15%);
+}
+
+
+.cmDivider {
+    margin-top: 15px;
+    width: 100%;
+    height: 5px;
+    background: #ffffff30;
+    border-radius: 5px;
+}
+div#fpsChecker {
+    display: flex;
+    position: fixed;
+    border-radius: 10px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    right: 5px;
+    font-family: monospace;
+}
+div#iframeGContainer {
+    position: fixed;
+    z-index: 999999999999999999999999999999999999999999999999999999999999999999999999999;
+    display: none;
+    transition: 0.5s;
+    opacity: 0;
+}
+
+div#iframeGTopBar {
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    background: black;
+    display: flex;
+    align-items: center;
+    z-index: 999999999;
+    border-bottom: #585858 2px solid;
+}
+
+div#iframeGFullscreen{
+    bottom: 5px;
+    right: 5px;
+    position: fixed;
+    border-radius: 15px;
+    background: black;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999999;
+}
+div#exitIframeGContainer {
+    position: relative;
+    left: 20px;
+    cursor: pointer;
+}
+
+iframe#iframeGFrame {
+    border: none;
+    width: 100%;
+    height: calc(100% - 70px);
+    background: #2e2e2e;
+    position: fixed;
+    bottom: 0;
+}
+div#gShowcaseContainer {
+    width: 90%;
+    height: 90%;
+    position: fixed;
+    background: black;
+    z-index: 9999999;
+    top: 5%;
+    right: 5%;
+    border-radius: 15px;
+    display: flex;
+    justify-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.gShowcaseModal {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: border 0.35s;
+}
+img.gShowcaseModalImg {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+span.gBarSM {
+    position: absolute;
+    left: 0;
+    background: #c5c2c2d1;
+    color: black;
+    width: 100%;
+    padding-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    height: 100%;
+    text-decoration: wavy;
+    font-family: trebuchet ms;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    opacity: 0;
+    font-size: 0px;
+    transition: font-size, opacity 0.2s;
+}
+
+div.gShowcaseModal:hover span.gBarSM {
+   opacity: 1;
+    font-size: 1.4vh;
+}
+div.gShowcaseModal:hover{
+    transition: transform 0.1s;
+transform: scale(1.3);
+}
+div.gShowcaseModal:active{
+transition: transform 0.1s;
+    transform: scale(0.9);
+    
+}
+.gShowcaseModal {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: border 0.35s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    justify-items: center;
+}
+div#s1 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: scroll;
+    top: 0;
+    right: 0;
+}
+div#cloakContainer > div{
+    background: black;
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    flex-direction: column;
+    width: 500px;
+    transition: transform 0.5s;
+}
+div#cloakContainer > div:hover{
+    transform: translateY(-3px);
+}
+notifbar#cAppNotificationBar {
+    transition: top 0.5s;
+    background: black;
+    border-radius: 15px;
+    padding: 10px;
+    position: fixed;
+    z-index: 999999999;
+    top: -50px;
+    font-size: 20px;
+    align-self: center;
+    justify-self: center;
+}
+.expContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.expContainer p {
+    font-family: trebuchet ms;
+    font-weight: 900;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    color: grey;
+    margin: 7.5px;
+}
+div#batteryInfo {
+    display: flex;
+    position: fixed;
+    right: 189px;
+    background: black;
+    border-radius: 10px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    top: 1px;
+}
+div#codeExWindow {
+    background: black;
+    width: 90%;
+    height: 90%;
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    z-index: 9999999999;
+    border-radius: 5px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    padding: 10px;
+    left: 5%;
+    bottom: 5%;
+}

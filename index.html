@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="shortcut icon" id="faviconRepCl" href type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/dns.css">
+    <script src="./assets/js/p-indentif.js" defer></script>
+    <title></title>
+    <script>
+        let detailsOpen = false;
+        function toggleHelpBox(){
+            let details = document.querySelector("#details");
+            if(detailsOpen) {
+                details.classList.add("hidden");
+                detailsOpen = false;
+            }
+            else {
+                details.classList.remove("hidden");
+                detailsOpen = true;
+            }
+        } 
+        document.title = window.location.host;    
+    </script>
+</head>
+
+<body style="background: rgb(32, 33, 36);">
+    <contextmenu style="font-family: trebuchet ms;
+    color: white;">
+        <div id="inspectUtilityCM" class="utilityCM">Inspect</div>
+        <div id="reloadUtilityCM" class="utilityCM">Reload</div>
+        <div class="cmDivider"></div>
+        <div id="dupeTabCM" class="utilityCM">Duplicate Tab</div>
+        <div id="abCloakCM" class="utilityCM">Open in About:Blank</div>
+        <div id="switchStageCM" class="utilityCM">Switch to Fake Error</div>
+    </contextmenu>
+    
+    <div id="s1" style="font-family: Roboto, sans-serif; font-size: 75%; scroll-behavior: smooth" page="404">
+        <div id="main-frame-error" class="main-wrapper" style="-webkit-text-size-adjust: 100%;
+        font-size: 125%;">
+            <div id="main-content">
+                <div class="icon icon-generic"></div>
+                <div id="main-message">
+                    <h1>
+                        <span>This site can’t be reached</span>
+                        <a id="error-information-button" class="hidden"></a>
+                    </h1>
+                    <p><strong id="domainBox"></strong>’s server IP address could not be found.</p>
+                    <div id="error-information-popup-container" style="padding-top: 16px;">
+                        <div id="error-information-popup">
+                            <div id="error-information-popup-box">
+                                <div id="error-information-popup-content">
+                                    <div id="suggestions-list">
+                                        <p>Try:</p>
+                                        <ul class="">
+                                            <li>Checking the connection</li>
+                                            <li><a href="#buttons" onclick="toggleHelpBox()">Checking the proxy, firewall, and DNS configuration</a></li>
+                                            <li><a id="diagnose-link" href="">Running Connectivity Diagnostics</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="error-code">ERR_NAME_NOT_RESOLVED</div>
+                                    <p id="error-information-popup-close">
+                                        <a class="link-button">null</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="buttons" class="nav-wrapper suggested-right">
+                <div id="control-buttons">
+                    <button id="reload-button" class="blue-button text-button" onclick="location.reload();">Reload</button>
+        
+                </div>
+                <button id="details-button" class="secondary-button text-button small-link" onclick="toggleHelpBox()">Details</button>
+            </div>
+            <div id="details" class="hidden">
+                <div class="suggestions">
+                    <div class="suggestion-header">Check your Internet connection</div>
+                    <div class="suggestion-body">Check any cables and reboot any routers, modems, or other network
+                        devices you may be using.</div>
+                </div>
+                <div class="suggestions">
+                    <div class="suggestion-header">Check your DNS settings</div>
+                    <div class="suggestion-body">Contact your network administrator if you're not sure what this means.</div>
+                </div>
+                <div class="suggestions">
+                    <div class="suggestion-header">Try disabling network prediction</div>
+                    <div class="suggestion-body">Go to
+                        the Chrome menu &gt;
+                        <span jscontent="settingsTitle">Settings</span>
+                        &gt;
+                        <span jscontent="advancedTitle">Show advanced settings…</span>
+                        and deselect "<span>Use a prediction service to load pages more quickly</span>."
+                        If this does not resolve the issue, we recommend selecting this option
+                        again for improved performance.
+                    </div>
+                </div>
+                <div class="suggestions">
+                    <div class="suggestion-header">Allow Chrome to access the network in your firewall or antivirus
+                        settings.</div>
+                    <div class="suggestion-body">If it is already listed as a program allowed to access the network, try
+                        removing it from the list and adding it again.</div>
+                </div>
+                <div class="suggestions">
+                    <div class="suggestion-header">If you use a proxy server…</div>
+                    <div class="suggestion-body">Check your proxy settings or contact your network administrator to
+                        make sure the proxy server is working. If you don't believe you should
+                        be using a proxy server:
+                        You can disable any proxies configured for a connection from the settings page.</div>
+                </div>
+            </div>
+        </div>
+        <script defer>
+            (document.getElementById("domainBox")).innerText = window.location.host;    
+        </script> 
+    </div>
+    <div id="s2" style="display: none; font-family: trebuchet ms;color: rgb(255, 255, 255);">
+    <div id="appSelector" style="display: none;"></div>
+    <div id="dateTime">
+        <div id="date"></div>
+        <div id="currentTime"></div>
+    </div>
+    <div id="batteryInfo" style="display:none;">
+        <div id="charging">placeholder</div>
+        <div id="percent">placeholder</div>
+    </div>
+    <div id="infoContainer" tabindex="0" style="display: none;">
+        <div id="popupShadow"></div>
+        <div id="infoPopupWindow">
+            <div id="exitInfo"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"></path></svg></div>
+            <div id="gitSVG" onclick="window.open(`https://github.com/HallowedSpace/SuperbGames`)"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></div>
+            <div id="discSVG" onclick="window.open(`https://discord.gg/ubACu5WEMy`)"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"></path></svg></div>
+            <h1 style="color: white;">Info</h1>
+            <p>
+                Hello! I hope you've enjoyed this site and the many fun activities within it! I fine-tuned this site to curate to the needs of people to which require inter<span>net satisf</span>action. May the tools within this site be an aid to you on your intern<span>et adventure</span>!
+            </p>
+            <h3>Special Thanks To </h3>
+            <p>
+                <br>
+                <b>Me</b> for coding everything
+                <br>
+                My friend <b>Jake</b> for helping test and design stuff
+                <br>
+                My pal <b>Fshmeft</b> for helping test and give ideas
+                <br>
+                My good friends <b>Andrew and Max</b> for helping test the site.
+                <br>
+                <b>Bypa<span>ssi</span></b> 𝖿о𝗋 𝗍һе 𝖻սу-раѕѕ ехр<span>loit</span>.
+            </p>            
+        </div>
+        </div>
+        <div id="infoSVG">
+            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 192 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32H96c17.7 0 32 14.3 32 32V448h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H64V256H32c-17.7 0-32-14.3-32-32z"></path></svg>
+        </div>
+        <div id="settingSidebar">
+            <div id="settingsContainer" style="display: none;">
+                <h1 id="settingsHeader">Settings</h1>
+                <div id="themeContainer">
+                    <h2>Themes</h2>
+                
+                    <div class="themeSelector" id="theme1"></div>
+                    <div class="themeSelector" id="theme2"></div>
+                    <div class="themeSelector" id="theme3"></div>
+                    <div class="themeSelector" id="theme4"></div>
+                    <div class="themeSelector" id="theme5"></div>
+                </div>
+            </div>
+        </div>
+        <div id="settingsSwitch">
+            <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewbox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                <style>
+                    svg {
+                        fill: #ffffff
+                    }
+                </style>
+                <path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z" />
+            </svg>
+        </div>
+        <div id="versionWarningElements">
+            <div id="versionWarningPopup" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                      <style>
+                          svg {
+                              fill: #ffffff
+                          }
+              
+                      </style>
+                      <path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path>
+                  </svg>
+            </div>
+            <div id="versionWarningWindow" style="display: none">
+                <div id="mainWindowVersionWarning">
+                    <div id="versionWarningWinClose">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <style>
+                                svg {
+                                    fill: #ffffff
+                                }
+            
+                            </style>
+                            <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"></path>
+                        </svg>
+                  </div>
+                    <div id="versionWarningText"></div>
+                </div>
+                <div id="shadowWindowVersionWarning">
+                </div>
+            </div>            
+        </div>
+        <div id="gCon">
+            <div class="gCube" id="devIcon" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="80%" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #ffffff
+                        }
+                
+                    </style>
+                    <path d="M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4h54.1l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109V104c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L233.7 374.3c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5c-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16V102.6c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0C288.5 0 224 64.5 224 144l0 .8 85.3 85.3c36-9.1 75.8 .5 104 28.7L429 274.5c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z"></path>
+                </svg>                
+            </div>
+            <div class="gCube" id="searchBlankIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="70%" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #ffffff
+                        }
+            
+                    </style>
+                    <path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"></path>
+                </svg>
+            </div>            
+            <div class="gCube" id="filterIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="90%" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #ffffff
+                        }
+                    </style>
+                    <path d="M224 0c13.3 0 24 10.7 24 24V70.1l23-23c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-57 57v76.5l66.2-38.2 20.9-77.8c3.4-12.8 16.6-20.4 29.4-17s20.4 16.6 17 29.4L373 142.2l37.1-21.4c11.5-6.6 26.2-2.7 32.8 8.8s2.7 26.2-8.8 32.8L397 183.8l31.5 8.4c12.8 3.4 20.4 16.6 17 29.4s-16.6 20.4-29.4 17l-77.8-20.9L272 256l66.2 38.2 77.8-20.9c12.8-3.4 26 4.2 29.4 17s-4.2 26-17 29.4L397 328.2l37.1 21.4c11.5 6.6 15.4 21.3 8.8 32.8s-21.3 15.4-32.8 8.8L373 369.8l8.4 31.5c3.4 12.8-4.2 26-17 29.4s-26-4.2-29.4-17l-20.9-77.8L248 297.6v76.5l57 57c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-23-23V488c0 13.3-10.7 24-24 24s-24-10.7-24-24V441.9l-23 23c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l57-57V297.6l-66.2 38.2-20.9 77.8c-3.4 12.8-16.6 20.4-29.4 17s-20.4-16.6-17-29.4L75 369.8 37.9 391.2c-11.5 6.6-26.2 2.7-32.8-8.8s-2.7-26.2 8.8-32.8L51 328.2l-31.5-8.4c-12.8-3.4-20.4-16.6-17-29.4s16.6-20.4 29.4-17l77.8 20.9L176 256l-66.2-38.2L31.9 238.6c-12.8 3.4-26-4.2-29.4-17s4.2-26 17-29.4L51 183.8 13.9 162.4c-11.5-6.6-15.4-21.3-8.8-32.8s21.3-15.4 32.8-8.8L75 142.2l-8.4-31.5c-3.4-12.8 4.2-26 17-29.4s26 4.2 29.4 17l20.9 77.8L200 214.4V137.9L143 81c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l23 23V24c0-13.3 10.7-24 24-24z"></path>
+                </svg>
+            </div>
+            <div class="gCube" id="activitesIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="70%" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #ffffff
+                        }
+                    </style>
+                    <path d="M400 0H176c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8H24C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9H192c-17.7 0-32 14.3-32 32s14.3 32 32 32H384c17.7 0 32-14.3 32-32s-14.3-32-32-32H357.9C337 448 320 431 320 410.1c0-19.6 15.9-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24H446.4c.3-5.2 .5-10.4 .7-15.8C448.1 21.8 426.5 0 400 0zM48.9 112h84.4c9.1 90.1 29.2 150.3 51.9 190.6c-24.9-11-50.8-26.5-73.2-48.3c-32-31.1-58-76-63-142.3zM464.1 254.3c-22.4 21.8-48.3 37.3-73.2 48.3c22.7-40.3 42.8-100.5 51.9-190.6h84.4c-5.1 66.3-31.1 111.2-63 142.3z"></path>
+                </svg>
+            </div>
+            <div class="gCube" id="experimentsIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="80%" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #ffffff
+                        }
+                    </style>
+                    <path d="M288 0H160 128C110.3 0 96 14.3 96 32s14.3 32 32 32V196.8c0 11.8-3.3 23.5-9.5 33.5L10.3 406.2C3.6 417.2 0 429.7 0 442.6C0 480.9 31.1 512 69.4 512H378.6c38.3 0 69.4-31.1 69.4-69.4c0-12.8-3.6-25.4-10.3-36.4L329.5 230.4c-6.2-10.1-9.5-21.7-9.5-33.5V64c17.7 0 32-14.3 32-32s-14.3-32-32-32H288zM192 196.8V64h64V196.8c0 23.7 6.6 46.9 19 67.1L309.5 320h-171L173 263.9c12.4-20.2 19-43.4 19-67.1z"></path>
+                </svg>
+            </div>
+            <div class="gCube" id="cloakIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="80%" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #ffffff
+                        }
+                    </style>
+                    <path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"></path>
+                </svg>
+            </div>
+            <div class="gCube" id="textEDIcon">
+                <svg xmlns="http://www.w3.org/2000/svg" height="70%" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                      <style>
+                          svg {
+                              fill: #ffffff
+                          }
+                      </style>
+                      <path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm16 64h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V144c0-8.8 7.2-16 16-16zM64 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V240zm16 80h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V336c0-8.8 7.2-16 16-16zm80-176c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V144zm16 80h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V240c0-8.8 7.2-16 16-16zM160 336c0-8.8 7.2-16 16-16H400c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V336zM272 128h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V144c0-8.8 7.2-16 16-16zM256 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V240zM368 128h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16V144c0-8.8 7.2-16 16-16zM352 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16V240zM464 128h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H464c-8.8 0-16-7.2-16-16V144c0-8.8 7.2-16 16-16zM448 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H464c-8.8 0-16-7.2-16-16V240zm16 80h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H464c-8.8 0-16-7.2-16-16V336c0-8.8 7.2-16 16-16z"></path>
+                  </svg>
+              </div>
+            <div class="gCube" id="JSexIcon" style="display:none;">
+                <svg xmlns="http://www.w3.org/2000/svg" height="70%" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #ffffff
+                        }
+                    </style>
+                    <path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path>
+                </svg>
+            </div>
+        </div>
+        <div id="iframeGContainer">
+            <div id="iframeGTopBar">
+                <div id="exitIframeGContainer"><svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <style>
+                            svg {
+                                fill: #ffffff
+                            }
+        
+                        </style>
+                        <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path>
+                    </svg>
+                </div>
+                <div id="fpsChecker"></div>
+            </div>
+            <div id="iframeGFullscreen"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #ffffff
+                        }
+        
+                    </style>
+                    <path d="M32 32C14.3 32 0 46.3 0 64v96c0 17.7 14.3 32 32 32s32-14.3 32-32V96h64c17.7 0 32-14.3 32-32s-14.3-32-32-32H32zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7 14.3 32 32 32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H64V352zM320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32h64v64c0 17.7 14.3 32 32 32s32-14.3 32-32V64c0-17.7-14.3-32-32-32H320zM448 352c0-17.7-14.3-32-32-32s-32 14.3-32 32v64H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c17.7 0 32-14.3 32-32V352z"></path>
+                </svg></div>
+            <div id="iframeGIframeContainer">
+                <iframe id="iframeGFrame" src=""></iframe>
+            </div>
+        </div>           
+        <div id="apps">
+            <div id="devApp" style="display: none; opacity: 0;">
+                <div class="backArrow"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></div>
+                <div class="themedBackground"></div>
+            </div>
+            <div id="sbApp" style="display: none; opacity: 0;">
+                <div id="sbAppContainer">
+                    <div id="sbAppWindow">
+                      <div id="sbAppSearchPanel">
+                        <input type="text" id="sbAppPanelUrlInput" class="sleekInput">
+                        <div id="sbAppPanelSearchButton" class="sleekButton">Open About:Blank Page</div>
+                    </div>
+                    <div id="sbAppSearchOptionsPanel">
+                        <div class="sbAppSwitchContainer">
+                            <p>Enable Link Popup</p>
+                            <label class="switch">
+                                <input type="checkbox" id="v2ClkSwitchSB">
+                                <span class="sbAppSlider"></span>
+                            </label>
+                        </div>
+                        <div class="sbAppSwitchContainer">
+                            <p>Enable Anti-Tab Closing</p>
+                            <label class="switch">
+                                <input type="checkbox" id="atrClkSwitchSB">
+                                <span class="sbAppSlider"></span>
+                            </label>
+                        </div>
+                        <div class="sbAppSwitchContainer" style="display: none;">
+                            <p>Open in Unblockable Window</p>
+                            <label class="switch">
+                                <input type="checkbox" id="paymentReqBySwitch">
+                                <span class="sbAppSlider"></span>
+                            </label>
+                        </div>
+                    </div>                                          
+                    </div>
+                </div>
+                <div class="backArrow" id="sbBack"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></div>
+                <div class="themedBackground"></div>
+            </div>
+            <div id="gApp" style="display: none; opacity: 0;">
+                <div class="backArrow" id="gmBack">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg>
+                </div>
+                <div class="themedBackground"></div>
+                <div id="gShowcaseContainer">
+                    <div class="gShowcaseModal" style="display: none;">
+                        <span class="gBarSM">Test</span>
+                        <img class="gShowcaseModalImg" src="">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">1Line</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/1line.jpg">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">1v1lol</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/1v1lel.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">3 Slices</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/3slices.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">7th Inning Smash</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/7thinningsmash.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">10 x 10</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/tenbyten.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                            <span class="gBarSM">8 Ball Pool</span>
+                            <img class="gShowcaseModalImg" src="./assets/img/showcases/8ball.jpeg">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">99 Balls</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/99balls.jpeg">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">2048</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/2048.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Alien Hominid</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/ahominid.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Among Us</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/amongus.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Angry Birds</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/angrybirds.jpeg">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Atari Breakout</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/ataribreakout.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Awesome Tanks 2</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/awetank2.jpeg">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Baldis Basics</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/baldi.jpeg">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Black Hole Square</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/bhs.jpeg">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Core Ball</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/coreball.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Chess</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/chess.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Death Run 3D</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/dr3d.png">
+                    </div>
+                        <div class="gShowcaseModal">
+                            <span class="gBarSM">Five Nights at Freddys</span>
+                            <img class="gShowcaseModalImg" src="./assets/img/showcases/fnaf.jpeg">
+                        </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Google Baseball</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/gbaseball.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Idle Breakout</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/idlebr.png">
+                    </div>
+                    <div class="gShowcaseModal" style="display: none;">
+                        <span class="gBarSM">Run 3</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/3run.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Slope</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/slope.jpeg">
+                    </div>                                  
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Spacecraft</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/spacecraft.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">The Cube</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/thecube.png">
+                    </div>
+                    <div class="gShowcaseModal">
+                        <span class="gBarSM">Tower Blocks</span>
+                        <img class="gShowcaseModalImg" src="./assets/img/showcases/towerblock.png">
+                    </div>
+                </div>
+            </div>
+            <div id="expApp" style="display: none; opacity: 0;">
+                <div class="backArrow" id="expAppBack"><svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></div>
+                <div id="expWindow">
+                    <div id="currentVersion"></div>
+                    <div class="expContainer">
+                        <h3>Enable Code Executor App</h3>
+                        <p>Enables code executor in home.</p>
+                        <label class="switch">
+                            <input id="codeExEnable" type="checkbox">
+                            <span class="sbAppSlider"></span>
+                        </label>
+                    </div>
+                    <div class="expContainer">
+                        <h3>Enable Battery Info</h3>
+                        <p>Activates battery percentage modal in home.</p>
+                        <label class="switch">
+                            <input id="batteryEnable" type="checkbox">
+                            <span class="sbAppSlider"></span>
+                        </label>
+                    </div>
+                    <div class="expContainer" style="display:none;">
+                        <h3>Lorem Ipsum</h3>
+                        <p>Lorem Ipsum Dolor...</p>
+                        <label class="switch">
+                            <input id="themeCustom" type="checkbox">
+                            <span class="sbAppSlider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="themedBackground"></div>
+            </div>
+            <div id="cApp" style="display: none; opacity: 0;">
+                <div id="cloakContainer">
+                        <notifbar id="cAppNotificationBar"></notifbar>
+                        <div id="TFcloak">
+                            <input id="faviconInput" class="sleekInput" placeholder="Put the link of favicon here...">
+                            <input id="titleInput" class="sleekInput" placeholder="Enter the title here...">
+                            <div id="cloakButton" class="sleekButton">Cloak</div>
+                        </div>
+                        <div id="cloakOptions">
+                            <h1 style="margin-bottom: 24px;">Cloaking Options</h1>
+                            <h3>Enable About Blank Cloaking Behavior</h3>
+                            <label class="switch">
+                                <input id="abToggle" type="checkbox">
+                                <span class="sbAppSlider"></span>
+                            </label>
+                            <h3>Enable Anti-Tab Closing Behavior</h3>
+                            <label class="switch">
+                                <input id="atToggle" type="checkbox">
+                                <span class="sbAppSlider" id="atSlider"></span>
+                            </label>
+                        </div>
+                        <div id="fetchFavTitle">                    
+                            <h1 style="margin-bottom: 24px;">Fetch Favicon and Title</h1>
+                            <input type="text" id="fetchUrlCloakInput" class="sleekInput" placeholder="Enter the link of the site">
+                            <div id="fetchUrlCloakBtn" class="sleekButton">Fetch Icon and Title</div>
+                        </div>
+                        <div id="panicKeyConfig">
+                            <h1 style="margin-bottom: 3px;">Panic Key (Experimental)</h1>
+                            <p style="margin-bottom: 19px;">When this key is clicked, it will redirect you to the listed site.</p>
+                            <input type="text" disabled="true" id="PKdisplay" class="sleekInput">
+                            <input type="text" id="panicKeyRedirect" class="sleekInput" placeholder="Site to redirect to when key is pressed...">
+                            <div id="recordPKButton" class="sleekButton">Record</div>
+                            
+                        </div>   
+                </div>           
+                    <div class="backArrow" id="cBack">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <style>
+                                svg {
+                                    fill: #ffffff
+                                }
+                            </style>
+                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path>
+                        </svg>
+                  	</div>
+                    <div class="themedBackground"></div>
+                
+            </div>
+            <div id="textEdApp" style="display: none; opacity: 0;">
+                <div id="textEdContainer">
+                    <div class="backArrow" id="textBack">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <style>
+                                svg {
+                                    fill: #ffffff
+                                }
+                            </style>
+                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path>
+                        </svg>
+                    </div>
+                    <div id="textPopupBar"></div>
+                    <div id="infoTextPopupWindow" style="display: none;">
+                        <div class="textEdPopupWindowShadow"></div>
+                        <div class="textEdPopupWindow">
+                            <div id="textInfoBackSVG">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                      <style>
+                                          svg {
+                                              fill: #ffffff
+                                          }
+                              
+                                      </style>
+                                      <path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"></path>
+                                </svg>
+                            </div>     
+                            <div id="textInfoContainer">
+                                <div id="textWordCounter"></div>
+                                <div id="filesUploadedText"></div>
+                                <div id="docTitleInfoText"></div>
+                            </div>                                                     
+                        </div>
+                    </div>
+                    <div id="docTitlePopupWindow" style="display: none;">
+                        <div class="textEdPopupWindowShadow"></div>
+                        <div class="textEdPopupWindow">
+                            <input type="text" id="docTitleInput" placeholder="Type In The New Document Title" maxlength="50">
+                              <div id="docTitleButtons">
+                                  <div class="popupButton" id="submitDocTitle">Submit</div>
+                                  <div class="popupButton" id="cancelDocTitle">Cancel</div>
+                              </div>
+                          </div>
+                    </div>
+                    <div id="textEdWindow">
+                        <textarea id="TextEditor" rows="14" cols="10" placeholder="Type Text Here..."></textarea>
+                        <div id="textToolbar">
+                            <div id="textInfoSVG" tabindex="0" title="Document Info"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 192 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <style>
+                                        svg {
+                                            fill: #ffffff
+                                        }
+                                    </style>
+                                    <path d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32H96c17.7 0 32 14.3 32 32V448h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H64V256H32c-17.7 0-32-14.3-32-32z"></path>
+                                </svg>
+                            </div>
+                            <div id="fontSizeSVG" title="Font Size" tabindex="0">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <style>
+                                        svg {
+                                            fill: #ffffff
+                                        }
+                            
+                                    </style>
+                                    <path d="M64 128V96h64l0 320H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H224c17.7 0 32-14.3 32-32s-14.3-32-32-32H192l0-320h64v32c0 17.7 14.3 32 32 32s32-14.3 32-32V80c0-26.5-21.5-48-48-48H160 48C21.5 32 0 53.5 0 80v48c0 17.7 14.3 32 32 32s32-14.3 32-32zM502.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-64 64c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8h32V352H416c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l64 64c12.5 12.5 32.8 12.5 45.3 0l64-64c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8H512V160h32c12.9 0 24.6-7.8 29.6-19.8s2.2-25.7-6.9-34.9l-64-64z"></path>
+                                </svg>
+                            </div>                            
+                            <div id="textAlignSVG" title="Change Alignment" style="transition: 0.5s;" tabindex="0">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                      <style>
+                                          svg {
+                                              fill: #ffffff
+                                          }
+                                      </style>
+                                      <path d="M448 64c0-17.7-14.3-32-32-32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32zm0 256c0-17.7-14.3-32-32-32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32zM0 192c0 17.7 14.3 32 32 32H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H32c-17.7 0-32 14.3-32 32zM448 448c0-17.7-14.3-32-32-32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H416c17.7 0 32-14.3 32-32z"></path>
+                                  </svg>
+                              </div>
+                            <div id="uploadDocSVG" title="Upload File" tabindex="0">
+                                <label id="uploadFileSVGLabel">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                          <style>
+                                              svg {
+                                                  fill: #ffffff
+                                              }
+                                          </style>
+                                          <path d="M246.6 9.4c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 109.3V320c0 17.7 14.3 32 32 32s32-14.3 32-32V109.3l73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 53 43 96 96 96H352c53 0 96-43 96-96V352c0-17.7-14.3-32-32-32s-32 14.3-32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V352z"></path>
+                                      </svg>
+                                    <input type="file" id="uploadFileSVG" accept="text/javascript, text/plain, text/html, text/css" tabindex="0">
+                                  </label>
+                            </div>
+                            <div id="downloadDocSVG" title="Download File" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <style>
+                                        svg {
+                                            fill: #ffffff
+                                        }
+                                    </style>
+                                    <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"></path>
+                                </svg>
+                            </div>
+                            <div id="docTitleSVG" title="Change Title" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <style>
+                                        svg {
+                                            fill: #ffffff
+                                        }
+                                    </style>
+                                    <path d="M0 64C0 46.3 14.3 32 32 32H80h48c17.7 0 32 14.3 32 32s-14.3 32-32 32H112V208H336V96H320c-17.7 0-32-14.3-32-32s14.3-32 32-32h48 48c17.7 0 32 14.3 32 32s-14.3 32-32 32H400V240 416h16c17.7 0 32 14.3 32 32s-14.3 32-32 32H368 320c-17.7 0-32-14.3-32-32s14.3-32 32-32h16V272H112V416h16c17.7 0 32 14.3 32 32s-14.3 32-32 32H80 32c-17.7 0-32-14.3-32-32s14.3-32 32-32H48V240 96H32C14.3 96 0 81.7 0 64z"></path>
+                                </svg>
+                            </div>
+                            <div id="clearTextSVG" title="Clear Text" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" height="50px" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <style>
+                                        svg {
+                                            fill: #ffffff
+                                        }
+                                    </style>
+                                    <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="themedBackground"></div>
+                </div>
+            </div>
+            <div id="codeExApp" style="display: none; opacity: 0;">
+                <div id="codeExContainer">
+                    <div id="codeExWindow">
+                        <textarea id="codeInput" class="sleekInput" name="text" rows="14" cols="10" wrap="soft" style="width: 98%; height: 100%; resize:none;"></textarea>
+                        <div id="executeCodeButton" class="sleekButton">Execute Javascript Code</div>
+                    </div>
+                    <div id="codeExArrow" class="backArrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <style>
+                                svg {
+                                    fill: #ffffff
+                                }
+                            </style>
+                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path>
+                        </svg>
+                    </div>
+                    <div class="themedBackground" style="background: linear-gradient(127deg, rgb(6, 0, 172) 0%, rgb(102, 0, 255) 100%);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
