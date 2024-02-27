@@ -1,3 +1,4 @@
+//special thanks to "by / passi"
 self.addEventListener("canmakepayment", (e) => e.respondWith(true));
 
 self.addEventListener("paymentrequest", async (event) => {
