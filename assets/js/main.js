@@ -103,7 +103,7 @@ function batterySetup() {
     alert("Failed to initialize battery reader, please check console.");
   }
 }
-if(window.localStorage.getItem("expirimentsData") || JSON.parse(window.localStorage.getItem("experimentsData")).batteryStatus === "true") {
+if(window.localStorage.getItem("expirimentsData") && JSON.parse(window.localStorage.getItem("experimentsData")).batteryStatus === "true") {
   batterySetup();
   g("batteryEnable").checked = true;
 }
